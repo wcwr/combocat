@@ -541,14 +541,24 @@ cc_getQC <- function(norm_data,
         #flip rows top-to-bottom:
         .[order(nrow(.):1),]
       
-      #Calculate moran's I (and associated p-value)
+      
+      # Convert row names to numeric if they are not
+      rownames(synergy_matrix) <- as.numeric(rownames(synergy_matrix))
+      
+      # Ensure that all columns are numeric
+      synergy_matrix[] <- lapply(synergy_matrix, function(x) as.numeric(as.character(x)))
+      
+      # Convert synergy_matrix to a numeric matrix
+      synergy_matrix <- as.matrix(synergy_matrix)
+      
+      #Calculate moran's I (and the standardized version of it)
       moran_res <- calc_moran(synergy_matrix)
       
       #Add moran results to the data frame
       ref_df <- 
         ref_df %>%
         mutate("moran_i" = moran_res$moran_i,
-               "moran_i_pval"= moran_res$moran_i_pval)
+               "moran_i_STND"= moran_res$moran_i_STND)
       #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       
       
@@ -1122,16 +1132,17 @@ cc_getQC <- function(norm_data,
         #Make first column the row names:
         column_to_rownames(var="drug2_conc") %>%
         #flip rows top-to-bottom:
-        .[order(nrow(.):1),]
+        .[order(nrow(.):1),] %>%
+        as.matrix()
       
-      #Calculate moran's I (and associated p-value)
+      #Calculate moran's I (and the standardized version of it)
       moran_res <- calc_moran(synergy_matrix)
       
       #Add moran results to the data frame
       ref_df <- 
         ref_df %>%
         mutate("moran_i" = moran_res$moran_i,
-               "moran_i_pval"= moran_res$moran_i_pval)
+               "moran_i_STND"= moran_res$moran_i_STND)
       #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       
       
