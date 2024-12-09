@@ -3,9 +3,26 @@ Type: Package
 Title: Analysis of drug combination data
 Version: 0.1.0
 Author: William (Charlie) Wright
-Maintainer: Charlie Wright (charlie.wright@stjude.org)
+Maintainer: Charlie Wright <charlie.wright@stjude.org>
 Description: Analysis of data generated using the experimental pipelines of Combocat
     Works with dense mode or sparse mode data
+Imports: 
+    ggplot2,
+    tibble,
+    drc,
+    stringr,
+    dplyr,
+    tidyr,
+    patchwork,
+    reshape2,
+    gganimate,
+    tidymodels,
+    bundle,
+    butcher,
+    magick,
+    doParallel,
+    parallelly,
+    parallel
 License: MIT
 Encoding: UTF-8
 LazyData: true
