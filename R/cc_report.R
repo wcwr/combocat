@@ -5,7 +5,7 @@ cc_report <- function(syn_data,
                       cd_plots,
                       syn_plots,
                       extra_plots,
-                      save_summary_file = TRUE,
+                      save_summary_files = TRUE,
                       save_summary_plots = TRUE
 ){
   
@@ -16,7 +16,7 @@ cc_report <- function(syn_data,
   #cd_plots---------------------Output from cc_plotMat (with cell death as input)
   #syn_plots--------------------Output from cc_plotMat (with synergy as input)
   #extra_plots------------------Output from cc_plotExtras
-  #save_summary_file------------Option to save the combined ref_df as a .csv
+  #save_summary_files-----------Option to save the combined ref_df and IC50_df to .csv files
   #save_summary_plots-----------Option to save the summary plots as .svg files (NOTE! can take a long time)
   
   
@@ -28,7 +28,7 @@ cc_report <- function(syn_data,
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   
   
-   
+  
   
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   #Combine all the ref_df's together
@@ -36,17 +36,20 @@ cc_report <- function(syn_data,
     syn_data %>%
     lapply(., function(x) x$ref_df) %>%
     bind_rows()
- 
   
-  #Save summary file if option is selected
-  if(save_summary_file==TRUE){
+  #Extract the IC50 dataframe
+  IC50_df <- dr_data$IC50_df
+  
+  #Save summary files if option is selected
+  if(save_summary_files==TRUE){
     
-    #Create the summary_file/ directory if it doesn't already exist
-    if(!dir.exists(file.path( "summary_file"))){
-      dir.create(file.path("summary_file"))
+    #Create the summary_files/ directory if it doesn't already exist
+    if(!dir.exists(file.path( "summary_files"))){
+      dir.create(file.path("summary_files"))
     }
     
-    write.csv(combined_ref_df, file.path("summary_file", "combined_ref_df.csv"))
+    write.csv(combined_ref_df, file.path("summary_files", "combined_ref_df.csv"))
+    write.csv(IC50_df, file.path("summary_files", "IC50_df.csv"))
     
   }
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -80,7 +83,7 @@ cc_report <- function(syn_data,
   
   
   
-
+  
   if(syn_data[[1]]$data_mode=="dense"){
     
     #=================================================================
@@ -171,7 +174,7 @@ cc_report <- function(syn_data,
       
       
     }#End loop along unique filenames
-
+    
     
   } else {
     
@@ -292,12 +295,13 @@ cc_report <- function(syn_data,
   }#End handling sparse mode data
   
   
- 
+  
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   #Return the combined_cd_scatterplot and summary_plots_list
   return(list(
     "combined_cd_scatterplot"=combined_cd_scatterplot,
-    "summary_plots_list" = summary_plots_list
+    "summary_plots_list" = summary_plots_list,
+    "IC50_df" = IC50_df
   ))
   #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
   
