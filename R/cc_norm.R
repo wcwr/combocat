@@ -1,4 +1,30 @@
 #--------------------------------------------------------------
+#' Normalize Mapped Data
+#'
+#' This function normalizes mapped data based on positive and negative controls within each plate.
+#'
+#' @param mapped_data List. Output from `cc_map`, containing raw mapped data and associated metadata.
+#'
+#' @return A list with the following elements for each plate or combination:
+#' \describe{
+#'   \item{`data_mode`}{Character. Indicates whether the data is in "dense" or "sparse" mode.}
+#'   \item{`ref_df`}{Data frame. The normalized reference data for each plate or combination.}
+#'   \item{`drug1_df_norm`}{Data frame. Normalized data for Drug 1 (single-agent).}
+#'   \item{`drug2_df_norm`}{Data frame. Normalized data for Drug 2 (single-agent).}
+#'   \item{`mean_perc_cell_death_mat`}{Matrix. Mean percentage of cell death for single agents and combinations.}
+#'   \item{`d1_name`}{Character. Name of Drug 1.}
+#'   \item{`d2_name`}{Character. Name of Drug 2.}
+#'   \item{`units`}{Character. Units of concentration.}
+#'   \item{`sample_name`}{Character. Sample name associated with the data.}
+#' }
+#'
+#' @export
+#--------------------------------------------------------------
+
+
+
+
+#--------------------------------------------------------------
 #Function to normalize mapped data
 cc_norm <- function(mapped_data){ 
   

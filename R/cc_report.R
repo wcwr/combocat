@@ -1,4 +1,24 @@
 #--------------------------------------------------------------
+#' Generate a Summary of All Results
+#'
+#' This function combines results from multiple steps (synergy, dose-response, and plots)
+#' into a comprehensive summary. It saves summary files and plots as specified by the user.
+#'
+#' @param syn_data List. Output from `cc_getSyn`
+#' @param dr_data List. Output from `cc_getDr`
+#' @param cd_plots List. Output from `cc_plotMat`, using cell death as input.
+#' @param syn_plots List. Output from `cc_plotMat`, using synergy as input.
+#' @param extra_plots List. Output from `cc_plotExtras`
+#' @param save_summary_files Logical. Whether to save combined `ref_df` and `IC50_df` data frames as CSV files. Defaults to `TRUE`.
+#' @param save_summary_plots Logical. Whether to save summary plots as `.svg` files. Defaults to `TRUE`.
+#' 
+#' @export
+#--------------------------------------------------------------
+
+
+
+
+#--------------------------------------------------------------
 #Function to report a summary of all results
 cc_report <- function(syn_data,
                       dr_data,

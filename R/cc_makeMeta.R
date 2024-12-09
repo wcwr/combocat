@@ -1,4 +1,23 @@
 #--------------------------------------------------------------
+#' Generate 'Complete' Metadata for Combocat Experiments
+#'
+#' This function generates "complete" type metadata for a Combocat experiment (either sparse or dense mode). 
+#' It requires a very specific registration file containing plate registration and Echo transfer logs. The raw data files must be named as `[Plate Barcode].csv` where `[Plate Barcode]` is the corresponding column in the registration file.
+#'
+#' @param reg_file Data frame. A file containing plate registration and Echo transfer logs (`.csv` format).
+#' @param data_mode Character. Specifies the data mode: `"dense"` or `"sparse"`. 
+#' @param dilution_factor Numeric. The dilution factor used for all drugs. Default is `3` (i.e., 1:3 dilution). Multiple dilution factors are not supported for this function.
+#' @param assay_ready_volume Character or Numeric. The total expected volume of the assay-ready plate in nanoliters (nL). Defaults to `"auto_detect"`, which uses the most frequent volume in the `Amount` column. In sparse mode, the standard volume is 20 nL. In dense mode, the standard volume is 200nL.
+#' @param final_volume Character or Numeric. The final volume of the assay in NANOliters. Default is `"standard"` which is 40,000nL (40uL) in dense mode or 4,000nL (4uL) sparse mode. 
+#' @param sample_name Character. The name of the sample. Defaults to `"not_provided"`.
+#'
+#' @export
+#--------------------------------------------------------------
+
+
+
+
+#--------------------------------------------------------------
 #A function to generate 'complete' metadata for a Combocat experiment (either sparse or dense)
 #NOTE: This function is dependent on a very specific registration file (containing plate registration + Echo transfer logs)
 #NOTE: The associated raw data files MUST be named [`Plate Barcode`].csv where [`Plate Barcode`] is the column of the same name

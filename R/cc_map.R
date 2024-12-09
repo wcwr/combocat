@@ -1,4 +1,30 @@
 #--------------------------------------------------------------
+#' Map Plates Using Metadata
+#'
+#' This function maps plates for analysis using metadata and raw data files. 
+#'
+#' @param metadf Data frame or path to .CSV file. A simplified metadata file (made by user) or complete metadata file output from `cc_makeMeta` (.CSV format)
+#' @param files_dir Character. A directory that contains all raw data files listed in `metadf`. (.CSV)
+#' @param control_outlier_threshold Numeric. Z-score-based threshold for removing outliers. Operates on raw cell death and vehicle control values. 
+#'   A higher threshold results in fewer values being dropped. Set to `1000` to disable outlier filtering. Default is `2.5`.
+#'   Note that Z-prime values are calculated using outlier-filtered raw control values
+#' @param save_raw_plate_heatmaps Logical. If `TRUE`, saves raw plate heatmaps. Default is `FALSE`.
+#' @param save_transfer_fail_heatmaps Logical. If `TRUE`, saves transfer fail heatmaps. This option applies only for complete-type metadata. Default is `FALSE`.
+#'
+#'
+#' @examples
+#' # Example usage (pseudo-data):
+#' metadf <- read.csv("example_metadata.csv")
+#' files_dir <- "raw_data_directory"
+#' cc_map(metadf, files_dir, control_outlier_threshold = 3, save_raw_plate_heatmaps = TRUE)
+#'
+#' @export
+#--------------------------------------------------------------
+
+
+
+
+#--------------------------------------------------------------
 #Function to map plates using metadata
 cc_map <- function(metadf,
                    files_dir,

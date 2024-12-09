@@ -1,4 +1,26 @@
 #--------------------------------------------------------------
+#' Build, Tune, Analyze, and Save Machine Learning Models Using Dense Mode Data
+#'
+#' This function automates the process of building, tuning, and analyzing machine learning (ML) models for predicting synergy outcomes. The resulting 'ensemble model' is trained on dense mode data, and is built to predict non-measured sparse mode data. The workflow includes hyperparameter tuning (optional), feature importance analysis, and visualization of model performance metrics.
+#'
+#' @param summary_file Data frame. A merged file containing all 'combined ref_df' outputs from `cc_report`.
+#' @param min_mean_perc_cell_death Numeric. Optional threshold for filtering samples with mean % cell death below this value. Defaults to `10`.
+#' @param training_prop Numeric. Proportion of data to use for training. Defaults to `0.75` (75%).
+#' @param tune_models Logical. Whether to enable hyperparameter tuning for models. Defaults to `TRUE`. Can dramatically increase runtime by a factor of 10-20+
+#' @param seed Integer. Seed for reproducibility when running tests. Defaults to `NA` (no seed). DO NOT USE A SEED if not doing tests.
+#' @param save_models_file Logical. Whether to save the list of 90 (bundled, serialized) models as an `.RDS` file. Defaults to `TRUE`.
+#' @param color_midpoint Numeric. Midpoint for the color scale in feature importance plots. Defaults to `0.2`.
+#' @param save_cor_plots Logical. Whether to save correlation scatterplots for each model as `.svg` files. Defaults to `FALSE`. Will produce 90 .SVG files!
+#' @param save_importance_plots Logical. Whether to save feature importance barplots and heatmaps for each model as `.svg` files. Defaults to `FALSE`. Will produce 180 .SVG files!
+#' @param animate_importance_plots Logical. Whether to create animations of feature importance plots across all models. Saves `.gif` files. Defaults to `FALSE`.
+#'
+#' @export
+#--------------------------------------------------------------
+
+
+
+
+#--------------------------------------------------------------
 #Function to build, tune, analyze, and save ML models using dense mode data
 cc_buildModel <- function(summary_file,
                           min_mean_perc_cell_death=10,

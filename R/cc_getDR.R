@@ -1,4 +1,20 @@
 #--------------------------------------------------------------
+#' Generate Dose-Response Data and Plots
+#'
+#' This function processes normalized data to fit dose-response models, calculate IC50 values, 
+#' and generate dose-response plots for both dense and sparse mode data.
+#'
+#' @param norm_data List. Output from `cc_norm`
+#' @param name_char_limit Numeric. Maximum number of characters to display in the drug name on plots. Default is `16`.
+#' @param rounding_value_IC50 Numeric. Number of decimal places to round IC50 values in the plot titles. Default is `2`.
+#'
+#' @export
+#--------------------------------------------------------------
+
+
+
+
+#--------------------------------------------------------------
 #Function to output dose-response data
 cc_getDR <- function(norm_data,
                      name_char_limit = 16,

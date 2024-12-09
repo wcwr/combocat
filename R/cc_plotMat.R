@@ -1,4 +1,33 @@
 #--------------------------------------------------------------
+#' Plot a Matrix of Cell Death or Synergy
+#'
+#' This function generates heatmaps to visualize cell death or synergy scores from dense or sparse mode data. It handles reformatting of sparse mode data into a dense-like structure to ensure consistent plotting. 
+#'
+#' @param input_data List. Output from `cc_norm` (for plotting cell death) or `cc_getSyn` (for plotting cell death or synergy). Each element should include `ref_df` containing data for plotting.
+#' @param plotting_variable Character. The variable to plot. Can be either `'perc_cell_death'` or `'bliss_synergy'`.
+#' @param color_midpoint Numeric. Midpoint of the color scale. Defaults to `50` for percent cell death. For synergy, recommended settings is `20`
+#' @param rounding_value Numeric. Number of decimal places to round concentrations for display. Defaults to `6`.
+#' @param name_char_limit Numeric. Maximum number of characters to display for drug names in axis labels. Defaults to `16`.
+#'
+#' @return A list of `ggplot` objects, each representing a heatmap for one combination in `input_data`. Each plot visualizes the specified `plotting_variable` as a matrix, with concentrations on the axes.
+#'
+#' @examples
+#' # Generate heatmaps for cell death
+#' cell_death_plots <- cc_plotMat(input_data = norm_data, 
+#'                                plotting_variable = "perc_cell_death",
+#'                                color_midpoint = 50)
+#'
+#' # Generate heatmaps for synergy
+#' synergy_plots <- cc_plotMat(input_data = syn_data, 
+#'                             plotting_variable = "bliss_synergy",
+#'                             color_midpoint = 20)
+#' @export
+#--------------------------------------------------------------
+
+
+
+
+#--------------------------------------------------------------
 #Function to plot a matrix of cell death or synergy
 cc_plotMat <- function(input_data,                            
                        plotting_variable = "perc_cell_death",

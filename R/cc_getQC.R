@@ -1,4 +1,45 @@
 #--------------------------------------------------------------
+#' Calculate QC Metrics and Add Summary Statistics for Normalized Data
+#'
+#' This function calculates Quality Control (QC) metrics, including standard deviation (SD), monotonicity, and residuals, for both dense and sparse mode data. It flags concentrations that exceed user-defined thresholds and adds summary statistics to the reference data frame.
+#'
+#' NOTE: It is important to run this function AFTER `cc_getSyn`
+#'
+#'
+#' @param norm_data List. Output from `cc_norm`
+#' @param dr_data List. Output from `cc_getDR`
+#' @param cutoff_sd Numeric. The standard deviation cutoff for flagging concentrations. Default is 29. Values exceeding this are flagged.
+#' @param cutoff_mono Numeric. Monotonicity threshold. Should be a negative value because it will be used in the low-to-high evaluation, default is -16.
+#'   Should be a negative value because it will be used in the low-to-high evaluation...
+#'   Monotonicity is evaluated bi-directionally. When low-to-high, values less than mono_cutoff are flagged
+#'   when evaluated high-to-low, values greater than the absolute value of this number will be flagged.
+#'   Ex if cutoff_mono = -10:  lowest conc (nth_conc==10) is 50% cell death, then 2nd lowest conc (nth_conc==9) is 5% cell death, nth_conc==9 gets flagged (evaluated low-to-high)
+#'   NOTE: when evaluating this high-to-low, nth_conc==10 will also get flagged. A bi-directional evaluation means flagging always occurs in pairs.
+#' @param cutoff_resid Numeric. Residual threshold. Concs are flagged if their corresponding response is greater than (the ABSOLUTE VALUE) of this number. Default is 15.
+#'
+#' @return A list, similar to `norm_data`, with the following added elements:
+#' \describe{
+#'   \item{`ref_df`}{Data frame. The reference data frame with added flags and summary statistics.}
+#'   \item{`flagged_sd`}{Numeric. Flag for concentrations with SD above the `cutoff_sd`.}
+#'   \item{`flagged_mono`}{Numeric. Flag for concentrations violating the monotonicity condition.}
+#'   \item{`flagged_resid`}{Numeric. Flag for concentrations with residuals greater than the `cutoff_resid`.}
+#'   \item{`mean_syn`}{Numeric. Mean synergy for all combinations, excluding single-agent concentrations.}
+#'   \item{`median_syn`}{Numeric. Median synergy for all combinations, excluding single-agent concentrations.}
+#'   \item{`mean_syn_adj`}{Numeric. Mean synergy for all combinations, excluding flagged concentrations.}
+#'   \item{`median_syn_adj`}{Numeric. Median synergy for all combinations, excluding flagged concentrations.}
+#'   \item{`mean_perc_cell_death`}{Numeric. Mean percent cell death across all concentrations.}
+#'   \item{`num_flagged_diag`}{Numeric. The number of flagged diagonal (measured) values.}
+#'   \item{`moran_i`}{Numeric. Moran's I value for spatial autocorrelation of synergy scores.}
+#'   \item{`moran_i_STND`}{Numeric. Standardized Moran's I value.}
+#' }
+#'
+#' @export
+#--------------------------------------------------------------
+
+
+
+
+#--------------------------------------------------------------
 #Function to calculate QC metrics and add summary statistics for normalized data
 cc_getQC <- function(norm_data,
                      dr_data,

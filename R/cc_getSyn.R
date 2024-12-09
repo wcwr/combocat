@@ -1,4 +1,21 @@
 #--------------------------------------------------------------
+#' Calculate Synergy Scores
+#'
+#' This function calculates Bliss synergy scores for both dense and sparse mode data, based on normalized input data.
+#' Synergy is computed as the excess cell death over the Bliss expectation, and the results are added to the reference data frame.
+#'
+#' @param norm_data List. Output from `cc_norm`, containing normalized data and metadata.
+#' @param conc_rounding_factor Numeric. Number of decimal places to round concentrations to. Default is `6`. 
+#'   Rounding is important for merging drugs with slightly different concentrations due to floating-point errors
+#'   This is particularly important due to floating point errors that may arise from `cc_makeMeta`
+#'
+#' @export
+#--------------------------------------------------------------
+
+
+
+
+#--------------------------------------------------------------
 #Function to calculate synergy
 cc_getSyn <- function(norm_data,
                       conc_rounding_factor=6){

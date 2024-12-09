@@ -1,4 +1,20 @@
 #--------------------------------------------------------------
+#' Predict Cell Death Values for Sparse Matrices
+#'
+#' This function predicts 90 cell death values for sparse matrices using a machine learning model. 
+#' It updates the input data (`norm_data`) by adding predicted values to the reference data frame (`ref_df`) 
+#' and populates the sparse matrix (`mean_perc_cell_death_mat`) with predicted values.
+#'
+#' @param models_list List. The `models_list.RDS` file output from `cc_buildModel`, containing serialized machine learning models.
+#' @param norm_data List. Output from `cc_norm`, containing normalized data for sparse matrices.
+#'
+#' @export
+#--------------------------------------------------------------
+
+
+
+
+#--------------------------------------------------------------
 #Function to predict 90 cell death values of the sparse matrix
 cc_predict <- function(models_list,
                        norm_data

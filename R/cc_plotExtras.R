@@ -1,4 +1,20 @@
 #--------------------------------------------------------------
+#' Generate Supplemental Plots for Synergy Analysis
+#'
+#' This function creates supplemental plots for drug combination synergy analysis, including barplots of %Cell Death for maximum synergy and scatterplots of observed vs. expected cell death.
+#'
+#' @param syn_data List. Output from the `cc_getSyn`
+#' @param color_midpoint Numeric. Midpoint for the color scale in scatterplots. Default is `20`.
+#' @param rounding_value Numeric. Number of decimal places to round the drug concentrations for plotting. Default is `4`.
+#' @param name_char_limit Numeric. Maximum number of characters to use for drug names in plots. Default is `16`.
+#'
+#' @export
+#--------------------------------------------------------------
+
+
+
+
+#--------------------------------------------------------------
 #Function to make various supplemental plots
 cc_plotExtras <- function(syn_data,
                           color_midpoint = 20,
