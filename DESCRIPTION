@@ -6,7 +6,8 @@ Author: William (Charlie) Wright
 Maintainer: Charlie Wright <charlie.wright@stjude.org>
 Description: Analysis of data generated using the experimental pipelines of Combocat
     Works with dense mode or sparse mode data
-Imports: 
+Depends: 
+    readr,
     ggplot2,
     tibble,
     drc,
