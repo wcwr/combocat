@@ -6,14 +6,14 @@ website:
   title: "Making sharable documents with Quarto" 
   site-url: "https://openscapes.github.io/quarto-website-tutorial" 
   repo-url: https://github.com/openscapes/quarto-website-tutorial 
-  repo-actions: [edit, issue]
+  repo-actions: [issue]
   
   page-footer:
-    right: "This page is built with ❤️ and [Quarto](https://quarto.org/)."
-    left: "&copy; CC-By Openscapes, 2024"
+    right: ":star: This doc's code is on [GitHub](https://github.com/wcwr/combocat/tree/main/docs)."
+    left: "William C. Wright, 2024"
     
   sidebar:
-    logo: "images/cat_test2.svg"
+    logo: "images/cat_sidebar.svg"
     pinned: true
     align: center
     tools: 
