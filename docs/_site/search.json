@@ -144,7 +144,7 @@
     "href": "index.html#overview",
     "title": "Combocat",
     "section": "Overview",
-    "text": "Overview\nMany diseases like cancer and infectious diseases require drug combinations for effective treatment, but the process of discovering new combinations slow and challenging.\nQuarto unifies and extends the RMarkdown ecosystem - it unifies by combining the functionality of R Markdown, bookdown, distill, xaringian, etc into a single consistent system. And it extends in several ways: all features are possible beyond R too, including Python and Javascript. It also has more “guardrails”: accessibility and inclusion are centered in the design. Quarto is for people who love RMarkdown, and it’s for people who have never used RMarkdown.\n\nttt",
+    "text": "Overview\nDrug combinations are critical to conditions like cancers and infectious diseases, but finding new combinations is a slow and challenging process. The scale of a combination experiment increases rapidly with each tested drug, and testing many combinations has traditionally been impractical.\nCombocat is a method for scalable drug combination screening which uses acoustic liquid handler protocols and custom drug template designs for fast, efficient screening. Everything has been designed to work in an end-to-end fashion. This means a researcher can test 1, hundreds, or even thousands of drug combinations.\n\nCritically, Combocat also provides a complete framework for analyzing the experimental data. Analysis is straightforward and provides interpretable publication-quality figures.",
     "crumbs": [
       "Welcome"
     ]
@@ -154,7 +154,7 @@
     "href": "index.html#reference",
     "title": "Combocat",
     "section": "Reference",
-    "text": "Reference\nPlease cite our published work: [MANUSCRIPT HERE]",
+    "text": "Reference\nPlease cite our published work as: [CITATION HERE]",
     "crumbs": [
       "Welcome"
     ]

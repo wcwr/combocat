@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="50.600208mm"
+   height="45.976078mm"
+   viewBox="0 0 50.600208 45.976078"
+   version="1.1"
+   id="svg11074"
+   inkscape:version="1.0.1 (3bc2e813f5, 2020-09-07)"
+   sodipodi:docname="experiment_scale.svg">
+  <defs
+     id="defs11068">
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient31257"
+       id="linearGradient31109"
+       x1="64.841469"
+       y1="119.66111"
+       x2="82.569267"
+       y2="119.70836"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(15.00877,-41.901386)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient31257">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0.96862745"
+         offset="0"
+         id="stop31253" />
+      <stop
+         style="stop-color:#cfdce2;stop-opacity:1"
+         offset="1"
+         id="stop31255" />
+    </linearGradient>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient31257"
+       id="linearGradient31109-1"
+       x1="64.841469"
+       y1="119.66111"
+       x2="82.569267"
+       y2="119.70836"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(31.447512,-41.901386)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient31257"
+       id="linearGradient31109-9"
+       x1="64.841469"
+       y1="119.66111"
+       x2="82.569267"
+       y2="119.70836"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(50.217823,-41.901386)" />
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient30850"
+       id="linearGradient30852"
+       x1="84.398384"
+       y1="121.81195"
+       x2="84.473801"
+       y2="113.1345"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="matrix(0.99296449,0,0,1,13.540271,-46.301883)" />
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient30850">
+      <stop
+         style="stop-color:#ffffff;stop-opacity:0"
+         offset="0"
+         id="stop30846" />
+      <stop
+         style="stop-color:#cfcfcf;stop-opacity:1"
+         offset="1"
+         id="stop30848" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="7.919596"
+     inkscape:cx="85.592192"
+     inkscape:cy="156.01536"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     inkscape:document-rotation="0"
+     showgrid="false"
+     inkscape:window-width="2560"
+     inkscape:window-height="1369"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata11071">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(-79.777275,-33.70839)">
+    <rect
+       style="fill:url(#linearGradient31109);fill-opacity:1;stroke:#636363;stroke-width:0.138909;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.729412;paint-order:fill markers stroke"
+       id="rect31063"
+       width="15.179292"
+       height="3.7105799"
+       x="79.919685"
+       y="75.904434"
+       ry="1.8552899"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <rect
+       style="fill:url(#linearGradient31109-1);fill-opacity:1;stroke:#636363;stroke-width:0.138909;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.729412;paint-order:fill markers stroke"
+       id="rect31063-8"
+       width="15.179292"
+       height="3.7105799"
+       x="96.358429"
+       y="75.904434"
+       ry="1.8552899"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <rect
+       style="fill:url(#linearGradient31109-9);fill-opacity:1;stroke:#636363;stroke-width:0.138909;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:0.729412;paint-order:fill markers stroke"
+       id="rect31063-1"
+       width="15.179292"
+       height="3.7105799"
+       x="115.12874"
+       y="75.904434"
+       ry="1.8552899"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#b6b9cf;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 114.95542,50.052776 -4.85312,3.51605 v -1.3997 l 4.85312,-3.3681 v 1.25175"
+       id="path29754-2-8-2"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#e0e2f3;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 110.1023,53.568826 -9.28909,-0.72525 v -1.28245 l 9.28909,0.608 v 1.3997"
+       id="path29756-0-1-2"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#afb6e2;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 114.95542,48.801026 -8.74822,-0.29403 -5.39399,3.05413 9.28909,0.608 4.85312,-3.3681"
+       id="path29758-5-6-7"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#b6b9cf;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 114.95542,47.594746 -4.85312,3.51604 v -1.39969 l 4.85312,-3.3681 v 1.25175"
+       id="path29754-7-7-0"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#e0e2f3;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 110.1023,51.110786 -9.28909,-0.72524 v -1.28245 l 9.28909,0.608 v 1.39969"
+       id="path29756-7-5-7"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#afb6e2;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 114.95542,46.342996 -8.74822,-0.29403 -5.39399,3.05413 9.28909,0.608 4.85312,-3.3681"
+       id="path29758-4-2-2"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#b6b9cf;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 114.95542,45.136726 -4.85312,3.51603 v -1.39968 l 4.85312,-3.36809 v 1.25174"
+       id="path29754-9-0-7"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#e0e2f3;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 110.1023,48.652766 -9.28909,-0.72524 v -1.28245 l 9.28909,0.608 v 1.39968"
+       id="path29756-6-4-7"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#afb6e2;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 114.95542,43.884986 -8.74822,-0.29404 -5.39399,3.05413 9.28909,0.608 4.85312,-3.36809"
+       id="path29758-9-9-5"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#b6b9cf;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 114.95542,42.678695 -4.85312,3.516041 v -1.39969 l 4.85312,-3.36809 v 1.251739"
+       id="path29754-5-3-3"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#e0e2f3;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 110.1023,46.194736 -9.28909,-0.72524 v -1.28243 l 9.28909,0.60798 v 1.39969"
+       id="path29756-1-3-3"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#afb6e2;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 114.95542,41.426956 -8.74822,-0.294031 -5.39399,3.054141 9.28909,0.60798 4.85312,-3.36809"
+       id="path29758-0-5-1"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#b6b9cf;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 114.95542,40.220685 -4.85312,3.516031 v -1.399681 l 4.85312,-3.36809 v 1.25174"
+       id="path29754-0-3-5"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#e0e2f3;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 110.1023,43.736726 -9.28909,-0.72525 v -1.282441 l 9.28909,0.608 v 1.399681"
+       id="path29756-2-0-0"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#afb6e2;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 114.95542,38.968945 -8.74822,-0.294039 -5.39399,3.054129 9.28909,0.608 4.85312,-3.36809"
+       id="path29758-1-5-0"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#b6b9cf;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 114.95542,37.762656 -4.85312,3.516039 v -1.39969 l 4.85312,-3.36809 v 1.251741"
+       id="path29754-57-5-7"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#e0e2f3;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 110.1023,41.278695 -9.28909,-0.72524 v -1.28245 l 9.28909,0.608 v 1.39969"
+       id="path29756-03-7-5"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#afb6e2;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 114.95542,36.510915 -8.74822,-0.29404 -5.39399,3.05413 9.28909,0.608 4.85312,-3.36809"
+       id="path29758-8-9-4"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#b6b9cf;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 114.95542,35.304625 -4.85312,3.516041 v -1.399691 l 4.85312,-3.36809 v 1.25174"
+       id="path29754-8-2-0"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#e0e2f3;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 110.1023,38.820666 -9.28909,-0.725241 v -1.28244 l 9.28909,0.60799 v 1.399691"
+       id="path29756-8-6-2"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#afb6e2;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 114.95542,34.052885 -8.74822,-0.29405 -5.39399,3.05415 9.28909,0.60799 4.85312,-3.36809"
+       id="path29758-59-0-0"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#b6b9cf;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 114.95542,60.231015 -4.85312,3.51603 v -1.399699 l 4.85312,-3.368081 v 1.25175"
+       id="path29754-22-0-2"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#e0e2f3;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 110.1023,63.747055 -9.28909,-0.725241 v -1.282449 l 9.28909,0.607981 v 1.399699"
+       id="path29756-3-8-3"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:#afb6e2;fill-opacity:1;stroke:#000000;stroke-width:0.0999998;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       d="m 114.95542,58.979265 -8.74822,-0.29404 -5.39399,3.05414 9.28909,0.607981 4.85312,-3.368081"
+       id="path29758-6-4-9"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <path
+       style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.264999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.264999, 0.264999;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 107.82416,59.948385 V 53.533916"
+       id="path29941-6-0"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.31156"
+       x="81.051559"
+       y="37.585987"
+       id="text46257-4-0-4-2-0-3-2-7-4-5-2-9-0-9-0-9"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
+         sodipodi:role="line"
+         id="tspan46255-2-0-6-0-7-3-8-3-8-22-4-8-3-5-5-5"
+         x="81.051559"
+         y="37.585987"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.31156">Combination 1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.31156"
+       x="80.897812"
+       y="40.887928"
+       id="text46257-4-0-4-2-0-3-2-7-4-5-2-9-0-9-0-4-1"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
+         sodipodi:role="line"
+         id="tspan46255-2-0-6-0-7-3-8-3-8-22-4-8-3-5-5-42-11"
+         x="80.897812"
+         y="40.887928"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.31156">Combination 2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.31156"
+       x="80.979721"
+       y="44.161999"
+       id="text46257-4-0-4-2-0-3-2-7-4-5-2-9-0-9-0-4-2-1"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
+         sodipodi:role="line"
+         id="tspan46255-2-0-6-0-7-3-8-3-8-22-4-8-3-5-5-42-1-8"
+         x="80.979721"
+         y="44.161999"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.31156">Combination 3</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.31156"
+       x="81.059319"
+       y="63.350056"
+       id="text46257-4-0-4-2-0-3-2-7-4-5-2-9-0-9-0-4-2-5-1"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
+         sodipodi:role="line"
+         id="tspan46255-2-0-6-0-7-3-8-3-8-22-4-8-3-5-5-42-1-3-8"
+         x="81.059319"
+         y="63.350056"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.31156">Combination <tspan
+   style="font-style:italic;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:sans-serif;-inkscape-font-specification:'sans-serif Italic';stroke-width:0.31156"
+   id="tspan81373-3">n</tspan></tspan></text>
+    <path
+       style="fill:url(#linearGradient30852);fill-opacity:1;stroke:none;stroke-width:0.263651px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 79.877536,67.279955 H 116.3771 l -30.306835,8.126489 z"
+       id="path30836"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.31156"
+       x="81.221779"
+       y="78.621124"
+       id="text46257-4-0-4-2-0-3-2-7-4-5-2-9-0-9-0-9-1"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
+         sodipodi:role="line"
+         id="tspan46255-2-0-6-0-7-3-8-3-8-22-4-8-3-5-5-5-0"
+         x="81.221779"
+         y="78.621124"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.31156" /></text>
+    <path
+       style="fill:none;stroke:#636363;stroke-width:0.2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:0.729412"
+       d="m 79.879636,66.475206 -0.0021,0.804749 36.152234,-0.0021 v -0.802749"
+       id="path31059"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.31156"
+       x="81.144028"
+       y="78.560226"
+       id="text46257-4-0-4-2-0-3-2-7-4-5-2-9-0-9-0-9-2"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
+         sodipodi:role="line"
+         id="tspan46255-2-0-6-0-7-3-8-3-8-22-4-8-3-5-5-5-5"
+         x="81.144028"
+         y="78.560226"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.31156">Cell line 1</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.31156"
+       x="97.737259"
+       y="78.560226"
+       id="text46257-4-0-4-2-0-3-2-7-4-5-2-9-0-9-0-9-2-7"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
+         sodipodi:role="line"
+         id="tspan46255-2-0-6-0-7-3-8-3-8-22-4-8-3-5-5-5-5-6"
+         x="97.737259"
+         y="78.560226"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.31156">Cell line 2</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.31156"
+       x="112.06958"
+       y="78.893456"
+       id="text46257-4-0-4-2-0-3-2-7-4-5-2-9-0-9-0-9-2-4"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
+         sodipodi:role="line"
+         id="tspan46255-2-0-6-0-7-3-8-3-8-22-4-8-3-5-5-5-5-4"
+         x="112.06958"
+         y="78.893456"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.31156">...</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.31156"
+       x="116.47955"
+       y="78.555405"
+       id="text46257-4-0-4-2-0-3-2-7-4-5-2-9-0-9-0-9-2-6"
+       inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
+       inkscape:export-xdpi="600"
+       inkscape:export-ydpi="600"><tspan
+         sodipodi:role="line"
+         id="tspan46255-2-0-6-0-7-3-8-3-8-22-4-8-3-5-5-5-5-3"
+         x="116.47955"
+         y="78.555405"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.31156">Cell line 3</tspan></text>
+  </g>
+</svg>
