@@ -36,7 +36,8 @@ website:
       - background.qmd
       - section: Experimental setup
         contents: 
-          - experimental_landing.qmd
+          - href: experimental_landing.qmd
+            text: Overview
           - experimental_dense_mode.qmd
           - experimental_sparse_mode.qmd
       - href: transition-from-rmarkdown.qmd

@@ -172,7 +172,7 @@
     "href": "experimental_dense_mode.html",
     "title": "Dense mode protocol",
     "section": "",
-    "text": "With this tutorial, we have a working example website that we will explore together. We’ll learn a few rules and look for patterns to get an understanding of what things to do to help you start customizing and making it your own. And you can continue to use this website as a reference after the tutorial, along with Quarto documentation.\nWe’ll start our exploration online looking at the website architecture and GitHub repository. Then we’ll setup a copy for ourselves so that we can modify from a working example, which is a great way to learn something new. We’ll set it up so that any modifications (commits) will automatically be republished via GitHub Actions. Subsequent chapters will describe how to modify your repo using different tools (browser, RStudio, Jupyter).",
+    "text": "Enter info into boxes\nMake the stock plate\nMake the assay-ready plate\nPlate cells\nMeasure viability\nCollect raw data in 384-well format",
     "crumbs": [
       "Experimental setup",
       "Dense mode protocol"
@@ -614,7 +614,7 @@
     "href": "background.html#dose-density",
     "title": "Background",
     "section": "Dose “density”",
-    "text": "Dose “density”\nOne of the biggest limitations in drug combination studies is the lack of sufficient dose density – the number of concentrations tested for each drug. Dense measurements across a broad range of concentrations are crucial for capturing complete drug response and synergy patterns. However, technical constraints in combination screening often lead to fewer doses tested, resulting in formats that may risk missing critical interaction details.\n\n\n\nSmall, sparse, or asymmetric combination matrix designs\n\n\nAdvancements in liquid dispensing technology, like acoustic dispensing, have revolutionized compound transfer by enabling more flexible and precise experimental designs. Acoustic liquid handlers can dispense nanoliter volumes from any well of a source plate to any well of a destination plate without physical contact, greatly enhancing throughput potential.\nWe take advantage of this flexibility and designed screening templates that allow dense measurements. Specifically, Combocat tests drugs in a 10 x 10 format. Additionally, in “dense mode” (described below) there are 3 replicates of each matrix produced for each drug combination.\n\nIn this plate design, we fit three replicate 10 x 10 combination matrices, three 10-point dose-response curves for each single-agent, and 12 replicates of each control. Screening combinations in this dense format and with replicates captures much wider drug response and synergy landscapes.",
+    "text": "Dose “density”\nOne of the biggest limitations in drug combination studies is the lack of sufficient dose density – the number of concentrations tested for each drug. Dense measurements across a broad range of concentrations are crucial for capturing complete drug response and synergy patterns. However, technical constraints in combination screening often lead to fewer doses tested, resulting in formats that may risk missing critical interaction details.\n\n\n\nSmall, sparse, or asymmetric combination matrix designs\n\n\nAdvancements in liquid dispensing technology, like acoustic dispensing, have revolutionized compound transfer by enabling more flexible and precise experimental designs. Acoustic liquid handlers can dispense nanoliter volumes from any well of a source plate to any well of a destination plate without physical contact, greatly enhancing throughput potential.\nWe take advantage of this flexibility and designed screening templates that allow dense measurements. Specifically, Combocat tests drugs in a 10 ⨉ 10 format. Additionally, in “dense mode” (described below) there are 3 replicates of each matrix produced for each drug combination.\n\nIn this plate design, we fit three replicate 10 ⨉ 10 combination matrices, three 10-point dose-response curves for each single-agent, and 12 replicates of each control. Screening combinations in this dense format and with replicates captures much wider drug response and synergy landscapes.",
     "crumbs": [
       "Background"
     ]
@@ -624,7 +624,7 @@
     "href": "background.html#dense-vs.-sparse-mode",
     "title": "Background",
     "section": "Dense vs. Sparse mode",
-    "text": "Dense vs. Sparse mode\nCombocat operates in two complementary modes called dense mode and sparse mode. While each is built for drug combination screening, they use different approaches. Namely, sparse mode only measures a minimal set of conditions and uses machine learning to fill in the gaps:\n\n\n\n\n\n\n\nNote\n\n\n\nDense mode will be the best choice for most new users, while sparse mode is best for advanced users and high-throughput screens.\n\n\nDense mode features\n\nEasily scales to tens-to-hundreds of combinations\nEvery combination is performed in triplicate within a plate\nHighly reproducible and great as a validation screen\n\n\nSparse mode features\n\nUltrahigh-throughput scale – up to 9,045 combinations\nMiniaturized assay (1536-well plates) consumes minimal resources\nGreat for primary screens testing many unique compounds",
+    "text": "Dense vs. Sparse mode\nCombocat operates in two complementary modes called dense mode and sparse mode. While each is built for drug combination screening, they address different needs by using different approaches. Namely, sparse mode only measures a minimal set of conditions and uses machine learning to fill in the gaps:\n\n\n\n\n\n\n\nNote\n\n\n\nDense mode will be the best choice for most new users, while sparse mode is best for advanced users and high-throughput screens.\n\n\nDense mode features\n\nEasily scales to tens-to-hundreds of combinations\nEvery combination is performed in triplicate within a plate\nHighly reproducible and great as a validation screen\n\n\nSparse mode features\n\nUltrahigh-throughput scale – up to 9,045 combinations\nMiniaturized assay (1536-well plates) consumes minimal resources\nGreat for primary screens testing many unique compounds\n\n\n\n\n👉You can see more details about the differences between dense and sparse modes in the experimental sections.",
     "crumbs": [
       "Background"
     ]
@@ -634,7 +634,7 @@
     "href": "experimental_landing.html",
     "title": "Experimental overview",
     "section": "",
-    "text": "With this tutorial, we have a working example website that we will explore together. We’ll learn a few rules and look for patterns to get an understanding of what things to do to help you start customizing and making it your own. And you can continue to use this website as a reference after the tutorial, along with Quarto documentation.\nWe’ll start our exploration online looking at the website architecture and GitHub repository. Then we’ll setup a copy for ourselves so that we can modify from a working example, which is a great way to learn something new. We’ll set it up so that any modifications (commits) will automatically be republished via GitHub Actions. Subsequent chapters will describe how to modify your repo using different tools (browser, RStudio, Jupyter).",
+    "text": "Running a Combocat experiment is pretty straightforward. It can loosely be thought of as design ➝ execute ➝ analyze.\nThe documentation here provides information on all steps.",
     "crumbs": [
       "Experimental setup",
       "Experimental overview"
@@ -755,6 +755,28 @@
     "text": "Reference\nPlease cite our published work as: [CITATION HERE]",
     "crumbs": [
       "Welcome"
+    ]
+  },
+  {
+    "objectID": "experimental_landing.html#required-materials",
+    "href": "experimental_landing.html#required-materials",
+    "title": "Experimental overview",
+    "section": "Required Materials",
+    "text": "Required Materials\nRegardless of your experiment setup, you’ll need some materials and access to instruments.\n\n\n\n\n\n\nNote\n\n\n\nThis documentation focuses on the luminescence-based CTG assay.\nCombocat is generalizable to the readout of your choice (e.g., imaging, fluorescence, etc). Swap out materials accordingly.\n\n\n\nMicrowell plates\n\n384-well for dense mode, 1536-well for sparse mode (suitable for cell culture)\nEcho-compatible plates (if using an Echo acoustic liquid handler)\n\nDesired drugs\n\nSoluble at 400X final desired top concentration\n\nControl compounds\n\nPositive control for cell death (i.e., Staurosporine for mammalian cells)\nVehicle control for drug solvents (i.e., DMSO)\n\nDesired cells\nCTG reagents\nAccess to instruments\n\nEcho (or other well-to-well acoustic liquid handler)\nLuminometer (or instrument specific to assay readout)\nIncubator\n(Optional) liquid handler for cell/reagent dispensing",
+    "crumbs": [
+      "Experimental setup",
+      "Experimental overview"
+    ]
+  },
+  {
+    "objectID": "experimental_landing.html#key-considerations",
+    "href": "experimental_landing.html#key-considerations",
+    "title": "Experimental overview",
+    "section": "Key considerations",
+    "text": "Key considerations\nIt’s important to verify that your assay conditions are working before starting the experiment. For example:\n\nEnsure volumes of drug stocks are sufficient for assay scale (see protocols)\nOptimize cell seeding densities\nVerify calibration of instruments",
+    "crumbs": [
+      "Experimental setup",
+      "Experimental overview"
     ]
   }
 ]

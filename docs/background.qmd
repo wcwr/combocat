@@ -1,5 +1,6 @@
 ---
 title: Background
+from: markdown+emoji <!--# allows emojis #-->
 ---
 
 Let's cover a bit about drug synergy and the details of the Combocat platform.
@@ -40,15 +41,15 @@ One of the biggest limitations in drug combination studies is the lack of suffic
 
 Advancements in liquid dispensing technology, like [acoustic dispensing](https://www.beckman.com/liquid-handlers/echo-acoustic-technology), have revolutionized compound transfer by enabling more flexible and precise experimental designs. Acoustic liquid handlers can dispense nanoliter volumes from any well of a source plate to any well of a destination plate without physical contact, **greatly enhancing throughput potential**.
 
-We take advantage of this flexibility and designed screening templates that allow dense measurements. Specifically, **Combocat tests drugs in a 10 x 10 format**. Additionally, in "dense mode" (described below) there are 3 replicates of each matrix produced for each drug combination.
+We take advantage of this flexibility and designed screening templates that allow dense measurements. Specifically, **Combocat tests drugs in a 10 ⨉ 10 format**. Additionally, in "dense mode" (described below) there are 3 replicates of each matrix produced for each drug combination.
 
 ![](images/dense_plate_map.svg){width="400"}
 
-In this plate design, we fit three replicate 10 x 10 combination matrices, three 10-point dose-response curves for each single-agent, and 12 replicates of each control. Screening combinations in this dense format and with replicates captures much wider drug response and synergy landscapes.
+In this plate design, we fit three replicate 10 **⨉** 10 combination matrices, three 10-point dose-response curves for each single-agent, and 12 replicates of each control. Screening combinations in this dense format and with replicates captures much wider drug response and synergy landscapes.
 
 ## Dense vs. Sparse mode
 
-Combocat operates in two complementary modes called dense mode and sparse mode. While each is built for drug combination screening, they use different approaches. Namely, sparse mode only measures a minimal set of conditions and uses machine learning to fill in the gaps:
+Combocat operates in two complementary modes called dense mode and sparse mode. While each is built for drug combination screening, they address different needs by using different approaches. Namely, sparse mode only measures a minimal set of conditions and uses machine learning to fill in the gaps:
 
 ![](images/dense_v_sparse_schematic.svg){width="650"}
 
@@ -70,4 +71,8 @@ Dense mode will be the best choice for most new users, while sparse mode is best
 
 -   Miniaturized assay (1536-well plates) consumes minimal resources
 
--   Great for primary screens testing many unique compounds
+-   Great for primary screens testing many unique compounds\
+    \
+    \
+
+👉You can see more details about the differences between dense and sparse modes in the experimental sections.
