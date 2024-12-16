@@ -3,14 +3,14 @@ project:
   
 website: 
   page-navigation: true
-  title: "Making sharable documents with Quarto" 
+  title: "Combocat" 
   site-url: "https://openscapes.github.io/quarto-website-tutorial" 
   repo-url: https://github.com/openscapes/quarto-website-tutorial 
   repo-actions: [issue]
   
   page-footer:
     right: ":star: This doc's code is on [GitHub](https://github.com/wcwr/combocat/tree/main/docs)."
-    left: "William C. Wright, 2024"
+    left: "Charlie Wright, 2024"
     
   sidebar:
     logo: "images/cat_sidebar.svg"
@@ -33,8 +33,9 @@ website:
     contents:
       - href: index.qmd
         text: Welcome
-      - explore.qmd
+      - background.qmd
       - section: quarto-workflows/index.qmd
+        collapse: false
         contents: 
           - quarto-workflows/browser.md
           - quarto-workflows/rstudio.qmd
