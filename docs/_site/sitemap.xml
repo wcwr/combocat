@@ -1,55 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://openscapes.github.io/quarto-website-tutorial/index.html</loc>
-    <lastmod>2024-12-16T15:02:41.604Z</lastmod>
-  </url>
-  <url>
-    <loc>https://openscapes.github.io/quarto-website-tutorial/explore.html</loc>
-    <lastmod>2024-12-16T12:18:29.906Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/wcwr/combocat/index.html</loc>
-    <lastmod>2024-12-13T19:45:17.471Z</lastmod>
-  </url>
-  <url>
-    <loc>https://openscapes.github.io/quarto-website-tutorial/experimental_dense_mode.html</loc>
-    <lastmod>2024-12-16T14:14:12.134Z</lastmod>
+    <loc>https://openscapes.github.io/quarto-website-tutorial/machine_learning.html</loc>
+    <lastmod>2024-12-16T14:15:19.573Z</lastmod>
   </url>
   <url>
     <loc>https://openscapes.github.io/quarto-website-tutorial/experimental_sparse_mode.html</loc>
     <lastmod>2024-12-16T14:14:25.696Z</lastmod>
   </url>
   <url>
-    <loc>https://openscapes.github.io/quarto-website-tutorial/background.html</loc>
-    <lastmod>2024-12-16T17:15:09.967Z</lastmod>
-  </url>
-  <url>
-    <loc>https://openscapes.github.io/quarto-website-tutorial/background2.html</loc>
-    <lastmod>2024-12-16T13:44:49.790Z</lastmod>
-  </url>
-  <url>
-    <loc>https://openscapes.github.io/quarto-website-tutorial/experimental_landing.html</loc>
-    <lastmod>2024-12-16T14:13:57.049Z</lastmod>
-  </url>
-  <url>
-    <loc>https://openscapes.github.io/quarto-website-tutorial/analysis_landing.html</loc>
-    <lastmod>2024-12-16T14:14:40.355Z</lastmod>
-  </url>
-  <url>
-    <loc>https://openscapes.github.io/quarto-website-tutorial/analysis_dense_mode.html</loc>
-    <lastmod>2024-12-16T14:14:50.816Z</lastmod>
+    <loc>https://openscapes.github.io/quarto-website-tutorial/experimental_dense_mode.html</loc>
+    <lastmod>2024-12-16T14:14:12.134Z</lastmod>
   </url>
   <url>
     <loc>https://openscapes.github.io/quarto-website-tutorial/analysis_sparse_mode.html</loc>
     <lastmod>2024-12-16T14:15:04.544Z</lastmod>
   </url>
   <url>
-    <loc>https://openscapes.github.io/quarto-website-tutorial/machine_learning.html</loc>
-    <lastmod>2024-12-16T14:15:19.573Z</lastmod>
+    <loc>https://openscapes.github.io/quarto-website-tutorial/analysis_dense_mode.html</loc>
+    <lastmod>2024-12-16T14:14:50.816Z</lastmod>
   </url>
   <url>
     <loc>https://openscapes.github.io/quarto-website-tutorial/advanced.html</loc>
     <lastmod>2024-12-16T14:15:41.774Z</lastmod>
+  </url>
+  <url>
+    <loc>https://openscapes.github.io/quarto-website-tutorial/analysis_landing.html</loc>
+    <lastmod>2024-12-16T14:14:40.355Z</lastmod>
+  </url>
+  <url>
+    <loc>https://openscapes.github.io/quarto-website-tutorial/background.html</loc>
+    <lastmod>2024-12-16T20:19:14.321Z</lastmod>
+  </url>
+  <url>
+    <loc>https://openscapes.github.io/quarto-website-tutorial/experimental_landing.html</loc>
+    <lastmod>2024-12-16T14:13:57.049Z</lastmod>
+  </url>
+  <url>
+    <loc>https://openscapes.github.io/quarto-website-tutorial/index.html</loc>
+    <lastmod>2024-12-16T20:10:19.850Z</lastmod>
+  </url>
+  <url>
+    <loc>https://combocat.stjude.org/background.html</loc>
+    <lastmod>2024-12-16T20:28:37.035Z</lastmod>
   </url>
 </urlset>

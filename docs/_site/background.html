@@ -20,40 +20,6 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
@@ -268,21 +234,10 @@ window.Quarto = {
   <li><a href="#what-is-synergy" id="toc-what-is-synergy" class="nav-link active" data-scroll-target="#what-is-synergy">What is synergy?</a></li>
   <li><a href="#additivity-model" id="toc-additivity-model" class="nav-link" data-scroll-target="#additivity-model">Additivity model</a></li>
   <li><a href="#bliss-model" id="toc-bliss-model" class="nav-link" data-scroll-target="#bliss-model">Bliss model</a></li>
-  <li><a href="#dose-density" id="toc-dose-density" class="nav-link" data-scroll-target="#dose-density">Dose “density”</a>
-  <ul class="collapse">
-  <li><a href="#the-websites-repo" id="toc-the-websites-repo" class="nav-link" data-scroll-target="#the-websites-repo">The website’s repo</a></li>
-  </ul></li>
-  <li><a href="#quarto.yml-intro" id="toc-quarto.yml-intro" class="nav-link" data-scroll-target="#quarto.yml-intro"><code>_quarto.yml</code> intro</a></li>
-  <li><a href="#fork-to-your-account" id="toc-fork-to-your-account" class="nav-link" data-scroll-target="#fork-to-your-account">Fork to your account</a>
-  <ul class="collapse">
-  <li><a href="#download-instead-of-fork" id="toc-download-instead-of-fork" class="nav-link" data-scroll-target="#download-instead-of-fork">Download instead of fork</a></li>
-  </ul></li>
-  <li><a href="#setup-github-action" id="toc-setup-github-action" class="nav-link" data-scroll-target="#setup-github-action">Set up GitHub publishing</a></li>
-  <li><a href="#confirm" id="toc-confirm" class="nav-link" data-scroll-target="#confirm">Confirm your website is published</a></li>
-  <li><a href="#renaming-your-repo" id="toc-renaming-your-repo" class="nav-link" data-scroll-target="#renaming-your-repo">Renaming your repo</a></li>
-  <li><a href="#onward" id="toc-onward" class="nav-link" data-scroll-target="#onward">Onward!</a></li>
+  <li><a href="#dose-density" id="toc-dose-density" class="nav-link" data-scroll-target="#dose-density">Dose “density”</a></li>
+  <li><a href="#dense-vs.-sparse-mode" id="toc-dense-vs.-sparse-mode" class="nav-link" data-scroll-target="#dense-vs.-sparse-mode">Dense vs.&nbsp;Sparse mode</a></li>
   </ul>
-<div class="toc-actions"><ul><li><a href="https://github.com/openscapes/quarto-website-tutorial/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
+<div class="toc-actions"><ul><li><a href="https://github.com/wcwr/combocat/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -329,114 +284,64 @@ window.Quarto = {
 0.25 + 0.25 - (0.25 \times 0.25) = 0.4375
 \]</span></p>
 <p>or <strong>43.75% cell death</strong>. So in the scenario above where we observe 75% cell death, <strong>this is synergy</strong> because the observed effect exceeds the expected one!</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Combocat uses the Bliss model for its interpretability and robustness, but it’s important to be aware that various other models of synergy exist.</p>
+</div>
+</div>
 </section>
 <section id="dose-density" class="level2">
 <h2 class="anchored" data-anchor-id="dose-density">Dose “density”</h2>
-<p>One of the biggest limitations in drug combination studies is the lack of sufficient dose density – the number of concentrations tested for each drug. Dense measurements across a broad range of concentrations are crucial for capturing complete drug response and synergy patterns. However, technical constraints in combination screening often lead to fewer doses tested, resulting in formats that may risk missing critical interaction details</p>
-<p><img src="images/lower_sensitive_dose_formats.svg" class="img-fluid" width="220"></p>
+<p>One of the biggest limitations in drug combination studies is the lack of sufficient dose density – the number of concentrations tested for each drug. Dense measurements across a broad range of concentrations are crucial for capturing complete drug response and synergy patterns. However, technical constraints in combination screening often lead to fewer doses tested, resulting in formats that may risk missing critical interaction details.</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/lower_sensitive_dose_formats.svg" class="img-fluid figure-img" width="220"></p>
+<figcaption>Small, sparse, or asymmetric combination matrix designs</figcaption>
+</figure>
+</div>
+<p>Advancements in liquid dispensing technology, like <a href="https://www.beckman.com/liquid-handlers/echo-acoustic-technology">acoustic dispensing</a>, have revolutionized compound transfer by enabling more flexible and precise experimental designs. Acoustic liquid handlers can dispense nanoliter volumes from any well of a source plate to any well of a destination plate without physical contact, <strong>greatly enhancing throughput potential</strong>.</p>
+<p>We take advantage of this flexibility and designed screening templates that allow dense measurements. Specifically, <strong>Combocat tests drugs in a 10 x 10 format</strong>. Additionally, in “dense mode” (described below) there are 3 replicates of each matrix produced for each drug combination.</p>
+<p><img src="images/dense_plate_map.svg" class="img-fluid" width="400"></p>
+<p>In this plate design, we fit three replicate 10 x 10 combination matrices, three 10-point dose-response curves for each single-agent, and 12 replicates of each control. Screening combinations in this dense format and with replicates captures much wider drug response and synergy landscapes.</p>
+</section>
+<section id="dense-vs.-sparse-mode" class="level2">
+<h2 class="anchored" data-anchor-id="dense-vs.-sparse-mode">Dense vs.&nbsp;Sparse mode</h2>
+<p>Combocat operates in two complementary modes called dense mode and sparse mode. While each is built for drug combination screening, they use different approaches. Namely, sparse mode only measures a minimal set of conditions and uses machine learning to fill in the gaps:</p>
+<p><img src="images/dense_v_sparse_schematic.svg" class="img-fluid" width="650"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Dense mode will be the best choice for most new users, while sparse mode is best for advanced users and high-throughput screens.</p>
+</div>
+</div>
+<p><strong>Dense mode features</strong></p>
 <ul>
-<li><p>Welcome</p></li>
-<li><p>Exploring and setup</p></li>
-<li><p>Learning more</p></li>
-<li><p>Transition from Rmd</p></li>
+<li><p>Easily scales to tens-to-hundreds of combinations</p></li>
+<li><p>Every combination is performed in triplicate within a plate</p></li>
+<li><p>Highly reproducible and great as a validation screen<br>
+</p></li>
 </ul>
-<p>Most of these are pages, but you’ll see th” has an arrow <code>&gt;</code>; it is a folder with additional pages inside.</p>
-<section id="the-websites-repo" class="level3">
-<h3 class="anchored" data-anchor-id="the-websites-repo">The website’s repo</h3>
-<p>Let’s go to this website’s GitHub repository (also called a “repo”), <a href="https://github.com/openscapes/quarto-website-tutorial" class="uri"><strong>https://github.com/openscapes/quarto-website-tutorial</strong></a>. You can also click there from any page in this tutorial website by clicking the GitHub octocat icon underneath the Openscapes logo in the left navbar (click it holding command on Mac, or control on a PC to open it in a different tab in your browser).</p>
-<p><strong>Have a look at the filenames.</strong> We can recognize the names of the webpages we’ve seen above, and they have red arrows marking them in the image below.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/quarto-files-github.png" class="img-fluid figure-img" style="width:80.0%" alt="Screenshot of files on GitHub with red arrows identifying the files that we saw in the left sidebar"></p>
-<figcaption>quarto-website-tutorial GitHub repository with files for webpages marked with red arrows</figcaption>
-</figure>
-</div>
-<p><strong>The <code>_site</code> folder</strong> has html files with names that should be familiar: they match the <code>.qmd</code> files we were just exploring. This folder is where Quarto stores files to build the website.</p>
-</section>
-</section>
-<section id="quarto.yml-intro" class="level2">
-<h2 class="anchored" data-anchor-id="quarto.yml-intro"><code>_quarto.yml</code> intro</h2>
-<p>There is also a <code>_quarto.yml</code> file, which is the website’s configuration file. It is essentially metadata for the website that includes the order that the pages/chapters will be in. This is where you update the organization of your website: which page comes before another. If we compare side-by-side, you’ll see that the pages that appear on our website are listed there.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/quarto-yml-site-side-by-side3.png" class="img-fluid figure-img"></p>
-<figcaption>_quarto.yml and website side-by-side</figcaption>
-</figure>
-</div>
-</section>
-<section id="fork-to-your-account" class="level2">
-<h2 class="anchored" data-anchor-id="fork-to-your-account">Fork to your account</h2>
-<p>Let’s start with an existing Quarto site and copy it into your space to edit. You’ll need a free GitHub account that you create at <a href="https://github.com">github.com</a> (follow <a href="https://happygitwithr.com/github-acct.html">this advice</a> about choosing your username).</p>
-<p>First, choose an existing website to copy. The simplest option is to start with this site: <a href="https://github.com/Openscapes/quarto-website-tutorial">quarto-website-tutorial</a>.</p>
-<p>Other options of potential interest:</p>
+<p><strong>Sparse mode features</strong></p>
 <ul>
-<li><a href="https://github.com/NASA-Openscapes/2021-Cloud-Hackathon">2021-Cloud-Hackathon</a></li>
-<li><a href="https://github.com/podaac/2022-SWOT-Ocean-Cloud-Workshop">2022-SWOT-Ocean-Cloud-Workshop</a></li>
-<li><a href="https://github.com/openscapes/approach-guide">Openscapes Approach-Guide</a></li>
+<li><p>Ultrahigh-throughput scale – up to 9,045 combinations</p></li>
+<li><p>Miniaturized assay (1536-well plates) consumes minimal resources</p></li>
+<li><p>Great for primary screens testing many unique compounds</p></li>
 </ul>
-<p>Next, follow <a href="https://github.com/thefaylab/lab-manual/wiki/Quick-steps-to-making-a-copy-of-the-lab-manual-&amp;-publishing-it">these steps to fork and setup your repo with GitHub Actions</a> from Gavin Fay, using the repo you chose. These instructions will take ~5 minutes.</p>
-<p>Now you’ve got a copy of your repo of choice in your own GitHub account, and you’re set to start making your own edits. Your GitHub repo is set up with a GitHub Action that will use Quarto to rebuild and republish your site anytime you make a commit: committing will trigger the GitHub Action to rebuild and republish the book.</p>
-<p>Note that the GitHub Action for this book does not include R or Python so those will need to be added if your website relies on code. See <a href="https://github.com/r-lib/actions" class="uri">https://github.com/r-lib/actions</a> for more details and examples.</p>
-<section id="download-instead-of-fork" class="level3">
-<h3 class="anchored" data-anchor-id="download-instead-of-fork">Download instead of fork</h3>
-<p>Forking might not always be the way to go - you can’t fork into the same GitHub user account or organization so if for example you want to make a copy of <a href="https://github.com/nasa-openscapes/2021-Cloud-Hackathon">2021-Cloud-Hackathon</a> repo within the same NASA-Openscapes GitHub Organization, you’ll need to download instead of fork. In this case, follow these steps to download and copy into a new repository, and set up the GitHub Action and the gh-pages branch for publishing, separately.</p>
-<section id="download-github-repo-files" class="level4">
-<h4 class="anchored" data-anchor-id="download-github-repo-files">Download github repo files</h4>
-<p>Navigate to <a href="https://github.com/openscapes/quarto-website-tutorial" class="uri">https://github.com/openscapes/quarto-website-tutorial</a> (or any other quarto site repo of choice). Click the green “Code” button and select “Download ZIP”. When it downloads on your computer, unzip the files.</p>
-</section>
-<section id="create-a-new-github-repo" class="level4">
-<h4 class="anchored" data-anchor-id="create-a-new-github-repo">Create a new GitHub repo</h4>
-<p>Navigate to your GitHub account or organization, and create a new repository, naming it what you’d like. You’ll need a free GitHub account that you create at <a href="https://github.com">github.com</a> (follow <a href="https://happygitwithr.com/github-acct.html">this advice</a> about choosing your username). When you’re logged in, <a href="https://github.com">github.com</a> will show a green button that says “New” which you’ll also see as you navigate to your username’s repository page.</p>
-</section>
-<section id="add-original-site-files" class="level4">
-<h4 class="anchored" data-anchor-id="add-original-site-files">Add original site files</h4>
-<p>If you’re comfortable cloning the new repository and copying files into it locally before committing and pushing back to GitHub, that is preferable to the GitHub file uploader, which does have limitations with complex repos. The uploader does not allow upload of folders, so some manual work would be required.</p>
-<p>To use the GitHub file uploader, click the button next to the green “Code” button that says “Add file”. Add file &gt; Upload files. Then, on your computer, select all the files in unzipped folder (command-A or control-A), and drag them to the GitHub uploader page. Scroll down to write a commit message, which effectively saves your files when you’re working in the browser.</p>
-</section>
-</section>
-</section>
-<section id="setup-github-action" class="level2">
-<h2 class="anchored" data-anchor-id="setup-github-action">Set up GitHub publishing</h2>
-<p>If you’ve used the ‘Fork to your account approach’ above, your website is all set!</p>
-<p>If you’ve set up your repo by using the ‘Download github repo files’ approach above, you’ll need to set up GitHub publishing separately. We’ll do this in a few steps: we’ll set up a GitHub Action within your repo, and create a <code>gh-pages</code> branch.</p>
-<p><strong>First, the GitHub Action</strong>. Go back to your main view of your GitHub repository by clicking on the name of your repository at the top-left (the url in your browser window should say https://github.com/username/repo-name).</p>
-<p>Now you’ll have an empty new file. Paste the following in this empty file - you can click on the top-right of this box to copy all the code inside this code box:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Next, we’ll create a new <code>gh-pages</code> branch</strong>. Go back to the main view of your GitHub repository. On the far left from the green “Code” button, click the button that says “main”. In the pull-down menu, type <code>gh-pages</code> - all lowercase, with a hyphen. Click the bold text that says “Create branch: gh-pages from main”.</p>
-<p>Now click on the Settings tab in the top right of your repository. On the left sidebar, click Pages. At the top of Pages under “Source”, select <code>gh-pages</code> root, and press Save (may already be saved by default).</p>
-<p>To view your published website, at your main repository page, on the right side, click the gear-icon, select ‘Use your GitHub Pages website’.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/github-source-gh-pages_2023-01-04.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></p>
-</figure>
-</div>
-</section>
-<section id="confirm" class="level2">
-<h2 class="anchored" data-anchor-id="confirm">Confirm your website is published</h2>
-<p>To confirm that your website is published, go back to your main repository page. You’ll now see an orange dot showing that the GitHub Action is beginning to publish the page.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/github-action-orange.png" class="img-fluid figure-img" style="width:95.0%" alt="Screenshot of repo with orange dot indicating in-progress GitHub Action build"></p>
-<figcaption>Our repo with orange dot indicating in-progress GitHub Action build</figcaption>
-</figure>
-</div>
-<p>If you do not see this orange dot, you can re-run the GitHub Action (on the main repo page, click Actions &gt; select the workflow you want to re-run &gt; click the ‘Re-run all jobs’ button.</p>
-<p>When your orange do becomes a green check, you can go inspect your published site at “https://username.github.io/your-repo). For example: <a href="https://openscapes.github.io/quarto-website-tutorial" class="uri">https://openscapes.github.io/quarto-website-tutorial</a>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/github-action-green.png" class="img-fluid figure-img" style="width:95.0%" alt="Screenshot of repo with green check indicating successful GitHub Action build"></p>
-<figcaption>Our repo with green check indicating successful GitHub Action build</figcaption>
-</figure>
-</div>
-<p>It can take some time for the site to deploy, so don’t worry if you don’t see it right away.</p>
-</section>
-<section id="renaming-your-repo" class="level2">
-<h2 class="anchored" data-anchor-id="renaming-your-repo">Renaming your repo</h2>
-<p>If you’d like to rename your repo, go to Settings and the option to rename is on the top of the main settings page.</p>
-</section>
-<section id="onward" class="level2">
-<h2 class="anchored" data-anchor-id="onward">Onward!</h2>
-<p>Now you are ready to start editing and publishing! The next chapter describes how starting off from the browser, using Markdown.</p>
 
 
 </section>
@@ -532,7 +437,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   }
     var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
     var mailtoRegex = new RegExp(/^mailto:/);
-      var filterRegex = new RegExp("https:\/\/openscapes\.github\.io\/quarto-website-tutorial");
+      var filterRegex = new RegExp("https:\/\/combocat\.stjude\.org");
     var isInternal = (href) => {
         return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
     }
@@ -879,7 +784,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/openscapes/quarto-website-tutorial/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/wcwr/combocat/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>:star: This doc’s code is on <a href="https://github.com/wcwr/combocat/tree/main/docs">GitHub</a>.</p>
 </div>

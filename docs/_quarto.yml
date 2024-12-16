@@ -4,8 +4,8 @@ project:
 website: 
   page-navigation: true
   title: "Combocat" 
-  site-url: "https://openscapes.github.io/quarto-website-tutorial" 
-  repo-url: https://github.com/openscapes/quarto-website-tutorial 
+  site-url: "https://combocat.stjude.org" 
+  repo-url: https://github.com/wcwr/combocat 
   repo-actions: [issue]
   
   page-footer:

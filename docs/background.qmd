@@ -28,113 +28,46 @@ $$
 
 or **43.75% cell death**. So in the scenario above where we observe 75% cell death, **this is synergy** because the observed effect exceeds the expected one!
 
+::: {.callout-note}
+Combocat uses the Bliss model for its interpretability and robustness, but it's important to be aware that various other models of synergy exist.
+:::
+
 ## Dose "density"
 
-One of the biggest limitations in drug combination studies is the lack of sufficient dose density – the number of concentrations tested for each drug. Dense measurements across a broad range of concentrations are crucial for capturing complete drug response and synergy patterns. However, technical constraints in combination screening often lead to fewer doses tested, resulting in formats that may risk missing critical interaction details
+One of the biggest limitations in drug combination studies is the lack of sufficient dose density – the number of concentrations tested for each drug. Dense measurements across a broad range of concentrations are crucial for capturing complete drug response and synergy patterns. However, technical constraints in combination screening often lead to fewer doses tested, resulting in formats that may risk missing critical interaction details.
 
-![](images/lower_sensitive_dose_formats.svg){width="220"}
+![Small, sparse, or asymmetric combination matrix designs](images/lower_sensitive_dose_formats.svg){fig-align="left" width="220"}
 
--   Welcome
+Advancements in liquid dispensing technology, like [acoustic dispensing](https://www.beckman.com/liquid-handlers/echo-acoustic-technology), have revolutionized compound transfer by enabling more flexible and precise experimental designs. Acoustic liquid handlers can dispense nanoliter volumes from any well of a source plate to any well of a destination plate without physical contact, **greatly enhancing throughput potential**.
 
--   Exploring and setup
+We take advantage of this flexibility and designed screening templates that allow dense measurements. Specifically, **Combocat tests drugs in a 10 x 10 format**. Additionally, in "dense mode" (described below) there are 3 replicates of each matrix produced for each drug combination.
 
--   Learning more
+![](images/dense_plate_map.svg){width="400"}
 
--   Transition from Rmd
+In this plate design, we fit three replicate 10 x 10 combination matrices, three 10-point dose-response curves for each single-agent, and 12 replicates of each control. Screening combinations in this dense format and with replicates captures much wider drug response and synergy landscapes.
 
-Most of these are pages, but you'll see th" has an arrow `>`; it is a folder with additional pages inside.
+## Dense vs. Sparse mode
 
-### The website's repo
+Combocat operates in two complementary modes called dense mode and sparse mode. While each is built for drug combination screening, they use different approaches. Namely, sparse mode only measures a minimal set of conditions and uses machine learning to fill in the gaps:
 
-Let's go to this website's GitHub repository (also called a "repo"), [**https://github.com/openscapes/quarto-website-tutorial**](https://github.com/openscapes/quarto-website-tutorial){.uri}. You can also click there from any page in this tutorial website by clicking the GitHub octocat icon underneath the Openscapes logo in the left navbar (click it holding command on Mac, or control on a PC to open it in a different tab in your browser).
+![](images/dense_v_sparse_schematic.svg){width="650"}
 
-**Have a look at the filenames.** We can recognize the names of the webpages we've seen above, and they have red arrows marking them in the image below.
+::: {.callout-note}
+Dense mode will be the best choice for most new users, while sparse mode is best for advanced users and high-throughput screens.
+:::
 
-![quarto-website-tutorial GitHub repository with files for webpages marked with red arrows](images/quarto-files-github.png){fig-alt="Screenshot of files on GitHub with red arrows identifying the files that we saw in the left sidebar" fig-align="center" width="80%"}
+**Dense mode features**
 
-**The `_site` folder** has html files with names that should be familiar: they match the `.qmd` files we were just exploring. This folder is where Quarto stores files to build the website.
+-   Easily scales to tens-to-hundreds of combinations
 
-## `_quarto.yml` intro
+-   Every combination is performed in triplicate within a plate
 
-There is also a `_quarto.yml` file, which is the website's configuration file. It is essentially metadata for the website that includes the order that the pages/chapters will be in. This is where you update the organization of your website: which page comes before another. If we compare side-by-side, you'll see that the pages that appear on our website are listed there.
+-   Highly reproducible and great as a validation screen\
 
-![\_quarto.yml and website side-by-side](images/quarto-yml-site-side-by-side3.png){fig-align="center"}
+**Sparse mode features**
 
-## Fork to your account
+-   Ultrahigh-throughput scale – up to 9,045 combinations
 
-Let's start with an existing Quarto site and copy it into your space to edit. You'll need a free GitHub account that you create at [github.com](https://github.com) (follow [this advice](https://happygitwithr.com/github-acct.html) about choosing your username).
+-   Miniaturized assay (1536-well plates) consumes minimal resources
 
-First, choose an existing website to copy. The simplest option is to start with this site: [quarto-website-tutorial](https://github.com/Openscapes/quarto-website-tutorial).
-
-Other options of potential interest:
-
--   [2021-Cloud-Hackathon](https://github.com/NASA-Openscapes/2021-Cloud-Hackathon)
--   [2022-SWOT-Ocean-Cloud-Workshop](https://github.com/podaac/2022-SWOT-Ocean-Cloud-Workshop)
--   [Openscapes Approach-Guide](https://github.com/openscapes/approach-guide)
-
-Next, follow [these steps to fork and setup your repo with GitHub Actions](https://github.com/thefaylab/lab-manual/wiki/Quick-steps-to-making-a-copy-of-the-lab-manual-&-publishing-it) from Gavin Fay, using the repo you chose. These instructions will take \~5 minutes.
-
-Now you've got a copy of your repo of choice in your own GitHub account, and you're set to start making your own edits. Your GitHub repo is set up with a GitHub Action that will use Quarto to rebuild and republish your site anytime you make a commit: committing will trigger the GitHub Action to rebuild and republish the book.
-
-Note that the GitHub Action for this book does not include R or Python so those will need to be added if your website relies on code. See <https://github.com/r-lib/actions> for more details and examples.
-
-### Download instead of fork
-
-Forking might not always be the way to go - you can't fork into the same GitHub user account or organization so if for example you want to make a copy of [2021-Cloud-Hackathon](https://github.com/nasa-openscapes/2021-Cloud-Hackathon) repo within the same NASA-Openscapes GitHub Organization, you'll need to download instead of fork. In this case, follow these steps to download and copy into a new repository, and set up the GitHub Action and the gh-pages branch for publishing, separately.
-
-#### Download github repo files
-
-Navigate to <https://github.com/openscapes/quarto-website-tutorial> (or any other quarto site repo of choice). Click the green "Code" button and select "Download ZIP". When it downloads on your computer, unzip the files.
-
-#### Create a new GitHub repo
-
-Navigate to your GitHub account or organization, and create a new repository, naming it what you'd like. You'll need a free GitHub account that you create at [github.com](https://github.com) (follow [this advice](https://happygitwithr.com/github-acct.html) about choosing your username). When you're logged in, [github.com](https://github.com) will show a green button that says "New" which you'll also see as you navigate to your username's repository page.
-
-#### Add original site files
-
-If you're comfortable cloning the new repository and copying files into it locally before committing and pushing back to GitHub, that is preferable to the GitHub file uploader, which does have limitations with complex repos. The uploader does not allow upload of folders, so some manual work would be required.
-
-To use the GitHub file uploader, click the button next to the green "Code" button that says "Add file". Add file \> Upload files. Then, on your computer, select all the files in unzipped folder (command-A or control-A), and drag them to the GitHub uploader page. Scroll down to write a commit message, which effectively saves your files when you're working in the browser.
-
-## Set up GitHub publishing {#setup-github-action}
-
-If you've used the 'Fork to your account approach' above, your website is all set!
-
-If you've set up your repo by using the 'Download github repo files' approach above, you'll need to set up GitHub publishing separately. We'll do this in a few steps: we'll set up a GitHub Action within your repo, and create a `gh-pages` branch.
-
-**First, the GitHub Action**. Go back to your main view of your GitHub repository by clicking on the name of your repository at the top-left (the url in your browser window should say https://github.com/username/repo-name).
-
-Now you'll have an empty new file. Paste the following in this empty file - you can click on the top-right of this box to copy all the code inside this code box:
-
-``` yaml
-```
-
-**Next, we'll create a new `gh-pages` branch**. Go back to the main view of your GitHub repository. On the far left from the green "Code" button, click the button that says "main". In the pull-down menu, type `gh-pages` - all lowercase, with a hyphen. Click the bold text that says "Create branch: gh-pages from main".
-
-Now click on the Settings tab in the top right of your repository. On the left sidebar, click Pages. At the top of Pages under "Source", select `gh-pages` root, and press Save (may already be saved by default).
-
-To view your published website, at your main repository page, on the right side, click the gear-icon, select 'Use your GitHub Pages website'.
-
-![](images/github-source-gh-pages_2023-01-04.png){fig-align="center" width="95%"}
-
-## Confirm your website is published {#confirm}
-
-To confirm that your website is published, go back to your main repository page. You'll now see an orange dot showing that the GitHub Action is beginning to publish the page.
-
-![Our repo with orange dot indicating in-progress GitHub Action build](images/github-action-orange.png){fig-alt="Screenshot of repo with orange dot indicating in-progress GitHub Action build" fig-align="center" width="95%"}
-
-If you do not see this orange dot, you can re-run the GitHub Action (on the main repo page, click Actions \> select the workflow you want to re-run \> click the 'Re-run all jobs' button.
-
-When your orange do becomes a green check, you can go inspect your published site at "https://username.github.io/your-repo). For example: <https://openscapes.github.io/quarto-website-tutorial>.
-
-![Our repo with green check indicating successful GitHub Action build](images/github-action-green.png){fig-alt="Screenshot of repo with green check indicating successful GitHub Action build" fig-align="center" width="95%"}
-
-It can take some time for the site to deploy, so don't worry if you don't see it right away.
-
-## Renaming your repo
-
-If you'd like to rename your repo, go to Settings and the option to rename is on the top of the main settings page.
-
-## Onward!
-
-Now you are ready to start editing and publishing! The next chapter describes how starting off from the browser, using Markdown.
+-   Great for primary screens testing many unique compounds
