@@ -63,7 +63,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./background2.html" rel="next">
+<link href="./experimental_landing.html" rel="next">
 <link href="./index.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -102,6 +102,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -167,28 +196,63 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 ">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./background2.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Background222</span></a>
+  <a href="./experimental_landing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Experimental overview</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./experimental_dense_mode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">test</span></a>
+ <span class="menu-text">Dense mode protocol</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./experimental_sparse_mode.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">test2</span></a>
+ <span class="menu-text">Sparse mode protocol</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false">
+ <span class="menu-text">Analysis</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./analysis_landing.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Analysis overview</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./analysis_dense_mode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Dense mode analysis</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./analysis_sparse_mode.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Sparse mode analysis</span></a>
   </div>
 </li>
       </ul>
   </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./transition-from-rmarkdown.qmd" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Transition from Rmd</span></a>
+  <a href="./machine_learning.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Machine learning</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./advanced.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Advanced topics</span></a>
   </div>
 </li>
     </ul>
@@ -201,9 +265,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#exploring-online" id="toc-exploring-online" class="nav-link active" data-scroll-target="#exploring-online">Exploring online</a>
+  <li><a href="#what-is-synergy" id="toc-what-is-synergy" class="nav-link active" data-scroll-target="#what-is-synergy">What is synergy?</a></li>
+  <li><a href="#additivity-model" id="toc-additivity-model" class="nav-link" data-scroll-target="#additivity-model">Additivity model</a></li>
+  <li><a href="#bliss-model" id="toc-bliss-model" class="nav-link" data-scroll-target="#bliss-model">Bliss model</a></li>
+  <li><a href="#dose-density" id="toc-dose-density" class="nav-link" data-scroll-target="#dose-density">Dose “density”</a>
   <ul class="collapse">
-  <li><a href="#the-website-itself" id="toc-the-website-itself" class="nav-link" data-scroll-target="#the-website-itself">The website itself</a></li>
   <li><a href="#the-websites-repo" id="toc-the-websites-repo" class="nav-link" data-scroll-target="#the-websites-repo">The website’s repo</a></li>
   </ul></li>
   <li><a href="#quarto.yml-intro" id="toc-quarto.yml-intro" class="nav-link" data-scroll-target="#quarto.yml-intro"><code>_quarto.yml</code> intro</a></li>
@@ -240,26 +306,45 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>With this tutorial, we have a working example website that we will explore together. We’ll learn a few rules and look for patterns to get an understanding of what things to do to help you start customizing and making it your own. And you can continue to use this website as a reference after the tutorial, along with <a href="https://quarto.org">Quarto</a> documentation.</p>
-<p>We’ll start our exploration online looking at the website architecture and GitHub repository. Then we’ll setup a copy for ourselves so that we can modify from a working example, which is a great way to learn something new. We’ll set it up so that any modifications (commits) will automatically be republished via GitHub Actions. Subsequent chapters will describe how to modify your repo using different tools (browser, RStudio, Jupyter).</p>
-<section id="exploring-online" class="level2">
-<h2 class="anchored" data-anchor-id="exploring-online">Exploring online</h2>
-<section id="the-website-itself" class="level3">
-<h3 class="anchored" data-anchor-id="the-website-itself">The website itself</h3>
-<p><a href="https://openscapes.github.io/quarto-website-tutorial/">This website</a> has 5 things you can see on the left sidebar:</p>
-<ul>
-<li>Welcome</li>
-<li>Exploring and setup</li>
-<li>Quarto workflows</li>
-<li>Learning more</li>
-<li>Transition from Rmd</li>
-</ul>
-<p>Most of these are pages, but you’ll see that “Quarto Workflows” has an arrow <code>&gt;</code>; it is a folder with additional pages inside.</p>
+<p>Let’s cover a bit about drug synergy and the details of the Combocat platform.</p>
+<section id="what-is-synergy" class="level3">
+<h3 class="anchored" data-anchor-id="what-is-synergy">What is synergy?</h3>
+<p>In simple terms, synergy is a combination effect that exceeds expectations based on individual drug activities under established models like <a href="https://onlinelibrary.wiley.com/doi/10.1111/j.1744-7348.1939.tb06990.x">Bliss independence</a>.</p>
+<p>For example, let’s consider the following scenario:</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/what_is_synergy.svg" class="img-fluid quarto-figure quarto-figure-center figure-img" width="800"></p>
+</figure>
+</div>
+<p>Drug A and Drug B each kill 25% of the cells. <u>What would we expected the combined effect to be?</u></p>
 </section>
+<section id="additivity-model" class="level3">
+<h3 class="anchored" data-anchor-id="additivity-model">Additivity model</h3>
+<p>Under the additivity model, if the combination was purely additive then we would expect: 25% + 25% = 50% cell death. Anything higher would be greater than expected, <strong>thus synergistic</strong>. Anything lower would be less than expected, or <strong>antagonistic</strong>. So in the scenario above where we observed 50% cell death, this is an example of additivity.</p>
+</section>
+<section id="bliss-model" class="level3">
+<h3 class="anchored" data-anchor-id="bliss-model">Bliss model</h3>
+<p>The Bliss independence models assumes that the two drugs act independently of one another. We can plug in the single-agent values into the Bliss equation and easily get the % cell death expected under this model:</p>
+<p><span class="math display">\[
+0.25 + 0.25 - (0.25 \times 0.25) = 0.4375
+\]</span></p>
+<p>or <strong>43.75% cell death</strong>. So in the scenario above where we observe 75% cell death, <strong>this is synergy</strong> because the observed effect exceeds the expected one!</p>
+</section>
+<section id="dose-density" class="level2">
+<h2 class="anchored" data-anchor-id="dose-density">Dose “density”</h2>
+<p>One of the biggest limitations in drug combination studies is the lack of sufficient dose density – the number of concentrations tested for each drug. Dense measurements across a broad range of concentrations are crucial for capturing complete drug response and synergy patterns. However, technical constraints in combination screening often lead to fewer doses tested, resulting in formats that may risk missing critical interaction details</p>
+<p><img src="images/lower_sensitive_dose_formats.svg" class="img-fluid" width="220"></p>
+<ul>
+<li><p>Welcome</p></li>
+<li><p>Exploring and setup</p></li>
+<li><p>Learning more</p></li>
+<li><p>Transition from Rmd</p></li>
+</ul>
+<p>Most of these are pages, but you’ll see th” has an arrow <code>&gt;</code>; it is a folder with additional pages inside.</p>
 <section id="the-websites-repo" class="level3">
 <h3 class="anchored" data-anchor-id="the-websites-repo">The website’s repo</h3>
 <p>Let’s go to this website’s GitHub repository (also called a “repo”), <a href="https://github.com/openscapes/quarto-website-tutorial" class="uri"><strong>https://github.com/openscapes/quarto-website-tutorial</strong></a>. You can also click there from any page in this tutorial website by clicking the GitHub octocat icon underneath the Openscapes logo in the left navbar (click it holding command on Mac, or control on a PC to open it in a different tab in your browser).</p>
-<p><strong>Have a look at the filenames.</strong> We can recognize the names of the webpages we’ve seen above, and they have red arrows marking them in the image below. You’ll see the “quarto-workflows” folder and the rest in this site are <code>.qmd</code> files, which are plain text Quarto files that can combine Markdown text with code. <code>index.qmd</code> is the home page. If you click inside “quarto-workflows” you’ll see a mix of filetypes!</p>
+<p><strong>Have a look at the filenames.</strong> We can recognize the names of the webpages we’ve seen above, and they have red arrows marking them in the image below.</p>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/quarto-files-github.png" class="img-fluid figure-img" style="width:80.0%" alt="Screenshot of files on GitHub with red arrows identifying the files that we saw in the left sidebar"></p>
@@ -275,10 +360,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/quarto-yml-site-side-by-side3.png" class="img-fluid figure-img"></p>
-<figcaption><code>_quarto.yml</code> and website side-by-side</figcaption>
+<figcaption>_quarto.yml and website side-by-side</figcaption>
 </figure>
 </div>
-<p>We’ll learn more about how to interact with <code>_quarto.yml</code> in <a href="quarto-workflows/index.qmd">Quarto Workflows</a>.</p>
 </section>
 <section id="fork-to-your-account" class="level2">
 <h2 class="anchored" data-anchor-id="fork-to-your-account">Fork to your account</h2>
@@ -316,40 +400,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>If you’ve used the ‘Fork to your account approach’ above, your website is all set!</p>
 <p>If you’ve set up your repo by using the ‘Download github repo files’ approach above, you’ll need to set up GitHub publishing separately. We’ll do this in a few steps: we’ll set up a GitHub Action within your repo, and create a <code>gh-pages</code> branch.</p>
 <p><strong>First, the GitHub Action</strong>. Go back to your main view of your GitHub repository by clicking on the name of your repository at the top-left (the url in your browser window should say https://github.com/username/repo-name).</p>
-<p>Next to the green code button, click Add file &gt; Create new file. Name it exactly this: <code>.github/workflows/quarto-publish.yml</code> . In detail: start by typing the <code>.</code> with <code>github</code> and when you type the <code>/</code> it will give you a new text box to type <code>workflows</code> (plural!), then another <code>/</code>, and finally, <code>quarto-publish.yml</code>.</p>
 <p>Now you’ll have an empty new file. Paste the following in this empty file - you can click on the top-right of this box to copy all the code inside this code box:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">workflow_dispatch</span><span class="kw">:</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> main</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Quarto Publish</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">build-deploy</span><span class="kw">:</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">permissions</span><span class="kw">:</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">contents</span><span class="kw">:</span><span class="at"> write</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Check out repository</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Quarto</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> quarto-dev/quarto-actions/setup@v2</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">          # To install LaTeX to build PDF book </span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">tinytex</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="at"> </span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">          # uncomment below and fill to pin a version</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">          # version: 0.9.600</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">      # add software dependencies here</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Render and Publish</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> quarto-dev/quarto-actions/publish@v2</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">target</span><span class="kw">:</span><span class="at"> gh-pages</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">env</span><span class="kw">:</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">GITHUB_TOKEN</span><span class="kw">:</span><span class="at"> ${{ secrets.GITHUB_TOKEN }}</span><span class="co"> # this secret is always available for github actions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Commit this to save your new <code>quarto-publish.yml</code> file. This is your GitHub Action.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p><strong>Next, we’ll create a new <code>gh-pages</code> branch</strong>. Go back to the main view of your GitHub repository. On the far left from the green “Code” button, click the button that says “main”. In the pull-down menu, type <code>gh-pages</code> - all lowercase, with a hyphen. Click the bold text that says “Create branch: gh-pages from main”.</p>
 <p>Now click on the Settings tab in the top right of your repository. On the left sidebar, click Pages. At the top of Pages under “Source”, select <code>gh-pages</code> root, and press Save (may already be saved by default).</p>
 <p>To view your published website, at your main repository page, on the right side, click the gear-icon, select ‘Use your GitHub Pages website’.</p>
@@ -814,8 +866,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./background2.html" class="pagination-link" aria-label="Background222">
-        <span class="nav-page-text">Background222</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./experimental_landing.html" class="pagination-link" aria-label="Experimental overview">
+        <span class="nav-page-text">Experimental overview</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

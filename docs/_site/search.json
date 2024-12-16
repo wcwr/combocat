@@ -340,7 +340,7 @@
     "href": "background.html",
     "title": "Background",
     "section": "",
-    "text": "With this tutorial, we have a working example website that we will explore together. We’ll learn a few rules and look for patterns to get an understanding of what things to do to help you start customizing and making it your own. And you can continue to use this website as a reference after the tutorial, along with Quarto documentation.\nWe’ll start our exploration online looking at the website architecture and GitHub repository. Then we’ll setup a copy for ourselves so that we can modify from a working example, which is a great way to learn something new. We’ll set it up so that any modifications (commits) will automatically be republished via GitHub Actions. Subsequent chapters will describe how to modify your repo using different tools (browser, RStudio, Jupyter).",
+    "text": "Let’s cover a bit about drug synergy and the details of the Combocat platform.",
     "crumbs": [
       "Background"
     ]
@@ -360,7 +360,7 @@
     "href": "background.html#quarto.yml-intro",
     "title": "Background",
     "section": "_quarto.yml intro",
-    "text": "_quarto.yml intro\nThere is also a _quarto.yml file, which is the website’s configuration file. It is essentially metadata for the website that includes the order that the pages/chapters will be in. This is where you update the organization of your website: which page comes before another. If we compare side-by-side, you’ll see that the pages that appear on our website are listed there.\n\n\n\n_quarto.yml and website side-by-side\n\n\nWe’ll learn more about how to interact with _quarto.yml in Quarto Workflows.",
+    "text": "_quarto.yml intro\nThere is also a _quarto.yml file, which is the website’s configuration file. It is essentially metadata for the website that includes the order that the pages/chapters will be in. This is where you update the organization of your website: which page comes before another. If we compare side-by-side, you’ll see that the pages that appear on our website are listed there.\n\n\n\n_quarto.yml and website side-by-side",
     "crumbs": [
       "Background"
     ]
@@ -380,7 +380,7 @@
     "href": "background.html#setup-github-action",
     "title": "Background",
     "section": "Set up GitHub publishing",
-    "text": "Set up GitHub publishing\nIf you’ve used the ‘Fork to your account approach’ above, your website is all set!\nIf you’ve set up your repo by using the ‘Download github repo files’ approach above, you’ll need to set up GitHub publishing separately. We’ll do this in a few steps: we’ll set up a GitHub Action within your repo, and create a gh-pages branch.\nFirst, the GitHub Action. Go back to your main view of your GitHub repository by clicking on the name of your repository at the top-left (the url in your browser window should say https://github.com/username/repo-name).\nNext to the green code button, click Add file &gt; Create new file. Name it exactly this: .github/workflows/quarto-publish.yml . In detail: start by typing the . with github and when you type the / it will give you a new text box to type workflows (plural!), then another /, and finally, quarto-publish.yml.\nNow you’ll have an empty new file. Paste the following in this empty file - you can click on the top-right of this box to copy all the code inside this code box:\non:\n  workflow_dispatch:\n  push:\n    branches: main\n\nname: Quarto Publish\n\njobs:\n  build-deploy:\n    runs-on: ubuntu-latest\n    permissions:\n      contents: write\n    steps:\n      - name: Check out repository\n        uses: actions/checkout@v4\n\n      - name: Set up Quarto\n        uses: quarto-dev/quarto-actions/setup@v2\n        with:\n          # To install LaTeX to build PDF book \n          tinytex: true \n          # uncomment below and fill to pin a version\n          # version: 0.9.600\n      \n      # add software dependencies here\n      - name: Render and Publish\n        uses: quarto-dev/quarto-actions/publish@v2\n        with:\n          target: gh-pages\n        env:\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions\nCommit this to save your new quarto-publish.yml file. This is your GitHub Action.\nNext, we’ll create a new gh-pages branch. Go back to the main view of your GitHub repository. On the far left from the green “Code” button, click the button that says “main”. In the pull-down menu, type gh-pages - all lowercase, with a hyphen. Click the bold text that says “Create branch: gh-pages from main”.\nNow click on the Settings tab in the top right of your repository. On the left sidebar, click Pages. At the top of Pages under “Source”, select gh-pages root, and press Save (may already be saved by default).\nTo view your published website, at your main repository page, on the right side, click the gear-icon, select ‘Use your GitHub Pages website’.",
+    "text": "Set up GitHub publishing\nIf you’ve used the ‘Fork to your account approach’ above, your website is all set!\nIf you’ve set up your repo by using the ‘Download github repo files’ approach above, you’ll need to set up GitHub publishing separately. We’ll do this in a few steps: we’ll set up a GitHub Action within your repo, and create a gh-pages branch.\nFirst, the GitHub Action. Go back to your main view of your GitHub repository by clicking on the name of your repository at the top-left (the url in your browser window should say https://github.com/username/repo-name).\nNow you’ll have an empty new file. Paste the following in this empty file - you can click on the top-right of this box to copy all the code inside this code box:\n\nNext, we’ll create a new gh-pages branch. Go back to the main view of your GitHub repository. On the far left from the green “Code” button, click the button that says “main”. In the pull-down menu, type gh-pages - all lowercase, with a hyphen. Click the bold text that says “Create branch: gh-pages from main”.\nNow click on the Settings tab in the top right of your repository. On the left sidebar, click Pages. At the top of Pages under “Source”, select gh-pages root, and press Save (may already be saved by default).\nTo view your published website, at your main repository page, on the right side, click the gear-icon, select ‘Use your GitHub Pages website’.",
     "crumbs": [
       "Background"
     ]
@@ -1013,6 +1013,16 @@
     "text": "Onward!\nNow you are ready to start editing and publishing! The next chapter describes how starting off from the browser, using Markdown.",
     "crumbs": [
       "Advanced topics"
+    ]
+  },
+  {
+    "objectID": "background.html#dose-density",
+    "href": "background.html#dose-density",
+    "title": "Background",
+    "section": "Dose “density”",
+    "text": "Dose “density”\nOne of the biggest limitations in drug combination studies is the lack of sufficient dose density – the number of concentrations tested for each drug. Dense measurements across a broad range of concentrations are crucial for capturing complete drug response and synergy patterns. However, technical constraints in combination screening often lead to fewer doses tested, resulting in formats that may risk missing critical interaction details\n\n\nWelcome\nExploring and setup\nLearning more\nTransition from Rmd\n\nMost of these are pages, but you’ll see th” has an arrow &gt;; it is a folder with additional pages inside.\n\nThe website’s repo\nLet’s go to this website’s GitHub repository (also called a “repo”), https://github.com/openscapes/quarto-website-tutorial. You can also click there from any page in this tutorial website by clicking the GitHub octocat icon underneath the Openscapes logo in the left navbar (click it holding command on Mac, or control on a PC to open it in a different tab in your browser).\nHave a look at the filenames. We can recognize the names of the webpages we’ve seen above, and they have red arrows marking them in the image below.\n\n\n\nquarto-website-tutorial GitHub repository with files for webpages marked with red arrows\n\n\nThe _site folder has html files with names that should be familiar: they match the .qmd files we were just exploring. This folder is where Quarto stores files to build the website.",
+    "crumbs": [
+      "Background"
     ]
   }
 ]
