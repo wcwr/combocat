@@ -34,15 +34,19 @@ website:
       - href: index.qmd
         text: Welcome
       - background.qmd
-      - section: quarto-workflows/index.qmd
-        collapse: false
+      - section: Experimental setup
         contents: 
-          - quarto-workflows/browser.md
-          - quarto-workflows/rstudio.qmd
-          - quarto-workflows/jupyter.md 
-      - learning-more.qmd
+          - experimental_landing.qmd
+          - experimental_dense_mode.qmd
+          - experimental_sparse_mode.qmd
       - href: transition-from-rmarkdown.qmd
-        text: Transition from Rmd
+      - section: Analysis
+        contents:
+          - analysis_landing.qmd
+          - analysis_dense_mode.qmd
+          - analysis_sparse_mode.qmd
+      - href: machine_learning.qmd
+      - href: advanced.qmd
 
 
 format:
