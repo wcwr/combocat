@@ -197,8 +197,17 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#determine-drug-concentrations" id="toc-determine-drug-concentrations" class="nav-link active" data-scroll-target="#determine-drug-concentrations">1: Determine drug concentrations</a></li>
+  <li><a href="#prepare-the-stock-plate" id="toc-prepare-the-stock-plate" class="nav-link" data-scroll-target="#prepare-the-stock-plate">2: Prepare the stock plate</a></li>
+  <li><a href="#prepare-the-assay-ready-plate" id="toc-prepare-the-assay-ready-plate" class="nav-link" data-scroll-target="#prepare-the-assay-ready-plate">3: Prepare the assay-ready plate</a></li>
+  <li><a href="#protocol" id="toc-protocol" class="nav-link" data-scroll-target="#protocol">Protocol</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/wcwr/combocat/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -222,8 +231,82 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Adjust accordingly
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This protocol details an example of <strong>1 drug combination</strong>. For more combinations, adjust according to your need.</p>
+</div>
+</div>
+<p>See the Overview section for materials required.</p>
+<section id="determine-drug-concentrations" class="level2">
+<h2 class="anchored" data-anchor-id="determine-drug-concentrations">1: Determine drug concentrations</h2>
+<p>Choose the desired drugs and their corresponding concentrations. Each drug will have 10 doses. As mentioned above, this example will detail how to screen one combination (2 drugs), but this can be adjusted according to experimental needs.</p>
+<p><strong>Start by choosing the maximum desired concentration of each drug</strong>. Check out the template below which takes the top chosen max concentration and makes a serial dilution according to the specified dilution factor:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can customize this yourself by downloading a copy! File ➝ Download</p>
+</div>
+</div>
+<iframe src="https://docs.google.com/spreadsheets/d/1dhMRu3zBoRLy2scTqWX_YbMIeoPUQrpavW1iJAUXHNM/edit?usp=sharing" width="100%" height="600px" style="border: none;">
+</iframe>
+<ul>
+<li><p>The dilution factor is set to 1:3 by default (our recommendation), but this may be modified to anything (e.g.&nbsp;1:2.5).</p></li>
+<li><p>Check out the stock plate map (below the concentration ranges) for details on how this plate will look.</p></li>
+<li><p><strong>Stocks drugs must be soluble at 400X final desired concentrations.</strong></p></li>
+</ul>
+</section>
+<section id="prepare-the-stock-plate" class="level2">
+<h2 class="anchored" data-anchor-id="prepare-the-stock-plate">2: Prepare the stock plate</h2>
+<p>Make the stock plate in a 384-well polypropylene (pp) plate that is <a href="https://www.mybeckman.co/supplies/echo-qualified-supplies/acoustic-liquid-handler-microplates/001-14555">Echo-compatible</a> according to the following template:</p>
+<p><img src="images/Dense_mode_stock_plate.svg" class="img-fluid" width="380"></p>
+<p>(Use the spreadsheet template from step 1 to see details of how the plate should look).</p>
+<ul>
+<li><p><strong>All wells should contain 50 µL</strong>, which is enough to make <u>9 assay-ready plates</u>.</p></li>
+<li><p>Drug 1 in the top row and Drug 2 in the bottom row</p></li>
+<li><p>DMSO is plated in 4 wells to account for the ‘back-filling’ transfer steps</p></li>
+<li><p>Staurosporine at a final concentration of (10 µM / 400 =) 25 µM is the cell death control</p></li>
+</ul>
+<div class="callout callout-style-default callout-warning callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Warning
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ensure Staurosporine is an effective cell death control for your cell line before proceeding.</p>
+</div>
+</div>
+</section>
+<section id="prepare-the-assay-ready-plate" class="level2">
+<h2 class="anchored" data-anchor-id="prepare-the-assay-ready-plate">3: Prepare the assay-ready plate</h2>
+<iframe src="https://docs.google.com/spreadsheets/d/1IP_qVuFX2ay-ypYajyBuQZ2r7j4YP3s2nFO27H5TLHA/edit?usp=sharing" width="100%" height="600px" style="border: none;">
+</iframe>
+</section>
+<section id="protocol" class="level2">
+<h2 class="anchored" data-anchor-id="protocol">Protocol</h2>
+<p>Step 1: Determine the drugs and concentrations</p>
+<p>Step 2: Make the stock plate</p>
+<p>Step 3: Make the assay-ready plate</p>
 <ol type="1">
-<li><p>Enter info into boxes</p></li>
+<li><p>Determine desired final concentrations of each drug</p></li>
 <li><p>Make the stock plate</p></li>
 <li><p>Make the assay-ready plate</p></li>
 <li><p>Plate cells</p></li>
@@ -232,6 +315,7 @@ ul.task-list li input[type="checkbox"] {
 </ol>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -671,7 +755,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/wcwr/combocat/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/wcwr/combocat/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>:star: This doc’s code is on <a href="https://github.com/wcwr/combocat/tree/main/docs">GitHub</a>.</p>
 </div>

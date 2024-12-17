@@ -44,6 +44,8 @@ Combocat is generalizable to the readout of your choice (e.g., imaging, fluoresc
 
     -   Incubator
 
+    -   Centrifuge capable of spinning microplates
+
     -   (Optional) liquid handler for cell/reagent dispensing
 
 ## Key considerations

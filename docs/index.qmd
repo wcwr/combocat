@@ -23,7 +23,7 @@ Drug combinations are critical to conditions like cancers and infectious disease
 
 **Combocat is a method for scalable drug combination screening** which uses acoustic liquid handler protocols and custom drug template designs for fast, efficient screening. Everything has been designed to work in an end-to-end fashion. This means a researcher can test 1, hundreds, or even thousands of drug combinations from start to finish.
 
-![](images/experiment_scale.svg)
+![](images/experiment_scale.svg){width="250"}
 
 Critically, Combocat also provides a complete framework for analyzing the experimental data. Analysis is straightforward and provides interpretable publication-quality figures.
 

@@ -27,7 +27,7 @@ $$
 0.25 + 0.25 - (0.25 \times 0.25) = 0.4375
 $$
 
-or **43.75% cell death**. So in the scenario above where we observe 75% cell death, **this is synergy** because the observed effect exceeds the expected one!
+or **43.75% cell death**. So in the scenario above where we observe 75% cell death, **this is synergy** because the observed effect exceeds the expected one ✅
 
 ::: {.callout-note}
 Combocat uses the Bliss model for its interpretability and robustness, but it's important to be aware that various other models of synergy exist.
