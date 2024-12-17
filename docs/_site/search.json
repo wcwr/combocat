@@ -850,7 +850,7 @@
     "href": "experimental_dense_mode.html#prepare-the-assay-ready-plate",
     "title": "Dense mode protocol",
     "section": "3: Prepare the assay-ready plate",
-    "text": "3: Prepare the assay-ready plate",
+    "text": "3: Prepare the assay-ready plate\nUse the stock plate to construct the assay-ready plate:\n\n\nIt’s called “assay-ready” because these plates are ready for cells to be added.\nOnce plates are made, they can be stored at -80 °C until ready for cells.\nThe Echo requires an .EPR file to perform the transfer\nThis file contains information on the source/destination wells, and volume to transfer.\nThe Combocat dense mode EPR file looks like this:\n\n\n\nDownload the EPR file from the combocat github and use it to make assay-ready plate:\n\nblah\n(NOTE that you can make 9 of the assay-ready plates).",
     "crumbs": [
       "Experimental setup",
       "Dense mode protocol"

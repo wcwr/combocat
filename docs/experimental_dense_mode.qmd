@@ -51,9 +51,31 @@ Ensure Staurosporine is an effective cell death control for your cell line befor
 
 ## 3: Prepare the assay-ready plate
 
+Use the stock plate to construct the **assay-ready plate**:
+
+![](images/dense_stock_to_assay_ready.svg){width="950"}
+
+-   It's called "assay-ready" because these plates are ready for cells to be added.
+
+-   Once plates are made, they can be stored at -80 °C until ready for cells.
+
+-   The Echo requires an **.EPR file** to perform the transfer
+
+-   This file contains information on the source/destination wells, and volume to transfer.
+
+-   The Combocat dense mode EPR file looks like this:
+
 <iframe src="https://docs.google.com/spreadsheets/d/1IP_qVuFX2ay-ypYajyBuQZ2r7j4YP3s2nFO27H5TLHA/edit?usp=sharing" width="100%" height="600px" style="border: none;">
 
 </iframe>
+
+Download the EPR file from the [combocat github](https://github.com/wcwr/combocat/blob/main/Dense_Mode_Echo_Transfer.epr) and use it to make assay-ready plate:
+
+![](images/download_dense_mode_EPR.svg)
+
+blah
+
+(NOTE that you can make 9 of the assay-ready plates).
 
 ## Protocol
 
