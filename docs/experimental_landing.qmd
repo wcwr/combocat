@@ -3,7 +3,7 @@ title: Experimental overview
 from: markdown+emoji <!--# allows emojis #-->
 ---
 
-Running a Combocat experiment is pretty straightforward. It can loosely be thought of as design ➝ execute ➝ analyze.
+Running a Combocat experiment can loosely be thought of as design ➝ execute ➝ analyze.
 
 The documentation here provides information on all steps.
 
@@ -33,6 +33,8 @@ Combocat is generalizable to the readout of your choice (e.g., imaging, fluoresc
     -   Vehicle control for drug solvents (i.e., DMSO)
 
 -   **Desired cells**
+
+    -   Enough for 40 µL/well per plate (Dense mode) or 4 µL/well per plate (Sparse mode)
 
 -   **CTG reagents**
 

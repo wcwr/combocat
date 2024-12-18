@@ -39,7 +39,7 @@ Make the stock plate in a 384-well polypropylene (pp) plate that is [Echo-compat
 
 -   **All wells should contain 50 µL**, which is enough to make [9 assay-ready plates]{.underline}.
 
--   Drug 1 in the top row and Drug 2 in the bottom row
+-   Drug 1 in the top row, and Drug 2 in the bottom row
 
 -   DMSO is plated in 4 wells to account for the 'back-filling' transfer steps
 
@@ -49,7 +49,7 @@ Make the stock plate in a 384-well polypropylene (pp) plate that is [Echo-compat
 Ensure Staurosporine is an effective cell death control for your cell line before proceeding.
 :::
 
-## 3: Prepare the assay-ready plate
+## 3: Prepare assay-ready plate
 
 Use the stock plate to construct the **assay-ready plate**:
 
@@ -73,26 +73,49 @@ Download the EPR file from the [combocat github](https://github.com/wcwr/comboca
 
 ![](images/download_dense_mode_EPR.svg)
 
-blah
+::: {.callout-tip}
+You can modify the spreadsheet and import it into the Echo software to make your own EPR file.
+:::
+This Echo protocol can be used up to 9 times to make [9 assay-ready plate copies]{.underline}.
 
-(NOTE that you can make 9 of the assay-ready plates).
+## 4: Plate cells & incubate
 
-## Protocol
+-   Plate **40 µL of cells** into all wells.
 
-Step 1: Determine the drugs and concentrations
+    -   This is much easier with a liquid handler like the [Multidrop Combi](https://www.thermofisher.com/us/en/home/life-science/lab-equipment/microplate-instruments/multidrop-dispensers.html) or similar, but can be achieved using multi-channel pipettes as well.
 
-Step 2: Make the stock plate
+-   Incubate cells for desired treatment time
 
-Step 3: Make the assay-ready plate
+::: {.callout-warning}
+We recommend 72-hour treatments. After 96-hours, evaporation of media begins to disrupt data quality.
+:::
 
-1.  Determine desired final concentrations of each drug
+## 5: Measure viability
 
-2.  Make the stock plate
+The following steps are specific to [CellTiter-Glo](https://www.promega.com/resources/protocols/technical-bulletins/0/celltiter-glo-luminescent-cell-viability-assay-protocol/)
 
-3.  Make the assay-ready plate
+-   Equilibrate plate(s) to room temperature
 
-4.  Plate cells
+-   Add **25 µL** prepared CTG reagent
 
-5.  Measure viability
+    -   ::: {.callout-important}
+        While the manufacturer recommends a 1:1 ratio, Do NOT dispense more than 25 µL of reagent. The total well volume should not exceed 65 µL – otherwise there is a risk of overflow. 😵
+        :::
 
-6.  Collect raw data in 384-well format
+    -   Adding CTG reagent with a liquid dispenser is helpful here (like with dispensing cells)
+
+-   Centrifuge plates for \~4 minutes, \~1100 RPM
+
+-   Incubate at room temperature for 10 minutes
+
+-   Read viability on luminometer
+
+## 6: Collect data
+
+-   Collect the raw luminescent data and save it as a .CSV file.
+
+-   This file should contain only 384-well format data (16 rows by 24 columns), and **nothing else.** For example:
+
+<iframe src="https://docs.google.com/spreadsheets/d/1ZhFcdMyMRSiZ2fIOgCne0fM4yXRRdTS_elvnXpjxbTQ/edit?usp=sharing" width="100%" height="600px" style="border: none;">
+
+</iframe>
