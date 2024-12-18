@@ -236,9 +236,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#exploring-online" id="toc-exploring-online" class="nav-link active" data-scroll-target="#exploring-online">Exploring online</a>
+  <li><a href="#determine-drug-concentrations" id="toc-determine-drug-concentrations" class="nav-link active" data-scroll-target="#determine-drug-concentrations">1: Determine drug concentrations</a>
   <ul class="collapse">
-  <li><a href="#the-website-itself" id="toc-the-website-itself" class="nav-link" data-scroll-target="#the-website-itself">The website itself</a></li>
   <li><a href="#the-websites-repo" id="toc-the-websites-repo" class="nav-link" data-scroll-target="#the-websites-repo">The website’s repo</a></li>
   </ul></li>
   <li><a href="#quarto.yml-intro" id="toc-quarto.yml-intro" class="nav-link" data-scroll-target="#quarto.yml-intro"><code>_quarto.yml</code> intro</a></li>
@@ -275,22 +274,40 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<p>With this tutorial, we have a working example website that we will explore together. We’ll learn a few rules and look for patterns to get an understanding of what things to do to help you start customizing and making it your own. And you can continue to use this website as a reference after the tutorial, along with <a href="https://quarto.org">Quarto</a> documentation.</p>
-<p>We’ll start our exploration online looking at the website architecture and GitHub repository. Then we’ll setup a copy for ourselves so that we can modify from a working example, which is a great way to learn something new. We’ll set it up so that any modifications (commits) will automatically be republished via GitHub Actions. Subsequent chapters will describe how to modify your repo using different tools (browser, RStudio, Jupyter).</p>
-<section id="exploring-online" class="level2">
-<h2 class="anchored" data-anchor-id="exploring-online">Exploring online</h2>
-<section id="the-website-itself" class="level3">
-<h3 class="anchored" data-anchor-id="the-website-itself">The website itself</h3>
-<p><a href="https://openscapes.github.io/quarto-website-tutorial/">This website</a> has 5 things you can see on the left sidebar:</p>
-<ul>
-<li>Welcome</li>
-<li>Exploring and setup</li>
-<li>Quarto workflows</li>
-<li>Learning more</li>
-<li>Transition from Rmd</li>
-</ul>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Adjust accordingly
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This protocol details an example of <strong>1 drug combination</strong>. For more combinations, adjust according to your need.</p>
+</div>
+</div>
+<p>See the <a href="./experimental_landing.html">Overview</a> section for materials required.</p>
+<section id="determine-drug-concentrations" class="level2">
+<h2 class="anchored" data-anchor-id="determine-drug-concentrations">1: Determine drug concentrations</h2>
+<p>Choose the desired drugs and their corresponding concentrations. Each drug will have 10 doses. As mentioned above, this example will detail how to screen one combination (2 drugs), but this can be adjusted according to experimental needs.</p>
+<p><strong>Start by choosing the maximum desired concentration of each drug</strong>. Check out the template below which takes the top chosen max concentration and makes a serial dilution according to the specified dilution factor:</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can customize this yourself by downloading a copy! File ➝ Download</p>
+</div>
+</div>
+<iframe src="https://docs.google.com/spreadsheets/d/1dhMRu3zBoRLy2scTqWX_YbMIeoPUQrpavW1iJAUXHNM/edit?usp=sharing" width="100%" height="600px" style="border: none;">
+</iframe>
 <p>Most of these are pages, but you’ll see that “Quarto Workflows” has an arrow <code>&gt;</code>; it is a folder with additional pages inside.</p>
-</section>
 <section id="the-websites-repo" class="level3">
 <h3 class="anchored" data-anchor-id="the-websites-repo">The website’s repo</h3>
 <p>Let’s go to this website’s GitHub repository (also called a “repo”), <a href="https://github.com/openscapes/quarto-website-tutorial" class="uri"><strong>https://github.com/openscapes/quarto-website-tutorial</strong></a>. You can also click there from any page in this tutorial website by clicking the GitHub octocat icon underneath the Openscapes logo in the left navbar (click it holding command on Mac, or control on a PC to open it in a different tab in your browser).</p>
@@ -310,7 +327,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="images/quarto-yml-site-side-by-side3.png" class="img-fluid figure-img"></p>
-<figcaption><code>_quarto.yml</code> and website side-by-side</figcaption>
+<figcaption>_quarto.yml and website side-by-side</figcaption>
 </figure>
 </div>
 <p>We’ll learn more about how to interact with <code>_quarto.yml</code> in <a href="quarto-workflows/index.qmd">Quarto Workflows</a>.</p>

@@ -2,21 +2,27 @@
 title: Sparse mode protocol
 ---
 
-With this tutorial, we have a working example website that we will explore together. We'll learn a few rules and look for patterns to get an understanding of what things to do to help you start customizing and making it your own. And you can continue to use this website as a reference after the tutorial, along with [Quarto](https://quarto.org) documentation.
+::: callout-tip
+## Adjust accordingly
 
-We'll start our exploration online looking at the website architecture and GitHub repository. Then we'll setup a copy for ourselves so that we can modify from a working example, which is a great way to learn something new. We'll set it up so that any modifications (commits) will automatically be republished via GitHub Actions. Subsequent chapters will describe how to modify your repo using different tools (browser, RStudio, Jupyter).
+This protocol details an example of **1 drug combination**. For more combinations, adjust according to your need.
+:::
 
-## Exploring online
+See the [Overview](experimental_landing.qmd) section for materials required.
 
-### The website itself
+## 1: Determine drug concentrations
 
-[This website](https://openscapes.github.io/quarto-website-tutorial/) has 5 things you can see on the left sidebar:
+Choose the desired drugs and their corresponding concentrations. Each drug will have 10 doses. As mentioned above, this example will detail how to screen one combination (2 drugs), but this can be adjusted according to experimental needs.
 
--   Welcome
--   Exploring and setup
--   Quarto workflows
--   Learning more
--   Transition from Rmd
+**Start by choosing the maximum desired concentration of each drug**. Check out the template below which takes the top chosen max concentration and makes a serial dilution according to the specified dilution factor:
+
+::: callout-note
+You can customize this yourself by downloading a copy! File ➝ Download
+:::
+
+<iframe src="https://docs.google.com/spreadsheets/d/1dhMRu3zBoRLy2scTqWX_YbMIeoPUQrpavW1iJAUXHNM/edit?usp=sharing" width="100%" height="600px" style="border: none;">
+
+</iframe>
 
 Most of these are pages, but you'll see that "Quarto Workflows" has an arrow `>`; it is a folder with additional pages inside.
 
@@ -34,7 +40,7 @@ Let's go to this website's GitHub repository (also called a "repo"), [**https://
 
 There is also a `_quarto.yml` file, which is the website's configuration file. It is essentially metadata for the website that includes the order that the pages/chapters will be in. This is where you update the organization of your website: which page comes before another. If we compare side-by-side, you'll see that the pages that appear on our website are listed there.
 
-![`_quarto.yml` and website side-by-side](images/quarto-yml-site-side-by-side3.png){alt="_quarto.yml and website side-by-side" fig-align="center"}
+![\_quarto.yml and website side-by-side](images/quarto-yml-site-side-by-side3.png){fig-align="center"}
 
 We'll learn more about how to interact with `_quarto.yml` in [Quarto Workflows](quarto-workflows/index.qmd).
 
@@ -124,7 +130,7 @@ Commit this to save your new `quarto-publish.yml` file. This is your GitHub Acti
 
 **Next, we'll create a new `gh-pages` branch**. Go back to the main view of your GitHub repository. On the far left from the green "Code" button, click the button that says "main". In the pull-down menu, type `gh-pages` - all lowercase, with a hyphen. Click the bold text that says "Create branch: gh-pages from main".
 
-Now click on the Settings tab in the top right of your repository. On the left sidebar, click Pages. At the top of Pages under "Source", select `gh-pages` root, and press Save (may already be saved by default). 
+Now click on the Settings tab in the top right of your repository. On the left sidebar, click Pages. At the top of Pages under "Source", select `gh-pages` root, and press Save (may already be saved by default).
 
 To view your published website, at your main repository page, on the right side, click the gear-icon, select 'Use your GitHub Pages website'.
 
@@ -136,13 +142,13 @@ To confirm that your website is published, go back to your main repository page.
 
 ![Our repo with orange dot indicating in-progress GitHub Action build](images/github-action-orange.png){fig-alt="Screenshot of repo with orange dot indicating in-progress GitHub Action build" fig-align="center" width="95%"}
 
-If you do not see this orange dot, you can re-run the GitHub Action (on the main repo page, click Actions > select the workflow you want to re-run > click the 'Re-run all jobs' button.
+If you do not see this orange dot, you can re-run the GitHub Action (on the main repo page, click Actions \> select the workflow you want to re-run \> click the 'Re-run all jobs' button.
 
 When your orange do becomes a green check, you can go inspect your published site at "https://username.github.io/your-repo). For example: <https://openscapes.github.io/quarto-website-tutorial>.
 
 ![Our repo with green check indicating successful GitHub Action build](images/github-action-green.png){fig-alt="Screenshot of repo with green check indicating successful GitHub Action build" fig-align="center" width="95%"}
 
-It can take some time for the site to deploy, so don't worry if you don't see it right away. 
+It can take some time for the site to deploy, so don't worry if you don't see it right away.
 
 ## Renaming your repo
 

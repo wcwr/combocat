@@ -2,12 +2,13 @@
 title: Dense mode protocol
 ---
 
-::: {.callout-tip}
+::: callout-tip
 ## Adjust accordingly
+
 This protocol details an example of **1 drug combination**. For more combinations, adjust according to your need.
 :::
 
-See the Overview section for materials required.
+See the [Overview](experimental_landing.qmd) section for materials required.
 
 ## 1: Determine drug concentrations
 
@@ -15,7 +16,7 @@ Choose the desired drugs and their corresponding concentrations. Each drug will 
 
 **Start by choosing the maximum desired concentration of each drug**. Check out the template below which takes the top chosen max concentration and makes a serial dilution according to the specified dilution factor:
 
-::: {.callout-note}
+::: callout-note
 You can customize this yourself by downloading a copy! File ➝ Download
 :::
 
@@ -45,7 +46,7 @@ Make the stock plate in a 384-well polypropylene (pp) plate that is [Echo-compat
 
 -   Staurosporine at a final concentration of (10 µM / 400 =) 25 µM is the cell death control
 
-::: {.callout-warning}
+::: callout-warning
 Ensure Staurosporine is an effective cell death control for your cell line before proceeding.
 :::
 
@@ -73,9 +74,10 @@ Download the EPR file from the [combocat github](https://github.com/wcwr/comboca
 
 ![](images/download_dense_mode_EPR.svg)
 
-::: {.callout-tip}
+::: callout-tip
 You can modify the spreadsheet and import it into the Echo software to make your own EPR file.
 :::
+
 This Echo protocol can be used up to 9 times to make [9 assay-ready plate copies]{.underline}.
 
 ## 4: Plate cells & incubate
@@ -86,7 +88,7 @@ This Echo protocol can be used up to 9 times to make [9 assay-ready plate copies
 
 -   Incubate cells for desired treatment time
 
-::: {.callout-warning}
+::: callout-warning
 We recommend 72-hour treatments. After 96-hours, evaporation of media begins to disrupt data quality.
 :::
 
@@ -98,7 +100,7 @@ The following steps are specific to [CellTiter-Glo](https://www.promega.com/reso
 
 -   Add **25 µL** prepared CTG reagent
 
-    -   ::: {.callout-important}
+    -   ::: callout-important
         While the manufacturer recommends a 1:1 ratio, Do NOT dispense more than 25 µL of reagent. The total well volume should not exceed 65 µL – otherwise there is a risk of overflow. 😵
         :::
 
@@ -110,12 +112,14 @@ The following steps are specific to [CellTiter-Glo](https://www.promega.com/reso
 
 -   Read viability on luminometer
 
-## 6: Collect data
+### Collecting data
 
 -   Collect the raw luminescent data and save it as a .CSV file.
 
--   This file should contain only 384-well format data (16 rows by 24 columns), and **nothing else.** For example:
+-   This file should contain only 384-well format (16 rows by 24 columns) data, and **nothing else.** For example:
 
 <iframe src="https://docs.google.com/spreadsheets/d/1ZhFcdMyMRSiZ2fIOgCne0fM4yXRRdTS_elvnXpjxbTQ/edit?usp=sharing" width="100%" height="600px" style="border: none;">
 
 </iframe>
+
+-   It is recommended to make a copy of your raw data and save a version containing only the required information, which will be used during the analysis.

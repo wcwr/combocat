@@ -206,8 +206,10 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#prepare-the-stock-plate" id="toc-prepare-the-stock-plate" class="nav-link" data-scroll-target="#prepare-the-stock-plate">2: Prepare the stock plate</a></li>
   <li><a href="#prepare-assay-ready-plate" id="toc-prepare-assay-ready-plate" class="nav-link" data-scroll-target="#prepare-assay-ready-plate">3: Prepare assay-ready plate</a></li>
   <li><a href="#plate-cells-incubate" id="toc-plate-cells-incubate" class="nav-link" data-scroll-target="#plate-cells-incubate">4: Plate cells &amp; incubate</a></li>
-  <li><a href="#measure-viability" id="toc-measure-viability" class="nav-link" data-scroll-target="#measure-viability">5: Measure viability</a></li>
-  <li><a href="#collect-data" id="toc-collect-data" class="nav-link" data-scroll-target="#collect-data">6: Collect data</a></li>
+  <li><a href="#measure-viability" id="toc-measure-viability" class="nav-link" data-scroll-target="#measure-viability">5: Measure viability</a>
+  <ul class="collapse">
+  <li><a href="#collecting-data" id="toc-collecting-data" class="nav-link" data-scroll-target="#collecting-data">Collecting data</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/wcwr/combocat/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -246,7 +248,7 @@ Adjust accordingly
 <p>This protocol details an example of <strong>1 drug combination</strong>. For more combinations, adjust according to your need.</p>
 </div>
 </div>
-<p>See the Overview section for materials required.</p>
+<p>See the <a href="./experimental_landing.html">Overview</a> section for materials required.</p>
 <section id="determine-drug-concentrations" class="level2">
 <h2 class="anchored" data-anchor-id="determine-drug-concentrations">1: Determine drug concentrations</h2>
 <p>Choose the desired drugs and their corresponding concentrations. Each drug will have 10 doses. As mentioned above, this example will detail how to screen one combination (2 drugs), but this can be adjusted according to experimental needs.</p>
@@ -376,17 +378,20 @@ Important
 <li><p>Incubate at room temperature for 10 minutes</p></li>
 <li><p>Read viability on luminometer</p></li>
 </ul>
-</section>
-<section id="collect-data" class="level2">
-<h2 class="anchored" data-anchor-id="collect-data">6: Collect data</h2>
+<section id="collecting-data" class="level3">
+<h3 class="anchored" data-anchor-id="collecting-data">Collecting data</h3>
 <ul>
 <li><p>Collect the raw luminescent data and save it as a .CSV file.</p></li>
-<li><p>This file should contain only 384-well format data (16 rows by 24 columns), and <strong>nothing else.</strong> For example:</p></li>
+<li><p>This file should contain only 384-well format (16 rows by 24 columns) data, and <strong>nothing else.</strong> For example:</p></li>
 </ul>
 <iframe src="https://docs.google.com/spreadsheets/d/1ZhFcdMyMRSiZ2fIOgCne0fM4yXRRdTS_elvnXpjxbTQ/edit?usp=sharing" width="100%" height="600px" style="border: none;">
 </iframe>
+<ul>
+<li>It is recommended to make a copy of your raw data and save a version containing only the required information, which will be used during the analysis.</li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->
