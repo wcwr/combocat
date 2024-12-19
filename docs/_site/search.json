@@ -91,11 +91,11 @@
     ]
   },
   {
-    "objectID": "experimental_sparse_mode.html#exploring-online",
-    "href": "experimental_sparse_mode.html#exploring-online",
+    "objectID": "experimental_sparse_mode.html#determine-drug-concentrations",
+    "href": "experimental_sparse_mode.html#determine-drug-concentrations",
     "title": "Sparse mode protocol",
-    "section": "Exploring online",
-    "text": "Exploring online\n\nThe website itself\nThis website has 5 things you can see on the left sidebar:\n\nWelcome\nExploring and setup\nQuarto workflows\nLearning more\nTransition from Rmd\n\nMost of these are pages, but you’ll see that “Quarto Workflows” has an arrow &gt;; it is a folder with additional pages inside.\n\n\nThe website’s repo\nLet’s go to this website’s GitHub repository (also called a “repo”), https://github.com/openscapes/quarto-website-tutorial. You can also click there from any page in this tutorial website by clicking the GitHub octocat icon underneath the Openscapes logo in the left navbar (click it holding command on Mac, or control on a PC to open it in a different tab in your browser).\nHave a look at the filenames. We can recognize the names of the webpages we’ve seen above, and they have red arrows marking them in the image below. You’ll see the “quarto-workflows” folder and the rest in this site are .qmd files, which are plain text Quarto files that can combine Markdown text with code. index.qmd is the home page. If you click inside “quarto-workflows” you’ll see a mix of filetypes!\n\n\n\nquarto-website-tutorial GitHub repository with files for webpages marked with red arrows\n\n\nThe _site folder has html files with names that should be familiar: they match the .qmd files we were just exploring. This folder is where Quarto stores files to build the website.",
+    "section": "1: Determine drug concentrations",
+    "text": "1: Determine drug concentrations\nChoose the desired drugs and their corresponding concentrations. Each drug will have 10 doses. As mentioned above, this example will detail how to screen one combination (2 drugs), but this can be adjusted according to experimental needs.\nStart by choosing the maximum desired concentration of each drug. Check out the template below which takes the top chosen max concentration and makes a serial dilution according to the specified dilution factor:\n\n\n\n\n\n\nNote\n\n\n\nYou can customize this yourself by downloading a copy! File ➝ Download\n\n\n\n\nMost of these are pages, but you’ll see that “Quarto Workflows” has an arrow &gt;; it is a folder with additional pages inside.\n\nThe website’s repo\nLet’s go to this website’s GitHub repository (also called a “repo”), https://github.com/openscapes/quarto-website-tutorial. You can also click there from any page in this tutorial website by clicking the GitHub octocat icon underneath the Openscapes logo in the left navbar (click it holding command on Mac, or control on a PC to open it in a different tab in your browser).\nHave a look at the filenames. We can recognize the names of the webpages we’ve seen above, and they have red arrows marking them in the image below. You’ll see the “quarto-workflows” folder and the rest in this site are .qmd files, which are plain text Quarto files that can combine Markdown text with code. index.qmd is the home page. If you click inside “quarto-workflows” you’ll see a mix of filetypes!\n\n\n\nquarto-website-tutorial GitHub repository with files for webpages marked with red arrows\n\n\nThe _site folder has html files with names that should be familiar: they match the .qmd files we were just exploring. This folder is where Quarto stores files to build the website.",
     "crumbs": [
       "Experimental setup",
       "Sparse mode protocol"
@@ -228,17 +228,6 @@
     "title": "Dense mode protocol",
     "section": "5: Measure viability",
     "text": "5: Measure viability\nThe following steps are specific to CellTiter-Glo\n\nEquilibrate plate(s) to room temperature\nAdd 25 µL prepared CTG reagent\n\n\n\n\n\n\n\nImportant\n\n\n\nWhile the manufacturer recommends a 1:1 ratio, Do NOT dispense more than 25 µL of reagent. The total well volume should not exceed 65 µL – otherwise there is a risk of overflow. 😵\n\n\nAdding CTG reagent with a liquid dispenser is helpful here (like with dispensing cells)\n\nCentrifuge plates for ~4 minutes, ~1100 RPM\nIncubate at room temperature for 10 minutes\nRead viability on luminometer\n\n\nCollecting data\n\nCollect the raw luminescent data and save it as a .CSV file.\nThis file should contain only 384-well format (16 rows by 24 columns) data, and nothing else. For example:\n\n\n\n\nIt is recommended to make a copy of your raw data and save a version containing only the required information, which will be used during the analysis.",
-    "crumbs": [
-      "Experimental setup",
-      "Dense mode protocol"
-    ]
-  },
-  {
-    "objectID": "experimental_dense_mode.html#collect-data",
-    "href": "experimental_dense_mode.html#collect-data",
-    "title": "Dense mode protocol",
-    "section": "6: Collect data",
-    "text": "6: Collect data\n\nCollect the raw luminescent data and save it as a .CSV file.\nThis file should contain only 384-well format data (16 rows by 24 columns), and nothing else. For example:",
     "crumbs": [
       "Experimental setup",
       "Dense mode protocol"
@@ -689,17 +678,6 @@
     "text": "Reference\nPlease cite our published work as: [CITATION HERE]",
     "crumbs": [
       "Welcome"
-    ]
-  },
-  {
-    "objectID": "experimental_sparse_mode.html#determine-drug-concentrations",
-    "href": "experimental_sparse_mode.html#determine-drug-concentrations",
-    "title": "Sparse mode protocol",
-    "section": "1: Determine drug concentrations",
-    "text": "1: Determine drug concentrations\nChoose the desired drugs and their corresponding concentrations. Each drug will have 10 doses. As mentioned above, this example will detail how to screen one combination (2 drugs), but this can be adjusted according to experimental needs.\nStart by choosing the maximum desired concentration of each drug. Check out the template below which takes the top chosen max concentration and makes a serial dilution according to the specified dilution factor:\n\n\n\n\n\n\nNote\n\n\n\nYou can customize this yourself by downloading a copy! File ➝ Download\n\n\n\n\nMost of these are pages, but you’ll see that “Quarto Workflows” has an arrow &gt;; it is a folder with additional pages inside.\n\nThe website’s repo\nLet’s go to this website’s GitHub repository (also called a “repo”), https://github.com/openscapes/quarto-website-tutorial. You can also click there from any page in this tutorial website by clicking the GitHub octocat icon underneath the Openscapes logo in the left navbar (click it holding command on Mac, or control on a PC to open it in a different tab in your browser).\nHave a look at the filenames. We can recognize the names of the webpages we’ve seen above, and they have red arrows marking them in the image below. You’ll see the “quarto-workflows” folder and the rest in this site are .qmd files, which are plain text Quarto files that can combine Markdown text with code. index.qmd is the home page. If you click inside “quarto-workflows” you’ll see a mix of filetypes!\n\n\n\nquarto-website-tutorial GitHub repository with files for webpages marked with red arrows\n\n\nThe _site folder has html files with names that should be familiar: they match the .qmd files we were just exploring. This folder is where Quarto stores files to build the website.",
-    "crumbs": [
-      "Experimental setup",
-      "Sparse mode protocol"
     ]
   }
 ]
