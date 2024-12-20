@@ -11,8 +11,8 @@ The documentation here provides information on all steps.
 
 Regardless of your experiment setup, you'll need some materials and access to instruments.
 
-::: {.callout-note}
-This documentation focuses on the luminescence-based [CTG assay](https://www.promega.com/-/media/files/resources/protocols/technical-bulletins/0/celltiter-glo-luminescent-cell-viability-assay-protocol.pdf?rev=30e8ec640fdd4866b207e28c0cbc497c&sc_lang=en). \
+::: callout-note
+This documentation focuses on the luminescence-based [CTG assay](https://www.promega.com/-/media/files/resources/protocols/technical-bulletins/0/celltiter-glo-luminescent-cell-viability-assay-protocol.pdf?rev=30e8ec640fdd4866b207e28c0cbc497c&sc_lang=en).\
 Combocat is generalizable to the readout of your choice (e.g., imaging, fluorescence, etc). Swap out materials accordingly.
 :::
 

@@ -23,9 +23,9 @@ website:
       - icon: github
         href: https://github.com/wcwr/combocat
         text: "Combocat GitHub"
-      - icon: twitter
-        href: https://twitter.com/biowright
-        text: "Twitter"         
+      # - icon: twitter
+      #   href: https://twitter.com/biowright
+      #   text: "Twitter"         
 
     style: "docked"
     search: true

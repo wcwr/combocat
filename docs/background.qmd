@@ -29,7 +29,7 @@ $$
 
 or **43.75% cell death**. So in the scenario above where we observe 75% cell death, **this is synergy** because the observed effect exceeds the expected one ✅
 
-::: {.callout-note}
+::: callout-note
 Combocat uses the Bliss model for its interpretability and robustness, but it's important to be aware that various other models of synergy exist.
 :::
 
@@ -53,7 +53,7 @@ Combocat operates in two complementary modes called dense mode and sparse mode. 
 
 ![](images/dense_v_sparse_schematic.svg){width="650"}
 
-::: {.callout-note}
+::: callout-note
 Dense mode will be the best choice for most new users, while sparse mode is best for advanced users and high-throughput screens.
 :::
 
