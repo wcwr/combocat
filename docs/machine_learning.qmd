@@ -1,5 +1,6 @@
 ---
 title: Machine learning
+from: markdown+emoji <!--# allows emojis #-->
 ---
 
 With this tutorial, we have a working example website that we will explore together. We'll learn a few rules and look for patterns to get an understanding of what things to do to help you start customizing and making it your own. And you can continue to use this website as a reference after the tutorial, along with [Quarto](https://quarto.org) documentation.
