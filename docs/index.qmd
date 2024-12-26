@@ -15,7 +15,10 @@ Combocat is fully open-source!:tada:
 
 In this documentation, you will find steps to complete both **experimental** and **analytical** parts of Combocat experiments. The experimental sections include step-by-step protocols with examples. In the data analysis sections, we provide steps for processing and analyzing results using the `combocat` R package. Browse links in the sidebar to the left to find out information about each step.
 
-:bulb: Tip: use the search function in the side bar to look for specific protocol steps or topics
+::: {.callout-tip}
+## Tip
+Use the search function in the side bar to look for specific protocol steps or topics
+:::
 
 ## Overview
 
