@@ -467,6 +467,8 @@
          id="tspan46255-2-0-6-0-7-3-8-3-8-22-4-8-3-5-5-5-5-3"
          x="116.47955"
          y="78.555405"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.31156">Cell line 3</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.31156">Cell line <tspan
+   style="font-style:italic"
+   id="tspan889">n</tspan></tspan></text>
   </g>
 </svg>
