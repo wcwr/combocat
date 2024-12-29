@@ -335,8 +335,8 @@ Note
 <h3 class="anchored" data-anchor-id="combination-plate-protocol">Combination plate protocol</h3>
 <iframe src="https://docs.google.com/spreadsheets/d/1JpbibGbtwSkyAcwxQv9FhXdSHTt2xDqN6tYHTMq_XBk/edit?usp=sharing" width="100%" height="600px" style="border: none;">
 </iframe>
-<p>Download the EPR file from the <a href="https://github.com/wcwr/combocat/blob/main/Dense_Mode_Echo_Transfer.epr">combocat github</a> and use it to make assay-ready plate:</p>
-<p><img src="images/download_dense_mode_EPR.svg" class="img-fluid"></p>
+<p>Download the <a href="https://github.com/wcwr/combocat/blob/main/Sparse_Mode_SA-Plate_Echo_Transfer.epr">single-agent</a> and <a href="https://github.com/wcwr/combocat/blob/main/Sparse_Mode_Combo-Plate_Echo_Transfer.epr">combination</a> EPR files from the combocat github and use them to make assay-ready plate:</p>
+<p><img src="images/download_sparse_mode_EPRs.svg" class="img-fluid" width="630"></p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -347,18 +347,17 @@ Tip
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>You can modify the spreadsheet and import it into the Echo software to make your own EPR file.</p>
+<p>You can modify these spreadsheets and import them each into the Echo software to make your own EPR files for scaling up the number of combinations.</p>
 </div>
 </div>
-<p>This Echo protocol can be used up to 9 times to make <u>9 assay-ready plate copies</u>.</p>
 </section>
 </section>
 <section id="plate-cells-incubate" class="level2">
 <h2 class="anchored" data-anchor-id="plate-cells-incubate">4: Plate cells &amp; incubate</h2>
 <ul>
-<li><p>Plate <strong>40 µL of cells</strong> into all wells.</p>
+<li><p>Plate <strong>4 µL of cells</strong> into all wells.</p>
 <ul>
-<li>This is much easier with a liquid handler like the <a href="https://www.thermofisher.com/us/en/home/life-science/lab-equipment/microplate-instruments/multidrop-dispensers.html">Multidrop Combi</a> or similar, but can be achieved using multi-channel pipettes as well.</li>
+<li>This can be accomplished with a liquid handler like the <a href="https://www.thermofisher.com/us/en/home/life-science/lab-equipment/microplate-instruments/multidrop-dispensers.html">Multidrop Combi</a> or similar.</li>
 </ul></li>
 <li><p>Incubate cells for desired treatment time</p></li>
 </ul>
@@ -381,7 +380,7 @@ Warning
 <p>The following steps are specific to <a href="https://www.promega.com/resources/protocols/technical-bulletins/0/celltiter-glo-luminescent-cell-viability-assay-protocol/">CellTiter-Glo</a></p>
 <ul>
 <li><p>Equilibrate plate(s) to room temperature</p></li>
-<li><p>Add <strong>25 µL</strong> prepared CTG reagent</p>
+<li><p>Add <strong>2 µL</strong> prepared CTG reagent</p>
 <ul>
 <li><div class="callout callout-style-default callout-important callout-titled">
 <div class="callout-header d-flex align-content-center">
@@ -393,10 +392,9 @@ Important
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>While the manufacturer recommends a 1:1 ratio, Do NOT dispense more than 25 µL of reagent. The total well volume should not exceed 65 µL – otherwise there is a risk of overflow. 😵</p>
+<p>While the manufacturer recommends a 1:1 ratio, Do NOT dispense more than 2 µL of reagent. The total well volume should not exceed 6 µL – otherwise there is a risk of overflow. 😵</p>
 </div>
 </div></li>
-<li>Adding CTG reagent with a liquid dispenser is helpful here (like with dispensing cells)</li>
 </ul></li>
 <li><p>Centrifuge plates for ~4 minutes, ~1100 RPM</p></li>
 <li><p>Incubate at room temperature for 10 minutes</p></li>
@@ -406,12 +404,8 @@ Important
 <h3 class="anchored" data-anchor-id="collecting-data">Collecting data</h3>
 <ul>
 <li><p>Collect the raw luminescent data and save it as a .CSV file.</p></li>
-<li><p>This file should contain only 384-well format (16 rows by 24 columns) data, and <strong>nothing else.</strong> For example:</p></li>
-</ul>
-<iframe src="https://docs.google.com/spreadsheets/d/1ZhFcdMyMRSiZ2fIOgCne0fM4yXRRdTS_elvnXpjxbTQ/edit?usp=sharing" width="100%" height="600px" style="border: none;">
-</iframe>
-<ul>
-<li>It is recommended to make a copy of your raw data and save a version containing only the required information, which will be used during the analysis.</li>
+<li><p>This file should contain only 1536-well format (32 rows by 48 columns) data, and <strong>nothing else</strong> (no headers or row names)</p></li>
+<li><p>It is recommended to make a copy of your raw data and save a version containing only the required information, which will be used during the analysis.</p></li>
 </ul>
 
 

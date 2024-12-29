@@ -82,21 +82,19 @@ Use the stock plate to construct the **assay-ready plates**:
 
 </iframe>
 
-Download the EPR file from the [combocat github](https://github.com/wcwr/combocat/blob/main/Dense_Mode_Echo_Transfer.epr) and use it to make assay-ready plate:
+Download the [single-agent](https://github.com/wcwr/combocat/blob/main/Sparse_Mode_SA-Plate_Echo_Transfer.epr) and [combination](https://github.com/wcwr/combocat/blob/main/Sparse_Mode_Combo-Plate_Echo_Transfer.epr) EPR files from the combocat github and use them to make assay-ready plate:
 
-![](images/download_dense_mode_EPR.svg)
+![](images/download_sparse_mode_EPRs.svg){width="630"}
 
 ::: callout-tip
-You can modify the spreadsheet and import it into the Echo software to make your own EPR file.
+You can modify these spreadsheets and import them each into the Echo software to make your own EPR files for scaling up the number of combinations.
 :::
-
-This Echo protocol can be used up to 9 times to make [9 assay-ready plate copies]{.underline}.
 
 ## 4: Plate cells & incubate
 
--   Plate **40 µL of cells** into all wells.
+-   Plate **4 µL of cells** into all wells.
 
-    -   This is much easier with a liquid handler like the [Multidrop Combi](https://www.thermofisher.com/us/en/home/life-science/lab-equipment/microplate-instruments/multidrop-dispensers.html) or similar, but can be achieved using multi-channel pipettes as well.
+    -   This can be accomplished with a liquid handler like the [Multidrop Combi](https://www.thermofisher.com/us/en/home/life-science/lab-equipment/microplate-instruments/multidrop-dispensers.html) or similar.
 
 -   Incubate cells for desired treatment time
 
@@ -110,13 +108,11 @@ The following steps are specific to [CellTiter-Glo](https://www.promega.com/reso
 
 -   Equilibrate plate(s) to room temperature
 
--   Add **25 µL** prepared CTG reagent
+-   Add **2 µL** prepared CTG reagent
 
     -   ::: callout-important
-        While the manufacturer recommends a 1:1 ratio, Do NOT dispense more than 25 µL of reagent. The total well volume should not exceed 65 µL – otherwise there is a risk of overflow. 😵
+        While the manufacturer recommends a 1:1 ratio, Do NOT dispense more than 2 µL of reagent. The total well volume should not exceed 6 µL – otherwise there is a risk of overflow. 😵
         :::
-
-    -   Adding CTG reagent with a liquid dispenser is helpful here (like with dispensing cells)
 
 -   Centrifuge plates for \~4 minutes, \~1100 RPM
 
@@ -128,10 +124,6 @@ The following steps are specific to [CellTiter-Glo](https://www.promega.com/reso
 
 -   Collect the raw luminescent data and save it as a .CSV file.
 
--   This file should contain only 384-well format (16 rows by 24 columns) data, and **nothing else.** For example:
-
-<iframe src="https://docs.google.com/spreadsheets/d/1ZhFcdMyMRSiZ2fIOgCne0fM4yXRRdTS_elvnXpjxbTQ/edit?usp=sharing" width="100%" height="600px" style="border: none;">
-
-</iframe>
+-   This file should contain only 1536-well format (32 rows by 48 columns) data, and **nothing else** (no headers or row names)
 
 -   It is recommended to make a copy of your raw data and save a version containing only the required information, which will be used during the analysis.

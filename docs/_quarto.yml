@@ -43,7 +43,6 @@ website:
       - href: transition-from-rmarkdown.qmd
       - section: Analysis
         contents:
-          - analysis_landing.qmd
           - analysis_dense_mode.qmd
           - analysis_sparse_mode.qmd
       - href: machine_learning.qmd
