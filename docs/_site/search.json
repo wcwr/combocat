@@ -84,7 +84,7 @@
     "href": "experimental_sparse_mode.html",
     "title": "Sparse mode protocol",
     "section": "",
-    "text": "Adjust accordingly\n\n\n\nThis protocol details an example of 1 drug combination. For more combinations, adjust according to your need.\nSee the Overview section for materials required.",
+    "text": "Adjust accordingly\n\n\n\nThis protocol details an example of 1 combination (2 drugs). Sparse mode can be scaled to screen 135 drugs (9,045 combinations).\nSee the Overview section for materials required.",
     "crumbs": [
       "Experimental setup",
       "Sparse mode protocol"
@@ -95,7 +95,7 @@
     "href": "experimental_sparse_mode.html#determine-drug-concentrations",
     "title": "Sparse mode protocol",
     "section": "1: Determine drug concentrations",
-    "text": "1: Determine drug concentrations\nChoose the desired drugs and their corresponding concentrations. Each drug will have 10 doses. As mentioned above, this example will detail how to screen one combination (2 drugs), but this can be adjusted according to experimental needs.\nStart by choosing the maximum desired concentration of each drug. Check out the template below which takes the top chosen max concentration and makes a serial dilution according to the specified dilution factor:\n\n\n\n\n\n\nNote\n\n\n\nYou can customize this yourself by downloading a copy! File ➝ Download\n\n\n\n\nMost of these are pages, but you’ll see that “Quarto Workflows” has an arrow &gt;; it is a folder with additional pages inside.\n\nThe website’s repo\nLet’s go to this website’s GitHub repository (also called a “repo”), https://github.com/openscapes/quarto-website-tutorial. You can also click there from any page in this tutorial website by clicking the GitHub octocat icon underneath the Openscapes logo in the left navbar (click it holding command on Mac, or control on a PC to open it in a different tab in your browser).\nHave a look at the filenames. We can recognize the names of the webpages we’ve seen above, and they have red arrows marking them in the image below. You’ll see the “quarto-workflows” folder and the rest in this site are .qmd files, which are plain text Quarto files that can combine Markdown text with code. index.qmd is the home page. If you click inside “quarto-workflows” you’ll see a mix of filetypes!\n\n\n\nquarto-website-tutorial GitHub repository with files for webpages marked with red arrows\n\n\nThe _site folder has html files with names that should be familiar: they match the .qmd files we were just exploring. This folder is where Quarto stores files to build the website.",
+    "text": "1: Determine drug concentrations\nChoose the desired drugs and their corresponding concentrations. Each drug will have 10 doses. As mentioned above, this example will detail how to screen 1 combination (2 drugs), but this can be adjusted according to experimental needs.\nStart by choosing the maximum desired concentration of each drug. Check out the template below which takes the top chosen max concentration and makes a serial dilution according to the specified dilution factor:\n\n\n\n\n\n\nNote\n\n\n\nYou can customize this yourself by downloading a copy! File ➝ Download\n\n\n\n\n\nThe dilution factor is set to 1:3 by default (our recommendation), but this may be modified to anything (e.g. 1:2.5).\nCheck out the stock plate map (below the concentration ranges) for details on how this plate will look.\nStocks drugs must be soluble at 400X final desired concentrations.",
     "crumbs": [
       "Experimental setup",
       "Sparse mode protocol"
@@ -678,6 +678,50 @@
     "text": "Reference\nPlease cite our published work as: [CITATION HERE_].",
     "crumbs": [
       "Welcome"
+    ]
+  },
+  {
+    "objectID": "experimental_sparse_mode.html#prepare-the-stock-plate",
+    "href": "experimental_sparse_mode.html#prepare-the-stock-plate",
+    "title": "Sparse mode protocol",
+    "section": "2: Prepare the stock plate",
+    "text": "2: Prepare the stock plate\nMake the stock plate in a 384-well polypropylene (pp) plate that is Echo-compatible according to the following template:\n\n(Use the spreadsheet template from step 1 to see details of how the plate should look).\n\nWe recommend volumes of 50 µL to maximize the number of assay-ready plates that can be made. Stock plates can be frozen until ready to make assay-ready plates.\nDrug 1 in the top row, and Drug 2 in the bottom row\nDMSO is plated in 4 wells to account for the ‘back-filling’ transfer steps\nStaurosporine at a final concentration of (10 µM / 400 =) 25 µM is the cell death control\n\n\n\n\n\n\n\nWarning\n\n\n\nEnsure Staurosporine is an effective cell death control for your cell line before proceeding.",
+    "crumbs": [
+      "Experimental setup",
+      "Sparse mode protocol"
+    ]
+  },
+  {
+    "objectID": "experimental_sparse_mode.html#prepare-assay-ready-plates",
+    "href": "experimental_sparse_mode.html#prepare-assay-ready-plates",
+    "title": "Sparse mode protocol",
+    "section": "3: Prepare assay-ready plates",
+    "text": "3: Prepare assay-ready plates\nUse the stock plate to construct the assay-ready plates:\n\n\nThey’re called “assay-ready” because these plates are ready for cells to be added.\n\n\n\n\n\n\nNote\n\n\n\nUnlike dense mode, sparse mode has separate single-agent and combination plates.\n\n\nOnce plates are made, they can be stored at -80 °C until ready for cells.\nThe Echo requires an .EPR file to perform the transfer, so 2 are needed for sparse mode: one for single-agent (SA) plates and one for combination plates.\nEPR files contain information on the source/destination wells, and volume to transfer.\nThe Combocat sparse mode EPR files for this example look like this:\n\n\nSingle-agent plate protocol\n\n\n\n\nCombination plate protocol\n\n\nDownload the EPR file from the combocat github and use it to make assay-ready plate:\n\n\n\n\n\n\n\nTip\n\n\n\nYou can modify the spreadsheet and import it into the Echo software to make your own EPR file.\n\n\nThis Echo protocol can be used up to 9 times to make 9 assay-ready plate copies.",
+    "crumbs": [
+      "Experimental setup",
+      "Sparse mode protocol"
+    ]
+  },
+  {
+    "objectID": "experimental_sparse_mode.html#plate-cells-incubate",
+    "href": "experimental_sparse_mode.html#plate-cells-incubate",
+    "title": "Sparse mode protocol",
+    "section": "4: Plate cells & incubate",
+    "text": "4: Plate cells & incubate\n\nPlate 40 µL of cells into all wells.\n\nThis is much easier with a liquid handler like the Multidrop Combi or similar, but can be achieved using multi-channel pipettes as well.\n\nIncubate cells for desired treatment time\n\n\n\n\n\n\n\nWarning\n\n\n\nWe recommend 72-hour treatments. After 96-hours, evaporation of media begins to disrupt data quality.",
+    "crumbs": [
+      "Experimental setup",
+      "Sparse mode protocol"
+    ]
+  },
+  {
+    "objectID": "experimental_sparse_mode.html#measure-viability",
+    "href": "experimental_sparse_mode.html#measure-viability",
+    "title": "Sparse mode protocol",
+    "section": "5: Measure viability",
+    "text": "5: Measure viability\nThe following steps are specific to CellTiter-Glo\n\nEquilibrate plate(s) to room temperature\nAdd 25 µL prepared CTG reagent\n\n\n\n\n\n\n\nImportant\n\n\n\nWhile the manufacturer recommends a 1:1 ratio, Do NOT dispense more than 25 µL of reagent. The total well volume should not exceed 65 µL – otherwise there is a risk of overflow. 😵\n\n\nAdding CTG reagent with a liquid dispenser is helpful here (like with dispensing cells)\n\nCentrifuge plates for ~4 minutes, ~1100 RPM\nIncubate at room temperature for 10 minutes\nRead viability on luminometer\n\n\nCollecting data\n\nCollect the raw luminescent data and save it as a .CSV file.\nThis file should contain only 384-well format (16 rows by 24 columns) data, and nothing else. For example:\n\n\n\n\nIt is recommended to make a copy of your raw data and save a version containing only the required information, which will be used during the analysis.",
+    "crumbs": [
+      "Experimental setup",
+      "Sparse mode protocol"
     ]
   }
 ]

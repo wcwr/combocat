@@ -5,14 +5,14 @@ title: Sparse mode protocol
 ::: callout-tip
 ## Adjust accordingly
 
-This protocol details an example of **1 drug combination**. For more combinations, adjust according to your need.
+This protocol details an example of **1 combination** (2 drugs). Sparse mode can be scaled to screen 135 drugs (9,045 combinations).
 :::
 
 See the [Overview](experimental_landing.qmd) section for materials required.
 
 ## 1: Determine drug concentrations
 
-Choose the desired drugs and their corresponding concentrations. Each drug will have 10 doses. As mentioned above, this example will detail how to screen one combination (2 drugs), but this can be adjusted according to experimental needs.
+Choose the desired drugs and their corresponding concentrations. Each drug will have 10 doses. As mentioned above, this example will detail how to screen 1 combination (2 drugs), but this can be adjusted according to experimental needs.
 
 **Start by choosing the maximum desired concentration of each drug**. Check out the template below which takes the top chosen max concentration and makes a serial dilution according to the specified dilution factor:
 
@@ -24,136 +24,114 @@ You can customize this yourself by downloading a copy! File ➝ Download
 
 </iframe>
 
-Most of these are pages, but you'll see that "Quarto Workflows" has an arrow `>`; it is a folder with additional pages inside.
+-   The dilution factor is set to 1:3 by default (our recommendation), but this may be modified to anything (e.g. 1:2.5).
 
-### The website's repo
+-   Check out the stock plate map (below the concentration ranges) for details on how this plate will look.
 
-Let's go to this website's GitHub repository (also called a "repo"), [**https://github.com/openscapes/quarto-website-tutorial**](https://github.com/openscapes/quarto-website-tutorial){.uri}. You can also click there from any page in this tutorial website by clicking the GitHub octocat icon underneath the Openscapes logo in the left navbar (click it holding command on Mac, or control on a PC to open it in a different tab in your browser).
+-   **Stocks drugs must be soluble at 400X final desired concentrations.**
 
-**Have a look at the filenames.** We can recognize the names of the webpages we've seen above, and they have red arrows marking them in the image below. You'll see the "quarto-workflows" folder and the rest in this site are `.qmd` files, which are plain text Quarto files that can combine Markdown text with code. `index.qmd` is the home page. If you click inside "quarto-workflows" you'll see a mix of filetypes!
+## 2: Prepare the stock plate
 
-![quarto-website-tutorial GitHub repository with files for webpages marked with red arrows](images/quarto-files-github.png){fig-alt="Screenshot of files on GitHub with red arrows identifying the files that we saw in the left sidebar" fig-align="center" width="80%"}
+Make the stock plate in a 384-well polypropylene (pp) plate that is [Echo-compatible](https://www.mybeckman.co/supplies/echo-qualified-supplies/acoustic-liquid-handler-microplates/001-14555) according to the following template:
 
-**The `_site` folder** has html files with names that should be familiar: they match the `.qmd` files we were just exploring. This folder is where Quarto stores files to build the website.
+![](images/Dense_mode_stock_plate.svg){width="380"}
 
-## `_quarto.yml` intro
+(Use the spreadsheet template from step 1 to see details of how the plate should look).
 
-There is also a `_quarto.yml` file, which is the website's configuration file. It is essentially metadata for the website that includes the order that the pages/chapters will be in. This is where you update the organization of your website: which page comes before another. If we compare side-by-side, you'll see that the pages that appear on our website are listed there.
+-   We recommend volumes of **50 µL** to maximize the number of assay-ready plates that can be made. Stock plates can be frozen until ready to make assay-ready plates.
 
-![\_quarto.yml and website side-by-side](images/quarto-yml-site-side-by-side3.png){fig-align="center"}
+-   Drug 1 in the top row, and Drug 2 in the bottom row
 
-We'll learn more about how to interact with `_quarto.yml` in [Quarto Workflows](quarto-workflows/index.qmd).
+-   DMSO is plated in 4 wells to account for the 'back-filling' transfer steps
 
-## Fork to your account
+-   Staurosporine at a final concentration of (10 µM / 400 =) 25 µM is the cell death control
 
-Let's start with an existing Quarto site and copy it into your space to edit. You'll need a free GitHub account that you create at [github.com](https://github.com) (follow [this advice](https://happygitwithr.com/github-acct.html) about choosing your username).
+::: callout-warning
+Ensure Staurosporine is an effective cell death control for your cell line before proceeding.
+:::
 
-First, choose an existing website to copy. The simplest option is to start with this site: [quarto-website-tutorial](https://github.com/Openscapes/quarto-website-tutorial).
+## 3: Prepare assay-ready plates
 
-Other options of potential interest:
+Use the stock plate to construct the **assay-ready plates**:
 
--   [2021-Cloud-Hackathon](https://github.com/NASA-Openscapes/2021-Cloud-Hackathon)
--   [2022-SWOT-Ocean-Cloud-Workshop](https://github.com/podaac/2022-SWOT-Ocean-Cloud-Workshop)
--   [Openscapes Approach-Guide](https://github.com/openscapes/approach-guide)
+![](images/sparse_stock_to_assay_ready.svg){width="950"}
 
-Next, follow [these steps to fork and setup your repo with GitHub Actions](https://github.com/thefaylab/lab-manual/wiki/Quick-steps-to-making-a-copy-of-the-lab-manual-&-publishing-it) from Gavin Fay, using the repo you chose. These instructions will take \~5 minutes.
+-   They're called "assay-ready" because these plates are ready for cells to be added.
 
-Now you've got a copy of your repo of choice in your own GitHub account, and you're set to start making your own edits. Your GitHub repo is set up with a GitHub Action that will use Quarto to rebuild and republish your site anytime you make a commit: committing will trigger the GitHub Action to rebuild and republish the book.
+    ::: callout-note
+    Unlike dense mode, sparse mode has separate **single-agent** and **combination plates**.
+    :::
 
-Note that the GitHub Action for this book does not include R or Python so those will need to be added if your website relies on code. See <https://github.com/r-lib/actions> for more details and examples.
+-   Once plates are made, they can be stored at -80 °C until ready for cells.
 
-### Download instead of fork
+-   The Echo requires an **.EPR file** to perform the transfer, so 2 are needed for sparse mode: one for single-agent (SA) plates and one for combination plates.
 
-Forking might not always be the way to go - you can't fork into the same GitHub user account or organization so if for example you want to make a copy of [2021-Cloud-Hackathon](https://github.com/nasa-openscapes/2021-Cloud-Hackathon) repo within the same NASA-Openscapes GitHub Organization, you'll need to download instead of fork. In this case, follow these steps to download and copy into a new repository, and set up the GitHub Action and the gh-pages branch for publishing, separately.
+-   EPR files contain information on the source/destination wells, and volume to transfer.
 
-#### Download github repo files
+-   The Combocat sparse mode EPR files for this example look like this:
 
-Navigate to <https://github.com/openscapes/quarto-website-tutorial> (or any other quarto site repo of choice). Click the green "Code" button and select "Download ZIP". When it downloads on your computer, unzip the files.
+### Single-agent plate protocol
 
-#### Create a new GitHub repo
+<iframe src="https://docs.google.com/spreadsheets/d/1FyJKIz2AwHwPgwdKg5XoPcZRrttrhJqRRH8bGYMzZXg/edit?usp=sharing" width="100%" height="600px" style="border: none;">
 
-Navigate to your GitHub account or organization, and create a new repository, naming it what you'd like. You'll need a free GitHub account that you create at [github.com](https://github.com) (follow [this advice](https://happygitwithr.com/github-acct.html) about choosing your username). When you're logged in, [github.com](https://github.com) will show a green button that says "New" which you'll also see as you navigate to your username's repository page.
+</iframe>
 
-#### Add original site files
+### Combination plate protocol
 
-If you're comfortable cloning the new repository and copying files into it locally before committing and pushing back to GitHub, that is preferable to the GitHub file uploader, which does have limitations with complex repos. The uploader does not allow upload of folders, so some manual work would be required.
+<iframe src="https://docs.google.com/spreadsheets/d/1JpbibGbtwSkyAcwxQv9FhXdSHTt2xDqN6tYHTMq_XBk/edit?usp=sharing" width="100%" height="600px" style="border: none;">
 
-To use the GitHub file uploader, click the button next to the green "Code" button that says "Add file". Add file \> Upload files. Then, on your computer, select all the files in unzipped folder (command-A or control-A), and drag them to the GitHub uploader page. Scroll down to write a commit message, which effectively saves your files when you're working in the browser.
+</iframe>
 
-## Set up GitHub publishing {#setup-github-action}
+Download the EPR file from the [combocat github](https://github.com/wcwr/combocat/blob/main/Dense_Mode_Echo_Transfer.epr) and use it to make assay-ready plate:
 
-If you've used the 'Fork to your account approach' above, your website is all set!
+![](images/download_dense_mode_EPR.svg)
 
-If you've set up your repo by using the 'Download github repo files' approach above, you'll need to set up GitHub publishing separately. We'll do this in a few steps: we'll set up a GitHub Action within your repo, and create a `gh-pages` branch.
+::: callout-tip
+You can modify the spreadsheet and import it into the Echo software to make your own EPR file.
+:::
 
-**First, the GitHub Action**. Go back to your main view of your GitHub repository by clicking on the name of your repository at the top-left (the url in your browser window should say https://github.com/username/repo-name).
+This Echo protocol can be used up to 9 times to make [9 assay-ready plate copies]{.underline}.
 
-Next to the green code button, click Add file \> Create new file. Name it exactly this: `.github/workflows/quarto-publish.yml` . In detail: start by typing the `.` with `github` and when you type the `/` it will give you a new text box to type `workflows` (plural!), then another `/`, and finally, `quarto-publish.yml`.
+## 4: Plate cells & incubate
 
-Now you'll have an empty new file. Paste the following in this empty file - you can click on the top-right of this box to copy all the code inside this code box:
+-   Plate **40 µL of cells** into all wells.
 
-``` yaml
-on:
-  workflow_dispatch:
-  push:
-    branches: main
+    -   This is much easier with a liquid handler like the [Multidrop Combi](https://www.thermofisher.com/us/en/home/life-science/lab-equipment/microplate-instruments/multidrop-dispensers.html) or similar, but can be achieved using multi-channel pipettes as well.
 
-name: Quarto Publish
+-   Incubate cells for desired treatment time
 
-jobs:
-  build-deploy:
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
+::: callout-warning
+We recommend 72-hour treatments. After 96-hours, evaporation of media begins to disrupt data quality.
+:::
 
-      - name: Set up Quarto
-        uses: quarto-dev/quarto-actions/setup@v2
-        with:
-          # To install LaTeX to build PDF book 
-          tinytex: true 
-          # uncomment below and fill to pin a version
-          # version: 0.9.600
-      
-      # add software dependencies here
-      - name: Render and Publish
-        uses: quarto-dev/quarto-actions/publish@v2
-        with:
-          target: gh-pages
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions
-```
+## 5: Measure viability
 
-Commit this to save your new `quarto-publish.yml` file. This is your GitHub Action.
+The following steps are specific to [CellTiter-Glo](https://www.promega.com/resources/protocols/technical-bulletins/0/celltiter-glo-luminescent-cell-viability-assay-protocol/)
 
-**Next, we'll create a new `gh-pages` branch**. Go back to the main view of your GitHub repository. On the far left from the green "Code" button, click the button that says "main". In the pull-down menu, type `gh-pages` - all lowercase, with a hyphen. Click the bold text that says "Create branch: gh-pages from main".
+-   Equilibrate plate(s) to room temperature
 
-Now click on the Settings tab in the top right of your repository. On the left sidebar, click Pages. At the top of Pages under "Source", select `gh-pages` root, and press Save (may already be saved by default).
+-   Add **25 µL** prepared CTG reagent
 
-To view your published website, at your main repository page, on the right side, click the gear-icon, select 'Use your GitHub Pages website'.
+    -   ::: callout-important
+        While the manufacturer recommends a 1:1 ratio, Do NOT dispense more than 25 µL of reagent. The total well volume should not exceed 65 µL – otherwise there is a risk of overflow. 😵
+        :::
 
-![](images/github-source-gh-pages_2023-01-04.png){fig-align="center" width="95%"}
+    -   Adding CTG reagent with a liquid dispenser is helpful here (like with dispensing cells)
 
-## Confirm your website is published {#confirm}
+-   Centrifuge plates for \~4 minutes, \~1100 RPM
 
-To confirm that your website is published, go back to your main repository page. You'll now see an orange dot showing that the GitHub Action is beginning to publish the page.
+-   Incubate at room temperature for 10 minutes
 
-![Our repo with orange dot indicating in-progress GitHub Action build](images/github-action-orange.png){fig-alt="Screenshot of repo with orange dot indicating in-progress GitHub Action build" fig-align="center" width="95%"}
+-   Read viability on luminometer
 
-If you do not see this orange dot, you can re-run the GitHub Action (on the main repo page, click Actions \> select the workflow you want to re-run \> click the 'Re-run all jobs' button.
+### Collecting data
 
-When your orange do becomes a green check, you can go inspect your published site at "https://username.github.io/your-repo). For example: <https://openscapes.github.io/quarto-website-tutorial>.
+-   Collect the raw luminescent data and save it as a .CSV file.
 
-![Our repo with green check indicating successful GitHub Action build](images/github-action-green.png){fig-alt="Screenshot of repo with green check indicating successful GitHub Action build" fig-align="center" width="95%"}
+-   This file should contain only 384-well format (16 rows by 24 columns) data, and **nothing else.** For example:
 
-It can take some time for the site to deploy, so don't worry if you don't see it right away.
+<iframe src="https://docs.google.com/spreadsheets/d/1ZhFcdMyMRSiZ2fIOgCne0fM4yXRRdTS_elvnXpjxbTQ/edit?usp=sharing" width="100%" height="600px" style="border: none;">
 
-## Renaming your repo
+</iframe>
 
-If you'd like to rename your repo, go to Settings and the option to rename is on the top of the main settings page.
-
-## Onward!
-
-Now you are ready to start editing and publishing! The next chapter describes how starting off from the browser, using Markdown.
+-   It is recommended to make a copy of your raw data and save a version containing only the required information, which will be used during the analysis.
