@@ -235,20 +235,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#exploring-online" id="toc-exploring-online" class="nav-link active" data-scroll-target="#exploring-online">Exploring online</a>
-  <ul class="collapse">
-  <li><a href="#the-website-itself" id="toc-the-website-itself" class="nav-link" data-scroll-target="#the-website-itself">The website itself</a></li>
-  <li><a href="#the-websites-repo" id="toc-the-websites-repo" class="nav-link" data-scroll-target="#the-websites-repo">The website’s repo</a></li>
-  </ul></li>
-  <li><a href="#quarto.yml-intro" id="toc-quarto.yml-intro" class="nav-link" data-scroll-target="#quarto.yml-intro"><code>_quarto.yml</code> intro</a></li>
-  <li><a href="#fork-to-your-account" id="toc-fork-to-your-account" class="nav-link" data-scroll-target="#fork-to-your-account">Fork to your account</a>
-  <ul class="collapse">
-  <li><a href="#download-instead-of-fork" id="toc-download-instead-of-fork" class="nav-link" data-scroll-target="#download-instead-of-fork">Download instead of fork</a></li>
-  </ul></li>
-  <li><a href="#setup-github-action" id="toc-setup-github-action" class="nav-link" data-scroll-target="#setup-github-action">Set up GitHub publishing</a></li>
-  <li><a href="#confirm" id="toc-confirm" class="nav-link" data-scroll-target="#confirm">Confirm your website is published</a></li>
-  <li><a href="#renaming-your-repo" id="toc-renaming-your-repo" class="nav-link" data-scroll-target="#renaming-your-repo">Renaming your repo</a></li>
-  <li><a href="#onward" id="toc-onward" class="nav-link" data-scroll-target="#onward">Onward!</a></li>
+  <li><a href="#gather-files" id="toc-gather-files" class="nav-link active" data-scroll-target="#gather-files">Gather files</a></li>
+  <li><a href="#prepare-for-analysis" id="toc-prepare-for-analysis" class="nav-link" data-scroll-target="#prepare-for-analysis">Prepare for analysis</a></li>
+  <li><a href="#quick-start" id="toc-quick-start" class="nav-link" data-scroll-target="#quick-start">Quick start</a></li>
+  <li><a href="#core-functions" id="toc-core-functions" class="nav-link" data-scroll-target="#core-functions">Core functions</a></li>
+  <li><a href="#quality-control-qc" id="toc-quality-control-qc" class="nav-link" data-scroll-target="#quality-control-qc">Quality Control (QC)</a></li>
+  <li><a href="#generating-plots" id="toc-generating-plots" class="nav-link" data-scroll-target="#generating-plots">Generating plots</a></li>
+  <li><a href="#generating-the-reports" id="toc-generating-the-reports" class="nav-link" data-scroll-target="#generating-the-reports">Generating the reports</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/wcwr/combocat/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -274,149 +267,124 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
-<section id="exploring-online" class="level2">
-<h2 class="anchored" data-anchor-id="exploring-online">Exploring online</h2>
-<section id="the-website-itself" class="level3">
-<h3 class="anchored" data-anchor-id="the-website-itself">The website itself</h3>
-<p><a href="https://openscapes.github.io/quarto-website-tutorial/">This website</a> has 5 things you can see on the left sidebar:</p>
+<p>Let’s analyze data from a dense mode experiment.</p>
+<section id="gather-files" class="level2">
+<h2 class="anchored" data-anchor-id="gather-files">Gather files</h2>
+<p>Gather the required metadata file and raw file(s), we recommend putting them into separate folders for simplicity:</p>
 <ul>
-<li>Welcome</li>
-<li>Exploring and setup</li>
-<li>Quarto workflows</li>
-<li>Learning more</li>
-<li>Transition from Rmd</li>
-</ul>
-<p>Most of these are pages, but you’ll see that “Quarto Workflows” has an arrow <code>&gt;</code>; it is a folder with additional pages inside.</p>
-</section>
-<section id="the-websites-repo" class="level3">
-<h3 class="anchored" data-anchor-id="the-websites-repo">The website’s repo</h3>
-<p>Let’s go to this website’s GitHub repository (also called a “repo”), <a href="https://github.com/openscapes/quarto-website-tutorial" class="uri"><strong>https://github.com/openscapes/quarto-website-tutorial</strong></a>. You can also click there from any page in this tutorial website by clicking the GitHub octocat icon underneath the Openscapes logo in the left navbar (click it holding command on Mac, or control on a PC to open it in a different tab in your browser).</p>
-<p><strong>Have a look at the filenames.</strong> We can recognize the names of the webpages we’ve seen above, and they have red arrows marking them in the image below. You’ll see the “quarto-workflows” folder and the rest in this site are <code>.qmd</code> files, which are plain text Quarto files that can combine Markdown text with code. <code>index.qmd</code> is the home page. If you click inside “quarto-workflows” you’ll see a mix of filetypes!</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/quarto-files-github.png" class="img-fluid figure-img" style="width:80.0%" alt="Screenshot of files on GitHub with red arrows identifying the files that we saw in the left sidebar"></p>
-<figcaption>quarto-website-tutorial GitHub repository with files for webpages marked with red arrows</figcaption>
-</figure>
-</div>
-<p><strong>The <code>_site</code> folder</strong> has html files with names that should be familiar: they match the <code>.qmd</code> files we were just exploring. This folder is where Quarto stores files to build the website.</p>
-</section>
-</section>
-<section id="quarto.yml-intro" class="level2">
-<h2 class="anchored" data-anchor-id="quarto.yml-intro"><code>_quarto.yml</code> intro</h2>
-<p>There is also a <code>_quarto.yml</code> file, which is the website’s configuration file. It is essentially metadata for the website that includes the order that the pages/chapters will be in. This is where you update the organization of your website: which page comes before another. If we compare side-by-side, you’ll see that the pages that appear on our website are listed there.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/quarto-yml-site-side-by-side3.png" class="img-fluid figure-img"></p>
-<figcaption><code>_quarto.yml</code> and website side-by-side</figcaption>
-</figure>
-</div>
-<p>We’ll learn more about how to interact with <code>_quarto.yml</code> in <a href="quarto-workflows/index.qmd">Quarto Workflows</a>.</p>
-</section>
-<section id="fork-to-your-account" class="level2">
-<h2 class="anchored" data-anchor-id="fork-to-your-account">Fork to your account</h2>
-<p>Let’s start with an existing Quarto site and copy it into your space to edit. You’ll need a free GitHub account that you create at <a href="https://github.com">github.com</a> (follow <a href="https://happygitwithr.com/github-acct.html">this advice</a> about choosing your username).</p>
-<p>First, choose an existing website to copy. The simplest option is to start with this site: <a href="https://github.com/Openscapes/quarto-website-tutorial">quarto-website-tutorial</a>.</p>
-<p>Other options of potential interest:</p>
+<li><p>meta 📂</p>
 <ul>
-<li><a href="https://github.com/NASA-Openscapes/2021-Cloud-Hackathon">2021-Cloud-Hackathon</a></li>
-<li><a href="https://github.com/podaac/2022-SWOT-Ocean-Cloud-Workshop">2022-SWOT-Ocean-Cloud-Workshop</a></li>
-<li><a href="https://github.com/openscapes/approach-guide">Openscapes Approach-Guide</a></li>
+<li><p>Contains the single metadata .csv file</p></li>
+<li><p>Try using the example from the <a href="./analysis_landing.html#metadata">analysis overview</a> page</p></li>
+</ul></li>
+<li><p>raw 📂</p>
+<ul>
+<li><p>Contains the raw file(s) in 384-well format (and nothing else)</p></li>
+<li><p>Try using the example from the <a href="./experimental_dense_mode.html#collecting-data">dense mode protocol</a></p></li>
+</ul></li>
 </ul>
-<p>Next, follow <a href="https://github.com/thefaylab/lab-manual/wiki/Quick-steps-to-making-a-copy-of-the-lab-manual-&amp;-publishing-it">these steps to fork and setup your repo with GitHub Actions</a> from Gavin Fay, using the repo you chose. These instructions will take ~5 minutes.</p>
-<p>Now you’ve got a copy of your repo of choice in your own GitHub account, and you’re set to start making your own edits. Your GitHub repo is set up with a GitHub Action that will use Quarto to rebuild and republish your site anytime you make a commit: committing will trigger the GitHub Action to rebuild and republish the book.</p>
-<p>Note that the GitHub Action for this book does not include R or Python so those will need to be added if your website relies on code. See <a href="https://github.com/r-lib/actions" class="uri">https://github.com/r-lib/actions</a> for more details and examples.</p>
-<section id="download-instead-of-fork" class="level3">
-<h3 class="anchored" data-anchor-id="download-instead-of-fork">Download instead of fork</h3>
-<p>Forking might not always be the way to go - you can’t fork into the same GitHub user account or organization so if for example you want to make a copy of <a href="https://github.com/nasa-openscapes/2021-Cloud-Hackathon">2021-Cloud-Hackathon</a> repo within the same NASA-Openscapes GitHub Organization, you’ll need to download instead of fork. In this case, follow these steps to download and copy into a new repository, and set up the GitHub Action and the gh-pages branch for publishing, separately.</p>
-<section id="download-github-repo-files" class="level4">
-<h4 class="anchored" data-anchor-id="download-github-repo-files">Download github repo files</h4>
-<p>Navigate to <a href="https://github.com/openscapes/quarto-website-tutorial" class="uri">https://github.com/openscapes/quarto-website-tutorial</a> (or any other quarto site repo of choice). Click the green “Code” button and select “Download ZIP”. When it downloads on your computer, unzip the files.</p>
-</section>
-<section id="create-a-new-github-repo" class="level4">
-<h4 class="anchored" data-anchor-id="create-a-new-github-repo">Create a new GitHub repo</h4>
-<p>Navigate to your GitHub account or organization, and create a new repository, naming it what you’d like. You’ll need a free GitHub account that you create at <a href="https://github.com">github.com</a> (follow <a href="https://happygitwithr.com/github-acct.html">this advice</a> about choosing your username). When you’re logged in, <a href="https://github.com">github.com</a> will show a green button that says “New” which you’ll also see as you navigate to your username’s repository page.</p>
-</section>
-<section id="add-original-site-files" class="level4">
-<h4 class="anchored" data-anchor-id="add-original-site-files">Add original site files</h4>
-<p>If you’re comfortable cloning the new repository and copying files into it locally before committing and pushing back to GitHub, that is preferable to the GitHub file uploader, which does have limitations with complex repos. The uploader does not allow upload of folders, so some manual work would be required.</p>
-<p>To use the GitHub file uploader, click the button next to the green “Code” button that says “Add file”. Add file &gt; Upload files. Then, on your computer, select all the files in unzipped folder (command-A or control-A), and drag them to the GitHub uploader page. Scroll down to write a commit message, which effectively saves your files when you’re working in the browser.</p>
-</section>
-</section>
-</section>
-<section id="setup-github-action" class="level2">
-<h2 class="anchored" data-anchor-id="setup-github-action">Set up GitHub publishing</h2>
-<p>If you’ve used the ‘Fork to your account approach’ above, your website is all set!</p>
-<p>If you’ve set up your repo by using the ‘Download github repo files’ approach above, you’ll need to set up GitHub publishing separately. We’ll do this in a few steps: we’ll set up a GitHub Action within your repo, and create a <code>gh-pages</code> branch.</p>
-<p><strong>First, the GitHub Action</strong>. Go back to your main view of your GitHub repository by clicking on the name of your repository at the top-left (the url in your browser window should say https://github.com/username/repo-name).</p>
-<p>Next to the green code button, click Add file &gt; Create new file. Name it exactly this: <code>.github/workflows/quarto-publish.yml</code> . In detail: start by typing the <code>.</code> with <code>github</code> and when you type the <code>/</code> it will give you a new text box to type <code>workflows</code> (plural!), then another <code>/</code>, and finally, <code>quarto-publish.yml</code>.</p>
-<p>Now you’ll have an empty new file. Paste the following in this empty file - you can click on the top-right of this box to copy all the code inside this code box:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode yaml code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">on</span><span class="kw">:</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">workflow_dispatch</span><span class="kw">:</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">push</span><span class="kw">:</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">branches</span><span class="kw">:</span><span class="at"> main</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="fu">name</span><span class="kw">:</span><span class="at"> Quarto Publish</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">jobs</span><span class="kw">:</span></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">build-deploy</span><span class="kw">:</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">runs-on</span><span class="kw">:</span><span class="at"> ubuntu-latest</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">permissions</span><span class="kw">:</span></span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="fu">contents</span><span class="kw">:</span><span class="at"> write</span></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">steps</span><span class="kw">:</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Check out repository</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> actions/checkout@v4</span></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Set up Quarto</span></span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> quarto-dev/quarto-actions/setup@v2</span></span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a><span class="co">          # To install LaTeX to build PDF book </span></span>
-<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">tinytex</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="at"> </span></span>
-<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a><span class="co">          # uncomment below and fill to pin a version</span></span>
-<span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a><span class="co">          # version: 0.9.600</span></span>
-<span id="cb1-24"><a href="#cb1-24" aria-hidden="true" tabindex="-1"></a><span class="at">      </span></span>
-<span id="cb1-25"><a href="#cb1-25" aria-hidden="true" tabindex="-1"></a><span class="co">      # add software dependencies here</span></span>
-<span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a><span class="at">      </span><span class="kw">-</span><span class="at"> </span><span class="fu">name</span><span class="kw">:</span><span class="at"> Render and Publish</span></span>
-<span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">uses</span><span class="kw">:</span><span class="at"> quarto-dev/quarto-actions/publish@v2</span></span>
-<span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">with</span><span class="kw">:</span></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">target</span><span class="kw">:</span><span class="at"> gh-pages</span></span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a><span class="at">        </span><span class="fu">env</span><span class="kw">:</span></span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a><span class="at">          </span><span class="fu">GITHUB_TOKEN</span><span class="kw">:</span><span class="at"> ${{ secrets.GITHUB_TOKEN }}</span><span class="co"> # this secret is always available for github actions</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Commit this to save your new <code>quarto-publish.yml</code> file. This is your GitHub Action.</p>
-<p><strong>Next, we’ll create a new <code>gh-pages</code> branch</strong>. Go back to the main view of your GitHub repository. On the far left from the green “Code” button, click the button that says “main”. In the pull-down menu, type <code>gh-pages</code> - all lowercase, with a hyphen. Click the bold text that says “Create branch: gh-pages from main”.</p>
-<p>Now click on the Settings tab in the top right of your repository. On the left sidebar, click Pages. At the top of Pages under “Source”, select <code>gh-pages</code> root, and press Save (may already be saved by default).</p>
-<p>To view your published website, at your main repository page, on the right side, click the gear-icon, select ‘Use your GitHub Pages website’.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/github-source-gh-pages_2023-01-04.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:95.0%"></p>
-</figure>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Nothing else should be in these folders at the start of analysis.</p>
+</div>
 </div>
 </section>
-<section id="confirm" class="level2">
-<h2 class="anchored" data-anchor-id="confirm">Confirm your website is published</h2>
-<p>To confirm that your website is published, go back to your main repository page. You’ll now see an orange dot showing that the GitHub Action is beginning to publish the page.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/github-action-orange.png" class="img-fluid figure-img" style="width:95.0%" alt="Screenshot of repo with orange dot indicating in-progress GitHub Action build"></p>
-<figcaption>Our repo with orange dot indicating in-progress GitHub Action build</figcaption>
-</figure>
-</div>
-<p>If you do not see this orange dot, you can re-run the GitHub Action (on the main repo page, click Actions &gt; select the workflow you want to re-run &gt; click the ‘Re-run all jobs’ button.</p>
-<p>When your orange do becomes a green check, you can go inspect your published site at “https://username.github.io/your-repo). For example: <a href="https://openscapes.github.io/quarto-website-tutorial" class="uri">https://openscapes.github.io/quarto-website-tutorial</a>.</p>
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/github-action-green.png" class="img-fluid figure-img" style="width:95.0%" alt="Screenshot of repo with green check indicating successful GitHub Action build"></p>
-<figcaption>Our repo with green check indicating successful GitHub Action build</figcaption>
-</figure>
-</div>
-<p>It can take some time for the site to deploy, so don’t worry if you don’t see it right away.</p>
+<section id="prepare-for-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="prepare-for-analysis">Prepare for analysis</h2>
+<p>The best way to proceed is to use an IDE like <a href="https://posit.co/download/rstudio-desktop/">RStudio</a>. We need to:</p>
+<ul>
+<li><p>Load the <code>combocat</code> package (see the <a href="./analysis_landing.html">analysis overview</a> page for installation)</p></li>
+<li><p>Read in the metadata file</p></li>
+<li><p>Set the working directory to the <code>raw</code> folder</p></li>
+</ul>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Load library</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(combocat)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Read in the metadata file using Import Dataset➝From text (readr) or</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>meta_dense <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">".../meta_dense.csv"</span>)</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Set working directory using Session➝Set Working Directory or</span></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="fu">setwd</span>(<span class="st">".../raw"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section>
-<section id="renaming-your-repo" class="level2">
-<h2 class="anchored" data-anchor-id="renaming-your-repo">Renaming your repo</h2>
-<p>If you’d like to rename your repo, go to Settings and the option to rename is on the top of the main settings page.</p>
+<section id="quick-start" class="level2">
+<h2 class="anchored" data-anchor-id="quick-start">Quick start</h2>
+<p><img src="images/functions_schematic.svg" class="img-fluid" width="900"></p>
+<p>The entire workflow of analysis, plotting, and reporting can be run in this <strong>single block</strong>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>normData <span class="ot">&lt;-</span>    </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_map</span>(meta_dense, <span class="fu">getwd</span>()) <span class="sc">%&gt;%</span>   </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_norm</span>(.) <span class="sc">%&gt;%</span>   </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_getSyn</span>(.)  </span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>drData <span class="ot">&lt;-</span>    </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_getDR</span>(normData)  </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>normData <span class="ot">&lt;-</span>    </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_getQC</span>(normData, drData)  </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="fu">cc_report</span>(normData,   </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>          drData,   </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>          <span class="at">cd_plots    =</span> <span class="fu">cc_plotMat</span>(normData, <span class="st">"perc_cell_death"</span>, <span class="at">color_midpoint =</span> <span class="dv">50</span>),  </span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">syn_plots   =</span> <span class="fu">cc_plotMat</span>(normData, <span class="st">"bliss_synergy"</span>,   <span class="at">color_midpoint =</span> <span class="dv">20</span>),</span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">extra_plots =</span> <span class="fu">cc_plotExtras</span>(normData, <span class="at">color_midpoint=</span><span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Below, the process is broken down into more detail:</p>
 </section>
-<section id="onward" class="level2">
-<h2 class="anchored" data-anchor-id="onward">Onward!</h2>
-<p>Now you are ready to start editing and publishing! The next chapter describes how starting off from the browser, using Markdown.</p>
+<section id="core-functions" class="level2">
+<h2 class="anchored" data-anchor-id="core-functions">Core functions</h2>
+<p>These are the functions that handle mapping, normalization, synergy quantification, and fitting DR curves:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>mappedData <span class="ot">&lt;-</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_map</span>(meta_dense, <span class="fu">getwd</span>()) <span class="co">#Map</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>normData <span class="ot">&lt;-</span>                             </span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_norm</span>(mappedData) <span class="sc">%&gt;%</span>     <span class="co">#Normalize</span></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_getSyn</span>(.)                <span class="co">#Calculate synergy</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>drData <span class="ot">&lt;-</span> </span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_getDR</span>(normData)          <span class="co">#Fit dose-response models</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="quality-control-qc" class="level2">
+<h2 class="anchored" data-anchor-id="quality-control-qc">Quality Control (QC)</h2>
+<p>See the <a href="./advanced.html">Advanced topics</a> section for details of what the QC does and why it is important</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>normData <span class="ot">&lt;-</span> <span class="fu">cc_getQC</span>(normData, drData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="generating-plots" class="level2">
+<h2 class="anchored" data-anchor-id="generating-plots">Generating plots</h2>
+<p>Now we plot the cell death and synergy matrices, plus the accessory plots (like bar plots of the maximum synergy per combo)</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot cell death matrices</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>cdPlots <span class="ot">&lt;-</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_plotMat</span>(normData,</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">plotting_variable =</span> <span class="st">"perc_cell_death"</span>,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">color_midpoint =</span> <span class="dv">50</span>)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>                      </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">#Plot synergy matrices</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>synPlots <span class="ot">&lt;-</span> </span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_plotMat</span>(normData,</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>             <span class="at">plotting_variable =</span> <span class="st">"bliss_synergy"</span>,</span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a>             <span class="at">color_midpoint =</span> <span class="dv">20</span>)</span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>                       </span>
+<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">#Accessory plots</span></span>
+<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>extraPlots <span class="ot">&lt;-</span> </span>
+<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_plotExtras</span>(normData)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="generating-the-reports" class="level2">
+<h2 class="anchored" data-anchor-id="generating-the-reports">Generating the reports</h2>
+<p>Finally, <code>cc_report</code> will save all the plots, and generate detailed reports of cell death, synergy, IC50 values, and much more.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cc_report</span>(normData,</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>          drData,</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>          cdPlots,</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>          synPlots,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>          extraPlots,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>          <span class="at">save_summary_files =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>          <span class="at">save_summary_plots =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>For example:</p>
+<p><img src="images/summary_plotsCHP134_Rucaparib_AZD1390.csv.svg" class="img-fluid"></p>
 
 
 </section>
@@ -861,7 +829,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       &nbsp;
     <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/wcwr/combocat/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
-<p>:star: This doc’s code is on <a href="https://github.com/wcwr/combocat/tree/main/docs">GitHub</a>.</p>
+<p><span class="emoji" data-emoji="star">⭐</span> This doc’s code is on <a href="https://github.com/wcwr/combocat/tree/main/docs">GitHub</a>.</p>
 </div>
   </div>
 </footer>

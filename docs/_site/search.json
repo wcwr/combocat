@@ -142,176 +142,88 @@
     ]
   },
   {
-    "objectID": "analysis_sparse_mode.html",
-    "href": "analysis_sparse_mode.html",
-    "title": "Sparse mode analysis",
-    "section": "",
-    "text": "With this tutorial, we have a working example website that we will explore together. We’ll learn a few rules and look for patterns to get an understanding of what things to do to help you start customizing and making it your own. And you can continue to use this website as a reference after the tutorial, along with Quarto documentation.\nWe’ll start our exploration online looking at the website architecture and GitHub repository. Then we’ll setup a copy for ourselves so that we can modify from a working example, which is a great way to learn something new. We’ll set it up so that any modifications (commits) will automatically be republished via GitHub Actions. Subsequent chapters will describe how to modify your repo using different tools (browser, RStudio, Jupyter).",
-    "crumbs": [
-      "Analysis",
-      "Sparse mode analysis"
-    ]
-  },
-  {
-    "objectID": "analysis_sparse_mode.html#exploring-online",
-    "href": "analysis_sparse_mode.html#exploring-online",
-    "title": "Sparse mode analysis",
-    "section": "Exploring online",
-    "text": "Exploring online\n\nThe website itself\nThis website has 5 things you can see on the left sidebar:\n\nWelcome\nExploring and setup\nQuarto workflows\nLearning more\nTransition from Rmd\n\nMost of these are pages, but you’ll see that “Quarto Workflows” has an arrow &gt;; it is a folder with additional pages inside.\n\n\nThe website’s repo\nLet’s go to this website’s GitHub repository (also called a “repo”), https://github.com/openscapes/quarto-website-tutorial. You can also click there from any page in this tutorial website by clicking the GitHub octocat icon underneath the Openscapes logo in the left navbar (click it holding command on Mac, or control on a PC to open it in a different tab in your browser).\nHave a look at the filenames. We can recognize the names of the webpages we’ve seen above, and they have red arrows marking them in the image below. You’ll see the “quarto-workflows” folder and the rest in this site are .qmd files, which are plain text Quarto files that can combine Markdown text with code. index.qmd is the home page. If you click inside “quarto-workflows” you’ll see a mix of filetypes!\n\n\n\nquarto-website-tutorial GitHub repository with files for webpages marked with red arrows\n\n\nThe _site folder has html files with names that should be familiar: they match the .qmd files we were just exploring. This folder is where Quarto stores files to build the website.",
-    "crumbs": [
-      "Analysis",
-      "Sparse mode analysis"
-    ]
-  },
-  {
-    "objectID": "analysis_sparse_mode.html#quarto.yml-intro",
-    "href": "analysis_sparse_mode.html#quarto.yml-intro",
-    "title": "Sparse mode analysis",
-    "section": "_quarto.yml intro",
-    "text": "_quarto.yml intro\nThere is also a _quarto.yml file, which is the website’s configuration file. It is essentially metadata for the website that includes the order that the pages/chapters will be in. This is where you update the organization of your website: which page comes before another. If we compare side-by-side, you’ll see that the pages that appear on our website are listed there.\n\n\n\n_quarto.yml and website side-by-side\n\n\nWe’ll learn more about how to interact with _quarto.yml in Quarto Workflows.",
-    "crumbs": [
-      "Analysis",
-      "Sparse mode analysis"
-    ]
-  },
-  {
-    "objectID": "analysis_sparse_mode.html#fork-to-your-account",
-    "href": "analysis_sparse_mode.html#fork-to-your-account",
-    "title": "Sparse mode analysis",
-    "section": "Fork to your account",
-    "text": "Fork to your account\nLet’s start with an existing Quarto site and copy it into your space to edit. You’ll need a free GitHub account that you create at github.com (follow this advice about choosing your username).\nFirst, choose an existing website to copy. The simplest option is to start with this site: quarto-website-tutorial.\nOther options of potential interest:\n\n2021-Cloud-Hackathon\n2022-SWOT-Ocean-Cloud-Workshop\nOpenscapes Approach-Guide\n\nNext, follow these steps to fork and setup your repo with GitHub Actions from Gavin Fay, using the repo you chose. These instructions will take ~5 minutes.\nNow you’ve got a copy of your repo of choice in your own GitHub account, and you’re set to start making your own edits. Your GitHub repo is set up with a GitHub Action that will use Quarto to rebuild and republish your site anytime you make a commit: committing will trigger the GitHub Action to rebuild and republish the book.\nNote that the GitHub Action for this book does not include R or Python so those will need to be added if your website relies on code. See https://github.com/r-lib/actions for more details and examples.\n\nDownload instead of fork\nForking might not always be the way to go - you can’t fork into the same GitHub user account or organization so if for example you want to make a copy of 2021-Cloud-Hackathon repo within the same NASA-Openscapes GitHub Organization, you’ll need to download instead of fork. In this case, follow these steps to download and copy into a new repository, and set up the GitHub Action and the gh-pages branch for publishing, separately.\n\nDownload github repo files\nNavigate to https://github.com/openscapes/quarto-website-tutorial (or any other quarto site repo of choice). Click the green “Code” button and select “Download ZIP”. When it downloads on your computer, unzip the files.\n\n\nCreate a new GitHub repo\nNavigate to your GitHub account or organization, and create a new repository, naming it what you’d like. You’ll need a free GitHub account that you create at github.com (follow this advice about choosing your username). When you’re logged in, github.com will show a green button that says “New” which you’ll also see as you navigate to your username’s repository page.\n\n\nAdd original site files\nIf you’re comfortable cloning the new repository and copying files into it locally before committing and pushing back to GitHub, that is preferable to the GitHub file uploader, which does have limitations with complex repos. The uploader does not allow upload of folders, so some manual work would be required.\nTo use the GitHub file uploader, click the button next to the green “Code” button that says “Add file”. Add file &gt; Upload files. Then, on your computer, select all the files in unzipped folder (command-A or control-A), and drag them to the GitHub uploader page. Scroll down to write a commit message, which effectively saves your files when you’re working in the browser.",
-    "crumbs": [
-      "Analysis",
-      "Sparse mode analysis"
-    ]
-  },
-  {
-    "objectID": "analysis_sparse_mode.html#setup-github-action",
-    "href": "analysis_sparse_mode.html#setup-github-action",
-    "title": "Sparse mode analysis",
-    "section": "Set up GitHub publishing",
-    "text": "Set up GitHub publishing\nIf you’ve used the ‘Fork to your account approach’ above, your website is all set!\nIf you’ve set up your repo by using the ‘Download github repo files’ approach above, you’ll need to set up GitHub publishing separately. We’ll do this in a few steps: we’ll set up a GitHub Action within your repo, and create a gh-pages branch.\nFirst, the GitHub Action. Go back to your main view of your GitHub repository by clicking on the name of your repository at the top-left (the url in your browser window should say https://github.com/username/repo-name).\nNext to the green code button, click Add file &gt; Create new file. Name it exactly this: .github/workflows/quarto-publish.yml . In detail: start by typing the . with github and when you type the / it will give you a new text box to type workflows (plural!), then another /, and finally, quarto-publish.yml.\nNow you’ll have an empty new file. Paste the following in this empty file - you can click on the top-right of this box to copy all the code inside this code box:\non:\n  workflow_dispatch:\n  push:\n    branches: main\n\nname: Quarto Publish\n\njobs:\n  build-deploy:\n    runs-on: ubuntu-latest\n    permissions:\n      contents: write\n    steps:\n      - name: Check out repository\n        uses: actions/checkout@v4\n\n      - name: Set up Quarto\n        uses: quarto-dev/quarto-actions/setup@v2\n        with:\n          # To install LaTeX to build PDF book \n          tinytex: true \n          # uncomment below and fill to pin a version\n          # version: 0.9.600\n      \n      # add software dependencies here\n      - name: Render and Publish\n        uses: quarto-dev/quarto-actions/publish@v2\n        with:\n          target: gh-pages\n        env:\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions\nCommit this to save your new quarto-publish.yml file. This is your GitHub Action.\nNext, we’ll create a new gh-pages branch. Go back to the main view of your GitHub repository. On the far left from the green “Code” button, click the button that says “main”. In the pull-down menu, type gh-pages - all lowercase, with a hyphen. Click the bold text that says “Create branch: gh-pages from main”.\nNow click on the Settings tab in the top right of your repository. On the left sidebar, click Pages. At the top of Pages under “Source”, select gh-pages root, and press Save (may already be saved by default).\nTo view your published website, at your main repository page, on the right side, click the gear-icon, select ‘Use your GitHub Pages website’.",
-    "crumbs": [
-      "Analysis",
-      "Sparse mode analysis"
-    ]
-  },
-  {
-    "objectID": "analysis_sparse_mode.html#confirm",
-    "href": "analysis_sparse_mode.html#confirm",
-    "title": "Sparse mode analysis",
-    "section": "Confirm your website is published",
-    "text": "Confirm your website is published\nTo confirm that your website is published, go back to your main repository page. You’ll now see an orange dot showing that the GitHub Action is beginning to publish the page.\n\n\n\nOur repo with orange dot indicating in-progress GitHub Action build\n\n\nIf you do not see this orange dot, you can re-run the GitHub Action (on the main repo page, click Actions &gt; select the workflow you want to re-run &gt; click the ‘Re-run all jobs’ button.\nWhen your orange do becomes a green check, you can go inspect your published site at “https://username.github.io/your-repo). For example: https://openscapes.github.io/quarto-website-tutorial.\n\n\n\nOur repo with green check indicating successful GitHub Action build\n\n\nIt can take some time for the site to deploy, so don’t worry if you don’t see it right away.",
-    "crumbs": [
-      "Analysis",
-      "Sparse mode analysis"
-    ]
-  },
-  {
-    "objectID": "analysis_sparse_mode.html#renaming-your-repo",
-    "href": "analysis_sparse_mode.html#renaming-your-repo",
-    "title": "Sparse mode analysis",
-    "section": "Renaming your repo",
-    "text": "Renaming your repo\nIf you’d like to rename your repo, go to Settings and the option to rename is on the top of the main settings page.",
-    "crumbs": [
-      "Analysis",
-      "Sparse mode analysis"
-    ]
-  },
-  {
-    "objectID": "analysis_sparse_mode.html#onward",
-    "href": "analysis_sparse_mode.html#onward",
-    "title": "Sparse mode analysis",
-    "section": "Onward!",
-    "text": "Onward!\nNow you are ready to start editing and publishing! The next chapter describes how starting off from the browser, using Markdown.",
-    "crumbs": [
-      "Analysis",
-      "Sparse mode analysis"
-    ]
-  },
-  {
     "objectID": "analysis_dense_mode.html",
     "href": "analysis_dense_mode.html",
     "title": "Dense mode analysis",
     "section": "",
-    "text": "This website has 5 things you can see on the left sidebar:\n\nWelcome\nExploring and setup\nQuarto workflows\nLearning more\nTransition from Rmd\n\nMost of these are pages, but you’ll see that “Quarto Workflows” has an arrow &gt;; it is a folder with additional pages inside.\n\n\n\nLet’s go to this website’s GitHub repository (also called a “repo”), https://github.com/openscapes/quarto-website-tutorial. You can also click there from any page in this tutorial website by clicking the GitHub octocat icon underneath the Openscapes logo in the left navbar (click it holding command on Mac, or control on a PC to open it in a different tab in your browser).\nHave a look at the filenames. We can recognize the names of the webpages we’ve seen above, and they have red arrows marking them in the image below. You’ll see the “quarto-workflows” folder and the rest in this site are .qmd files, which are plain text Quarto files that can combine Markdown text with code. index.qmd is the home page. If you click inside “quarto-workflows” you’ll see a mix of filetypes!\n\n\n\nquarto-website-tutorial GitHub repository with files for webpages marked with red arrows\n\n\nThe _site folder has html files with names that should be familiar: they match the .qmd files we were just exploring. This folder is where Quarto stores files to build the website.",
+    "text": "Let’s analyze data from a dense mode experiment.",
     "crumbs": [
       "Analysis",
       "Dense mode analysis"
     ]
   },
   {
-    "objectID": "analysis_dense_mode.html#exploring-online",
-    "href": "analysis_dense_mode.html#exploring-online",
+    "objectID": "analysis_dense_mode.html#gather-files",
+    "href": "analysis_dense_mode.html#gather-files",
     "title": "Dense mode analysis",
-    "section": "",
-    "text": "This website has 5 things you can see on the left sidebar:\n\nWelcome\nExploring and setup\nQuarto workflows\nLearning more\nTransition from Rmd\n\nMost of these are pages, but you’ll see that “Quarto Workflows” has an arrow &gt;; it is a folder with additional pages inside.\n\n\n\nLet’s go to this website’s GitHub repository (also called a “repo”), https://github.com/openscapes/quarto-website-tutorial. You can also click there from any page in this tutorial website by clicking the GitHub octocat icon underneath the Openscapes logo in the left navbar (click it holding command on Mac, or control on a PC to open it in a different tab in your browser).\nHave a look at the filenames. We can recognize the names of the webpages we’ve seen above, and they have red arrows marking them in the image below. You’ll see the “quarto-workflows” folder and the rest in this site are .qmd files, which are plain text Quarto files that can combine Markdown text with code. index.qmd is the home page. If you click inside “quarto-workflows” you’ll see a mix of filetypes!\n\n\n\nquarto-website-tutorial GitHub repository with files for webpages marked with red arrows\n\n\nThe _site folder has html files with names that should be familiar: they match the .qmd files we were just exploring. This folder is where Quarto stores files to build the website.",
+    "section": "Gather files",
+    "text": "Gather files\nGather the required metadata file and raw file(s), we recommend putting them into separate folders for simplicity:\n\nmeta 📂\n\nContains the single metadata .csv file\nTry using the example from the analysis overview page\n\nraw 📂\n\nContains the raw file(s) in 384-well format (and nothing else)\nTry using the example from the dense mode protocol\n\n\n\n\n\n\n\n\nNote\n\n\n\nNothing else should be in these folders at the start of analysis.",
     "crumbs": [
       "Analysis",
       "Dense mode analysis"
     ]
   },
   {
-    "objectID": "analysis_dense_mode.html#quarto.yml-intro",
-    "href": "analysis_dense_mode.html#quarto.yml-intro",
+    "objectID": "analysis_dense_mode.html#prepare-for-analysis",
+    "href": "analysis_dense_mode.html#prepare-for-analysis",
     "title": "Dense mode analysis",
-    "section": "_quarto.yml intro",
-    "text": "_quarto.yml intro\nThere is also a _quarto.yml file, which is the website’s configuration file. It is essentially metadata for the website that includes the order that the pages/chapters will be in. This is where you update the organization of your website: which page comes before another. If we compare side-by-side, you’ll see that the pages that appear on our website are listed there.\n\n\n\n_quarto.yml and website side-by-side\n\n\nWe’ll learn more about how to interact with _quarto.yml in Quarto Workflows.",
+    "section": "Prepare for analysis",
+    "text": "Prepare for analysis\nThe best way to proceed is to use an IDE like RStudio. We need to:\n\nLoad the combocat package (see the analysis overview page for installation)\nRead in the metadata file\nSet the working directory to the raw folder\n\n#Load library\nlibrary(combocat)\n\n#Read in the metadata file using Import Dataset➝From text (readr) or\nmeta_dense &lt;- read_csv(\".../meta_dense.csv\")\n\n#Set working directory using Session➝Set Working Directory or\nsetwd(\".../raw\")",
     "crumbs": [
       "Analysis",
       "Dense mode analysis"
     ]
   },
   {
-    "objectID": "analysis_dense_mode.html#fork-to-your-account",
-    "href": "analysis_dense_mode.html#fork-to-your-account",
+    "objectID": "analysis_dense_mode.html#quick-start",
+    "href": "analysis_dense_mode.html#quick-start",
     "title": "Dense mode analysis",
-    "section": "Fork to your account",
-    "text": "Fork to your account\nLet’s start with an existing Quarto site and copy it into your space to edit. You’ll need a free GitHub account that you create at github.com (follow this advice about choosing your username).\nFirst, choose an existing website to copy. The simplest option is to start with this site: quarto-website-tutorial.\nOther options of potential interest:\n\n2021-Cloud-Hackathon\n2022-SWOT-Ocean-Cloud-Workshop\nOpenscapes Approach-Guide\n\nNext, follow these steps to fork and setup your repo with GitHub Actions from Gavin Fay, using the repo you chose. These instructions will take ~5 minutes.\nNow you’ve got a copy of your repo of choice in your own GitHub account, and you’re set to start making your own edits. Your GitHub repo is set up with a GitHub Action that will use Quarto to rebuild and republish your site anytime you make a commit: committing will trigger the GitHub Action to rebuild and republish the book.\nNote that the GitHub Action for this book does not include R or Python so those will need to be added if your website relies on code. See https://github.com/r-lib/actions for more details and examples.\n\nDownload instead of fork\nForking might not always be the way to go - you can’t fork into the same GitHub user account or organization so if for example you want to make a copy of 2021-Cloud-Hackathon repo within the same NASA-Openscapes GitHub Organization, you’ll need to download instead of fork. In this case, follow these steps to download and copy into a new repository, and set up the GitHub Action and the gh-pages branch for publishing, separately.\n\nDownload github repo files\nNavigate to https://github.com/openscapes/quarto-website-tutorial (or any other quarto site repo of choice). Click the green “Code” button and select “Download ZIP”. When it downloads on your computer, unzip the files.\n\n\nCreate a new GitHub repo\nNavigate to your GitHub account or organization, and create a new repository, naming it what you’d like. You’ll need a free GitHub account that you create at github.com (follow this advice about choosing your username). When you’re logged in, github.com will show a green button that says “New” which you’ll also see as you navigate to your username’s repository page.\n\n\nAdd original site files\nIf you’re comfortable cloning the new repository and copying files into it locally before committing and pushing back to GitHub, that is preferable to the GitHub file uploader, which does have limitations with complex repos. The uploader does not allow upload of folders, so some manual work would be required.\nTo use the GitHub file uploader, click the button next to the green “Code” button that says “Add file”. Add file &gt; Upload files. Then, on your computer, select all the files in unzipped folder (command-A or control-A), and drag them to the GitHub uploader page. Scroll down to write a commit message, which effectively saves your files when you’re working in the browser.",
+    "section": "Quick start",
+    "text": "Quick start\n\nThe entire workflow of analysis, plotting, and reporting can be run in this single block:\nnormData &lt;-    \n  cc_map(meta_dense, getwd()) %&gt;%   \n  cc_norm(.) %&gt;%   \n  cc_getSyn(.)  \n\ndrData &lt;-    \n  cc_getDR(normData)  \n\nnormData &lt;-    \n  cc_getQC(normData, drData)  \n\ncc_report(normData,   \n          drData,   \n          cd_plots    = cc_plotMat(normData, \"perc_cell_death\", color_midpoint = 50),  \n          syn_plots   = cc_plotMat(normData, \"bliss_synergy\",   color_midpoint = 20),\n          extra_plots = cc_plotExtras(normData, color_midpoint=20))\nBelow, the process is broken down into more detail:",
     "crumbs": [
       "Analysis",
       "Dense mode analysis"
     ]
   },
   {
-    "objectID": "analysis_dense_mode.html#setup-github-action",
-    "href": "analysis_dense_mode.html#setup-github-action",
+    "objectID": "analysis_dense_mode.html#core-functions",
+    "href": "analysis_dense_mode.html#core-functions",
     "title": "Dense mode analysis",
-    "section": "Set up GitHub publishing",
-    "text": "Set up GitHub publishing\nIf you’ve used the ‘Fork to your account approach’ above, your website is all set!\nIf you’ve set up your repo by using the ‘Download github repo files’ approach above, you’ll need to set up GitHub publishing separately. We’ll do this in a few steps: we’ll set up a GitHub Action within your repo, and create a gh-pages branch.\nFirst, the GitHub Action. Go back to your main view of your GitHub repository by clicking on the name of your repository at the top-left (the url in your browser window should say https://github.com/username/repo-name).\nNext to the green code button, click Add file &gt; Create new file. Name it exactly this: .github/workflows/quarto-publish.yml . In detail: start by typing the . with github and when you type the / it will give you a new text box to type workflows (plural!), then another /, and finally, quarto-publish.yml.\nNow you’ll have an empty new file. Paste the following in this empty file - you can click on the top-right of this box to copy all the code inside this code box:\non:\n  workflow_dispatch:\n  push:\n    branches: main\n\nname: Quarto Publish\n\njobs:\n  build-deploy:\n    runs-on: ubuntu-latest\n    permissions:\n      contents: write\n    steps:\n      - name: Check out repository\n        uses: actions/checkout@v4\n\n      - name: Set up Quarto\n        uses: quarto-dev/quarto-actions/setup@v2\n        with:\n          # To install LaTeX to build PDF book \n          tinytex: true \n          # uncomment below and fill to pin a version\n          # version: 0.9.600\n      \n      # add software dependencies here\n      - name: Render and Publish\n        uses: quarto-dev/quarto-actions/publish@v2\n        with:\n          target: gh-pages\n        env:\n          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }} # this secret is always available for github actions\nCommit this to save your new quarto-publish.yml file. This is your GitHub Action.\nNext, we’ll create a new gh-pages branch. Go back to the main view of your GitHub repository. On the far left from the green “Code” button, click the button that says “main”. In the pull-down menu, type gh-pages - all lowercase, with a hyphen. Click the bold text that says “Create branch: gh-pages from main”.\nNow click on the Settings tab in the top right of your repository. On the left sidebar, click Pages. At the top of Pages under “Source”, select gh-pages root, and press Save (may already be saved by default).\nTo view your published website, at your main repository page, on the right side, click the gear-icon, select ‘Use your GitHub Pages website’.",
+    "section": "Core functions",
+    "text": "Core functions\nThese are the functions that handle mapping, normalization, synergy quantification, and fitting DR curves:\nmappedData &lt;- \n  cc_map(meta_dense, getwd()) #Map\n\nnormData &lt;-                             \n  cc_norm(mappedData) %&gt;%     #Normalize\n  cc_getSyn(.)                #Calculate synergy\n\ndrData &lt;- \n  cc_getDR(normData)          #Fit dose-response models",
     "crumbs": [
       "Analysis",
       "Dense mode analysis"
     ]
   },
   {
-    "objectID": "analysis_dense_mode.html#confirm",
-    "href": "analysis_dense_mode.html#confirm",
+    "objectID": "analysis_dense_mode.html#quality-control-qc",
+    "href": "analysis_dense_mode.html#quality-control-qc",
     "title": "Dense mode analysis",
-    "section": "Confirm your website is published",
-    "text": "Confirm your website is published\nTo confirm that your website is published, go back to your main repository page. You’ll now see an orange dot showing that the GitHub Action is beginning to publish the page.\n\n\n\nOur repo with orange dot indicating in-progress GitHub Action build\n\n\nIf you do not see this orange dot, you can re-run the GitHub Action (on the main repo page, click Actions &gt; select the workflow you want to re-run &gt; click the ‘Re-run all jobs’ button.\nWhen your orange do becomes a green check, you can go inspect your published site at “https://username.github.io/your-repo). For example: https://openscapes.github.io/quarto-website-tutorial.\n\n\n\nOur repo with green check indicating successful GitHub Action build\n\n\nIt can take some time for the site to deploy, so don’t worry if you don’t see it right away.",
+    "section": "Quality Control (QC)",
+    "text": "Quality Control (QC)\nSee the Advanced topics section for details of what the QC does and why it is important\nnormData &lt;- cc_getQC(normData, drData)",
     "crumbs": [
       "Analysis",
       "Dense mode analysis"
     ]
   },
   {
-    "objectID": "analysis_dense_mode.html#renaming-your-repo",
-    "href": "analysis_dense_mode.html#renaming-your-repo",
+    "objectID": "analysis_dense_mode.html#generating-plots",
+    "href": "analysis_dense_mode.html#generating-plots",
     "title": "Dense mode analysis",
-    "section": "Renaming your repo",
-    "text": "Renaming your repo\nIf you’d like to rename your repo, go to Settings and the option to rename is on the top of the main settings page.",
+    "section": "Generating plots",
+    "text": "Generating plots\nNow we plot the cell death and synergy matrices, plus the accessory plots (like bar plots of the maximum synergy per combo)\n#Plot cell death matrices\ncdPlots &lt;- \n  cc_plotMat(normData,\n             plotting_variable = \"perc_cell_death\",\n             color_midpoint = 50)\n                      \n#Plot synergy matrices\nsynPlots &lt;- \n  cc_plotMat(normData,\n             plotting_variable = \"bliss_synergy\",\n             color_midpoint = 20)\n                       \n#Accessory plots\nextraPlots &lt;- \n  cc_plotExtras(normData)",
     "crumbs": [
       "Analysis",
       "Dense mode analysis"
     ]
   },
   {
-    "objectID": "analysis_dense_mode.html#onward",
-    "href": "analysis_dense_mode.html#onward",
+    "objectID": "analysis_dense_mode.html#generating-the-reports",
+    "href": "analysis_dense_mode.html#generating-the-reports",
     "title": "Dense mode analysis",
-    "section": "Onward!",
-    "text": "Onward!\nNow you are ready to start editing and publishing! The next chapter describes how starting off from the browser, using Markdown.",
+    "section": "Generating the reports",
+    "text": "Generating the reports\nFinally, cc_report will save all the plots, and generate detailed reports of cell death, synergy, IC50 values, and much more.\ncc_report(normData,\n          drData,\n          cdPlots,\n          synPlots,\n          extraPlots,\n          save_summary_files = TRUE,\n          save_summary_plots = TRUE)\nFor example:",
     "crumbs": [
       "Analysis",
       "Dense mode analysis"
