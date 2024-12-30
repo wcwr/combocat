@@ -1,5 +1,6 @@
 ---
 title: Sparse mode protocol
+from: markdown+emoji <!--# allows emojis #--
 ---
 
 ::: callout-tip

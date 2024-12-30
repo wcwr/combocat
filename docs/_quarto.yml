@@ -29,7 +29,7 @@ website:
 
     style: "docked"
     search: true
-    collapse-level: 1
+    collapse-level: 0
     contents:
       - href: index.qmd
         text: Welcome
@@ -43,6 +43,8 @@ website:
       - href: transition-from-rmarkdown.qmd
       - section: Analysis
         contents:
+          - href: analysis_landing.qmd
+            text: Overview
           - analysis_dense_mode.qmd
           - analysis_sparse_mode.qmd
       - href: machine_learning.qmd

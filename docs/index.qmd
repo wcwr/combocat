@@ -32,4 +32,4 @@ Critically, Combocat also provides a complete framework for analyzing the experi
 
 ## Reference
 
-Please cite our published work as: \[**CITATION HERE\_**\].
+Please cite our published work as: \[**CITATION HERE**\].

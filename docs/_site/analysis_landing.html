@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Experimental overview – Combocat</title>
+<title>Analysis Overview – Combocat</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,6 +20,40 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
@@ -29,8 +63,8 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./experimental_dense_mode.html" rel="next">
-<link href="./background.html" rel="prev">
+<link href="./analysis_dense_mode.html" rel="next">
+<link href="./transition-from-rmarkdown.qmd" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -80,7 +114,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./experimental_landing.html">Experimental setup</a></li><li class="breadcrumb-item"><a href="./experimental_landing.html">Overview</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./analysis_landing.html">Analysis</a></li><li class="breadcrumb-item"><a href="./analysis_landing.html">Overview</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -132,7 +166,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./experimental_landing.html" class="sidebar-item-text sidebar-link active">
+  <a href="./experimental_landing.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
@@ -161,7 +195,7 @@ ul.task-list li input[type="checkbox"] {
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./analysis_landing.html" class="sidebar-item-text sidebar-link">
+  <a href="./analysis_landing.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Overview</span></a>
   </div>
 </li>
@@ -201,17 +235,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#required-materials" id="toc-required-materials" class="nav-link active" data-scroll-target="#required-materials">Required Materials</a></li>
-  <li><a href="#key-considerations" id="toc-key-considerations" class="nav-link" data-scroll-target="#key-considerations">Key considerations</a></li>
+  <li><a href="#install-the-r-package" id="toc-install-the-r-package" class="nav-link active" data-scroll-target="#install-the-r-package">Install the R package</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/wcwr/combocat/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./experimental_landing.html">Experimental setup</a></li><li class="breadcrumb-item"><a href="./experimental_landing.html">Overview</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./analysis_landing.html">Analysis</a></li><li class="breadcrumb-item"><a href="./analysis_landing.html">Overview</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Experimental overview</h1>
+<h1 class="title">Analysis Overview</h1>
 </div>
 
 
@@ -228,63 +261,19 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Running a Combocat experiment can loosely be thought of as design ➝ execute ➝ analyze.</p>
-<p>The documentation here provides information on all steps.</p>
-<section id="required-materials" class="level2">
-<h2 class="anchored" data-anchor-id="required-materials">Required Materials</h2>
-<p>Regardless of your experiment setup, you’ll need some materials and access to instruments.</p>
-<div class="callout callout-style-default callout-note callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Note
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p>This documentation focuses on the luminescence-based <a href="https://www.promega.com/-/media/files/resources/protocols/technical-bulletins/0/celltiter-glo-luminescent-cell-viability-assay-protocol.pdf?rev=30e8ec640fdd4866b207e28c0cbc497c&amp;sc_lang=en">CTG assay</a>.<br>
-Combocat is generalizable to the readout of your choice (e.g., imaging, fluorescence, etc). Swap out materials accordingly.</p>
-</div>
-</div>
-<ul>
-<li><p><u><strong>Microwell plates</strong></u></p>
-<ul>
-<li><p>384-well for dense mode, 1536-well for sparse mode (suitable for cell culture)</p></li>
-<li><p><a href="https://www.mybeckman.co/supplies/echo-qualified-supplies/acoustic-liquid-handler-microplates/001-14555">Echo-compatible plates</a> (if using an Echo acoustic liquid handler)</p></li>
-</ul></li>
-<li><p><u><strong>Desired drugs</strong></u></p>
-<ul>
-<li>Soluble at 400X final desired top concentration</li>
-</ul></li>
-<li><p><u><strong>Control compounds</strong></u></p>
-<ul>
-<li><p>Positive control for cell death (i.e., Staurosporine for mammalian cells)</p></li>
-<li><p>Vehicle control for drug solvents (i.e., DMSO)</p></li>
-</ul></li>
-<li><p><strong>Desired cells</strong></p>
-<ul>
-<li>Enough for 40 µL/well per plate (Dense mode) or 4 µL/well per plate (Sparse mode)</li>
-</ul></li>
-<li><p><strong>CTG reagents</strong></p></li>
-<li><p><u><strong>Access to instruments</strong></u></p>
-<ul>
-<li><p>Echo (or other well-to-well acoustic liquid handler)</p></li>
-<li><p>Luminometer (or instrument specific to assay readout)</p></li>
-<li><p>Incubator</p></li>
-<li><p>Centrifuge capable of spinning microplates</p></li>
-<li><p>(Optional) liquid handler for cell/reagent dispensing</p></li>
-</ul></li>
-</ul>
-</section>
-<section id="key-considerations" class="level2">
-<h2 class="anchored" data-anchor-id="key-considerations">Key considerations</h2>
-<p>It’s important to verify that your assay conditions are working before starting the experiment. For example:</p>
-<ul>
-<li><p>Ensure volumes of drug stocks are sufficient for assay scale (see protocols)</p></li>
-<li><p>Optimize cell seeding densities</p></li>
-<li><p>Verify calibration of instruments</p></li>
-</ul>
+<p>Combocat provides a streamlined pipeline for analyzing drug combination screening data, integrating experimental and computational workflows into a single <strong>R package</strong>. This page outlines the primary steps for downloading, installing, and using the package to analyze your data.</p>
+<section id="install-the-r-package" class="level2">
+<h2 class="anchored" data-anchor-id="install-the-r-package">Install the R package</h2>
+<p><img src="images/R_Package_Logo.svg" class="img-fluid" width="140"></p>
+<p>The combocat R package is hosted on GitHub and can be installed directly using <code>devtools</code>.</p>
+<p><strong>Install required dependencies</strong></p>
+<p>Ensure you have R installed on your system, and install the <code>devtools</code> package if you don’t already have it:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Install</strong> <code>combocat</code></p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"wcwr/combocat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><strong>Load the package</strong></p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(combocat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="images/functions_schematic.svg" class="img-fluid" width="900"></p>
 
 
 </section>
@@ -709,13 +698,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./background.html" class="pagination-link" aria-label="Background">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">Background</span>
+      <a href="./transition-from-rmarkdown.qmd" class="pagination-link" aria-label="">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./experimental_dense_mode.html" class="pagination-link" aria-label="Dense mode protocol">
-        <span class="nav-page-text">Dense mode protocol</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./analysis_dense_mode.html" class="pagination-link" aria-label="Dense mode analysis">
+        <span class="nav-page-text">Dense mode analysis</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,0 +1,34 @@
+---
+title: Analysis Overview
+from: markdown+emoji <!--# allows emojis #-->
+---
+
+Combocat provides a streamlined pipeline for analyzing drug combination screening data, integrating experimental and computational workflows into a single **R package**. This page outlines the primary steps for downloading, installing, and using the package to analyze your data.
+
+## Install the R package
+
+![](images/R_Package_Logo.svg){width="140"}
+
+The combocat R package is hosted on GitHub and can be installed directly using `devtools`.
+
+**Install required dependencies**
+
+Ensure you have R installed on your system, and install the `devtools` package if you don't already have it:
+
+``` r
+install.packages("devtools")
+```
+
+**Install** `combocat`
+
+``` r
+devtools::install_github("wcwr/combocat")
+```
+
+**Load the package**
+
+``` r
+library(combocat)
+```
+
+![](images/functions_schematic.svg){width="900"}
