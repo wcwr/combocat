@@ -568,7 +568,7 @@
     "href": "index.html",
     "title": "Combocat",
     "section": "",
-    "text": "This is the documentation for Combocat, a start-to-finish platform for drug combination screening.\nCombocat is fully open-source!🎉\nIn this documentation, you will find steps to complete both experimental and analytical parts of Combocat experiments. The experimental sections include step-by-step protocols with examples. In the data analysis sections, we provide steps for processing and analyzing results using the combocat R package. Browse links in the sidebar to the left to find out information about each step.\n\n\n\n\n\n\nTip\n\n\n\nUse the search function in the side bar to look for specific protocol steps or topics",
+    "text": "This is the documentation for Combocat, a start-to-finish platform for drug combination screening.\nIn this documentation, you will find steps to complete both experimental and analytical parts of Combocat experiments. The experimental sections include step-by-step protocols with examples. In the data analysis sections, we provide steps for processing and analyzing results using the combocat R package. Browse links in the sidebar to the left to find out information about each step.\n\n\n\n\n\n\nTip\n\n\n\nUse the search function in the side bar to look for specific protocol steps or topics",
     "crumbs": [
       "Welcome"
     ]
@@ -578,7 +578,7 @@
     "href": "index.html#welcome",
     "title": "Combocat",
     "section": "",
-    "text": "This is the documentation for Combocat, a start-to-finish platform for drug combination screening.\nCombocat is fully open-source!🎉\nIn this documentation, you will find steps to complete both experimental and analytical parts of Combocat experiments. The experimental sections include step-by-step protocols with examples. In the data analysis sections, we provide steps for processing and analyzing results using the combocat R package. Browse links in the sidebar to the left to find out information about each step.\n\n\n\n\n\n\nTip\n\n\n\nUse the search function in the side bar to look for specific protocol steps or topics",
+    "text": "This is the documentation for Combocat, a start-to-finish platform for drug combination screening.\nIn this documentation, you will find steps to complete both experimental and analytical parts of Combocat experiments. The experimental sections include step-by-step protocols with examples. In the data analysis sections, we provide steps for processing and analyzing results using the combocat R package. Browse links in the sidebar to the left to find out information about each step.\n\n\n\n\n\n\nTip\n\n\n\nUse the search function in the side bar to look for specific protocol steps or topics",
     "crumbs": [
       "Welcome"
     ]
@@ -588,7 +588,7 @@
     "href": "index.html#overview",
     "title": "Combocat",
     "section": "Overview",
-    "text": "Overview\nDrug combinations are critical to conditions like cancers and infectious diseases, but finding new combinations is a slow and challenging process. The scale of a combination experiment increases rapidly with each tested drug, and testing many combinations has traditionally been impractical.\nCombocat is a method for scalable drug combination screening which uses acoustic liquid handler protocols and custom drug template designs for fast, efficient screening. Everything has been designed to work in an end-to-end fashion. This means a researcher can test 1, hundreds, or even thousands of drug combinations from start to finish.\n\nCritically, Combocat also provides a complete framework for analyzing the experimental data. Analysis is straightforward and provides interpretable publication-quality figures.",
+    "text": "Overview\nDrug combinations are critical to conditions like cancers and infectious diseases, but finding new combinations is a slow and challenging process. The scale of a combination experiment increases rapidly with each tested drug, and testing many combinations has traditionally been impractical.\nCombocat is a method for scalable drug combination screening which uses acoustic liquid handler protocols and custom drug template designs for fast, efficient screening. Everything has been designed to work in an end-to-end fashion. This means a researcher can test 1, hundreds, or even thousands of drug combinations from start to finish.\n\nCritically, Combocat also provides a complete framework for analyzing the experimental data. Analysis is straightforward and provides interpretable publication-quality figures.\nCombocat is fully open-source!🎉",
     "crumbs": [
       "Welcome"
     ]
@@ -630,7 +630,29 @@
     "href": "analysis_landing.html#install-the-r-package",
     "title": "Analysis Overview",
     "section": "Install the R package",
-    "text": "Install the R package\n\nThe combocat R package is hosted on GitHub and can be installed directly using devtools.\nInstall required dependencies\nEnsure you have R installed on your system, and install the devtools package if you don’t already have it:\ninstall.packages(\"devtools\")\nInstall combocat\ndevtools::install_github(\"wcwr/combocat\")\nLoad the package\nlibrary(combocat)",
+    "text": "Install the R package\n\nThe combocat R package is hosted on GitHub and can be installed directly using devtools.\n\nInstall required dependencies\nEnsure you have R installed on your system, and install the devtools package if you don’t already have it:\ninstall.packages(\"devtools\")\n\n\nInstall and load combocat\n#Install from GitHub\ndevtools::install_github(\"wcwr/combocat\")\n\n#Load package\nlibrary(combocat)\nSeveral dependencies will be installed along with the package. Notably, dplyr, which is the tidyverse grammar framework that combocat adopts throughout for its user-friendly approach to data manipulation and analysis.\n\n\nAccess documentation of functions\nThe package includes documentation for each function. Use the help() or ?? commands to understand specific functions:\n??cc_map",
+    "crumbs": [
+      "Analysis",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "analysis_landing.html#workflow-overview",
+    "href": "analysis_landing.html#workflow-overview",
+    "title": "Analysis Overview",
+    "section": "Workflow Overview",
+    "text": "Workflow Overview\nThe workflow is designed to be straightforward, and is packaged into a handful of streamlined functions:\n\n\nMapping associates each raw value with its corresponding position in the combination matrix\nNormalization uses within-plate controls to represent the data as a function of % cell death\nSingle-agents are fit with dose-response curves to serve as a basis for synergy calculations\nSynergy is calculated using the Bliss independence model\n\n\n\n\n\n\n\n\nNote\n\n\n\nEach core function is designed to work regardless of dense or sparse mode data",
+    "crumbs": [
+      "Analysis",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "analysis_landing.html#metadata",
+    "href": "analysis_landing.html#metadata",
+    "title": "Analysis Overview",
+    "section": "Metadata",
+    "text": "Metadata\nMetadata forms the backbone of any Combocat analysis by linking raw data files to experimental conditions like drug names, doses, and file names. Properly structured metadata facilitates correct analysis–mainly the mapping stage.\nGenerating the (dense mode) metadata file is easy 👌\nYou will need:\n\ndrug1_name and drug2_name (which must not contain underscores _ )\ndrug1_conc and drug2_conc which list the 10 doses used for each drug\nunits which must be the same for both drugs\nsample_name - the name of a cell line/sample (must be unique for each combination)\nfilename : the name of the file\n\nFor example, the metadata for a single combination looks like this:\n\n\n\n\n\n\nTip\n\n\n\nYou can download this (File ➝ Download) to follow along. Be sure to choose .csv, which is the required format.\n\n\n\n\nUnder the hood, the cc_map function will expand this to all pairwise combinations of doses.\n\n\n\n\n\n\nNote\n\n\n\nIf more combinations are used, their info can be added to the metadata file. There will only be 1 metadata file per experiment.",
     "crumbs": [
       "Analysis",
       "Overview"

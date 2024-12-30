@@ -236,6 +236,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#install-the-r-package" id="toc-install-the-r-package" class="nav-link active" data-scroll-target="#install-the-r-package">Install the R package</a></li>
+  <li><a href="#workflow-overview" id="toc-workflow-overview" class="nav-link" data-scroll-target="#workflow-overview">Workflow Overview</a></li>
+  <li><a href="#metadata" id="toc-metadata" class="nav-link" data-scroll-target="#metadata">Metadata</a></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/wcwr/combocat/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -266,14 +268,94 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <h2 class="anchored" data-anchor-id="install-the-r-package">Install the R package</h2>
 <p><img src="images/R_Package_Logo.svg" class="img-fluid" width="140"></p>
 <p>The combocat R package is hosted on GitHub and can be installed directly using <code>devtools</code>.</p>
-<p><strong>Install required dependencies</strong></p>
+<section id="install-required-dependencies" class="level4">
+<h4 class="anchored" data-anchor-id="install-required-dependencies">Install required dependencies</h4>
 <p>Ensure you have R installed on your system, and install the <code>devtools</code> package if you don’t already have it:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Install</strong> <code>combocat</code></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"wcwr/combocat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p><strong>Load the package</strong></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(combocat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section>
+<section id="install-and-load-combocat" class="level4">
+<h4 class="anchored" data-anchor-id="install-and-load-combocat">Install and load <code>combocat</code></h4>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Install from GitHub</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"wcwr/combocat"</span>)</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co">#Load package</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(combocat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Several dependencies will be installed along with the package. Notably, <code>dplyr</code>, which is the <a href="https://dplyr.tidyverse.org/">tidyverse grammar framework</a> that <code>combocat</code> adopts throughout for its user-friendly approach to data manipulation and analysis.</p>
+</section>
+<section id="access-documentation-of-functions" class="level4">
+<h4 class="anchored" data-anchor-id="access-documentation-of-functions">Access documentation of functions</h4>
+<p>The package includes documentation for each function. Use the <code>help()</code> or <code>??</code> commands to understand specific functions:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>??cc_map</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><img src="images/ScreenShot_cc_map_help.png" class="img-fluid"></p>
+</section>
+</section>
+<section id="workflow-overview" class="level2">
+<h2 class="anchored" data-anchor-id="workflow-overview">Workflow Overview</h2>
+<p>The workflow is designed to be straightforward, and is packaged into a handful of streamlined functions:</p>
 <p><img src="images/functions_schematic.svg" class="img-fluid" width="900"></p>
+<ul>
+<li><p><strong>Mapping</strong> associates each raw value with its corresponding position in the combination matrix</p></li>
+<li><p><strong>Normalization</strong> uses within-plate controls to represent the data as a function of % cell death</p></li>
+<li><p>Single-agents are fit with <strong>dose-response curves</strong> to serve as a basis for synergy calculations</p></li>
+<li><p><strong>Synergy</strong> is calculated using the Bliss independence model</p></li>
+</ul>
+<p><img src="images/Analysis_Workflow.svg" class="img-fluid" width="850"></p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Each core function is designed to work regardless of dense or sparse mode data</p>
+</div>
+</div>
+</section>
+<section id="metadata" class="level2">
+<h2 class="anchored" data-anchor-id="metadata">Metadata</h2>
+<p>Metadata forms the backbone of any Combocat analysis by linking raw data files to experimental conditions like drug names, doses, and file names. Properly structured metadata facilitates correct analysis–mainly the <strong>mapping</strong> stage.</p>
+<p>Generating the (dense mode) metadata file is easy 👌</p>
+<p>You will need:</p>
+<ul>
+<li><p><code>drug1_name</code> and <code>drug2_name</code> (which must not contain underscores <code>_</code> )</p></li>
+<li><p><code>drug1_conc</code> and <code>drug2_conc</code> which list the 10 doses used for each drug</p></li>
+<li><p><code>units</code> which must be the same for both drugs</p></li>
+<li><p><code>sample_name</code> - the name of a cell line/sample (must be unique for each combination)</p></li>
+<li><p><code>filename</code> : the name of the file</p></li>
+</ul>
+<p>For example, the metadata for a single combination looks like this:</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can download this (File ➝ Download) to follow along. Be sure to <strong>choose .csv</strong>, which is the required format.</p>
+</div>
+</div>
+<iframe src="https://docs.google.com/spreadsheets/d/1ASiYVWjly-RdbYzSkEuiZKUGTsln9Wv2xpvo94Z9FTU/edit?usp=sharing" width="100%" height="600px" style="border: none;">
+</iframe>
+<p>Under the hood, the <code>cc_map</code> function will expand this to all pairwise combinations of doses.</p>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If more combinations are used, their info can be added to the metadata file. There will only be <strong>1 metadata file</strong> per experiment.</p>
+</div>
+</div>
 
 
 </section>

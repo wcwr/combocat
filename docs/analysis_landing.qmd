@@ -3,7 +3,7 @@ title: Analysis Overview
 from: markdown+emoji <!--# allows emojis #-->
 ---
 
-Combocat provides a streamlined pipeline for analyzing drug combination screening data, integrating experimental and computational workflows into a single **R package**. This page outlines the primary steps for downloading, installing, and using the package to analyze your data.
+Combocat provides a streamlined pipeline for analyzing drug combination screening data, integrating experimental and computational workflows into a single **R package**. This section outlines the primary steps for downloading, installing, and using the package to analyze your data.
 
 ## Install the R package
 
@@ -11,7 +11,7 @@ Combocat provides a streamlined pipeline for analyzing drug combination screenin
 
 The combocat R package is hosted on GitHub and can be installed directly using `devtools`.
 
-**Install required dependencies**
+#### Install required dependencies
 
 Ensure you have R installed on your system, and install the `devtools` package if you don't already have it:
 
@@ -19,16 +19,78 @@ Ensure you have R installed on your system, and install the `devtools` package i
 install.packages("devtools")
 ```
 
-**Install** `combocat`
+#### Install and load `combocat`
 
 ``` r
+#Install from GitHub
 devtools::install_github("wcwr/combocat")
-```
 
-**Load the package**
-
-``` r
+#Load package
 library(combocat)
 ```
 
+Several dependencies will be installed along with the package. Notably, `dplyr`, which is the [tidyverse grammar framework](https://dplyr.tidyverse.org/) that `combocat` adopts throughout for its user-friendly approach to data manipulation and analysis.
+
+#### Access documentation of functions
+
+The package includes documentation for each function. Use the `help()` or `??` commands to understand specific functions:
+
+``` r
+??cc_map
+```
+
+![](images/ScreenShot_cc_map_help.png)
+
+## Workflow Overview
+
+The workflow is designed to be straightforward, and is packaged into a handful of streamlined functions:
+
 ![](images/functions_schematic.svg){width="900"}
+
+-   **Mapping** associates each raw value with its corresponding position in the combination matrix
+
+-   **Normalization** uses within-plate controls to represent the data as a function of % cell death
+
+-   Single-agents are fit with **dose-response curves** to serve as a basis for synergy calculations
+
+-   **Synergy** is calculated using the Bliss independence model
+
+![](images/Analysis_Workflow.svg){width="850"}
+
+::: callout-note
+Each core function is designed to work regardless of dense or sparse mode data
+:::
+
+## Metadata
+
+Metadata forms the backbone of any Combocat analysis by linking raw data files to experimental conditions like drug names, doses, and file names. Properly structured metadata facilitates correct analysis–mainly the **mapping** stage.
+
+Generating the (dense mode) metadata file is easy 👌
+
+You will need:
+
+-   `drug1_name` and `drug2_name` (which must not contain underscores `_` )
+
+-   `drug1_conc` and `drug2_conc` which list the 10 doses used for each drug
+
+-   `units` which must be the same for both drugs
+
+-   `sample_name` - the name of a cell line/sample (must be unique for each combination)
+
+-   `filename` : the name of the file
+
+For example, the metadata for a single combination looks like this:
+
+::: callout-tip
+You can download this (File ➝ Download) to follow along. Be sure to **choose .csv**, which is the required format.
+:::
+
+<iframe src="https://docs.google.com/spreadsheets/d/1ASiYVWjly-RdbYzSkEuiZKUGTsln9Wv2xpvo94Z9FTU/edit?usp=sharing" width="100%" height="600px" style="border: none;">
+
+</iframe>
+
+Under the hood, the `cc_map` function will expand this to all pairwise combinations of doses.
+
+::: callout-note
+If more combinations are used, their info can be added to the metadata file. There will only be **1 metadata file** per experiment.
+:::

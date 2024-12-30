@@ -17,7 +17,7 @@ Drug A and Drug B each kill 25% of the cells. [What would we expected the combin
 
 ### Additivity model
 
-Under the additivity model, if the combination was purely additive then we would expect: 25% + 25% = 50% cell death. Anything higher would be greater than expected, **thus synergistic**. Anything lower would be less than expected, or **antagonistic**. So in the scenario above where we observed 50% cell death, this is an example of additivity.
+Under simple additivity, if the combination was purely additive then we would expect: 25% + 25% = 50% cell death. Anything higher would be greater than expected, **thus synergistic**. Anything lower would be less than expected, or **antagonistic**. So in the scenario above where we observed 50% cell death, this is an example of additivity.
 
 ### Bliss model
 
