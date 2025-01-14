@@ -14,3 +14,7 @@ from: markdown+emoji <!--# allows emojis #-->
     -   imaging
 
     -   {absence of reagent like CTG influences volumes and therefore final concs}
+
+-   QC details (with fig)
+
+-   
