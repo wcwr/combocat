@@ -234,7 +234,7 @@
     "href": "advanced.html",
     "title": "Advanced topics",
     "section": "",
-    "text": "Limitations\nGeneralize to other assays/readouts\n\nfluorescence\nmass spec\nimaging\n{absence of reagent like CTG influences volumes and therefore final concs}",
+    "text": "Limitations\nGeneralize to other assays/readouts\n\nfluorescence\nmass spec\nimaging\n{absence of reagent like CTG influences volumes and therefore final concs}\n\nQC details (with fig)",
     "crumbs": [
       "Advanced topics"
     ]
