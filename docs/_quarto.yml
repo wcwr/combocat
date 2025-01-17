@@ -48,7 +48,6 @@ website:
           - analysis_dense_mode.qmd
           - analysis_sparse_mode.qmd
       - href: machine_learning.qmd
-      - href: advanced.qmd
 
 
 format:

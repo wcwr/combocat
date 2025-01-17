@@ -4,7 +4,7 @@
     "href": "machine_learning.html",
     "title": "Machine learning",
     "section": "",
-    "text": "The Combocat ensemble machine learning model is a collection of 90 individual models, each built to predict one of the 90 non-measured indices of a matrix generated with the sparse mode workflow:",
+    "text": "The Combocat ensemble machine learning model is a collection of 90 individual models, each built to predict one of the 90 non-measured indices of a matrix generated with the sparse mode workflow:\n\n\nDeploying Model",
     "crumbs": [
       "Machine learning"
     ]
@@ -234,10 +234,7 @@
     "href": "advanced.html",
     "title": "Advanced topics",
     "section": "",
-    "text": "Limitations\nGeneralize to other assays/readouts\n\nfluorescence\nmass spec\nimaging\n{absence of reagent like CTG influences volumes and therefore final concs}\n\nQC details (with fig)",
-    "crumbs": [
-      "Advanced topics"
-    ]
+    "text": "Limitations\nGeneralize to other assays/readouts\n\nfluorescence\nmass spec\nimaging\n\nQC details (with fig)"
   },
   {
     "objectID": "analysis_landing.html",

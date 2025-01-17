@@ -6,3 +6,5 @@ from: markdown+emoji <!--# allows emojis #-->
 The Combocat ensemble machine learning model is a collection of 90 individual models, each built to predict one of the 90 non-measured indices of a matrix generated with the sparse mode workflow:
 
 ![](images/Figure3.svg)
+
+### Deploying Model
