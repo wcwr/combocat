@@ -107,7 +107,7 @@ The following steps are specific to [CellTiter-Glo](https://www.promega.com/reso
 
     -   Adding CTG reagent with a liquid dispenser is helpful here (like with dispensing cells)
 
--   Centrifuge plates for \~4 minutes, \~1100 RPM
+-   Centrifuge plates for \~4 minutes, \~260 RCF
 
 -   Incubate at room temperature for 10 minutes
 
