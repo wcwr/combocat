@@ -3,3 +3,25 @@ title: Sparse mode analysis
 from: markdown+emoji <!--# allows emojis #-->
 ---
 
+## Deployable ensemble model
+
+Combocat's ensemble machine learning model is packaged (serialized) and ready to be deployed. As new iterations of models are released, they will be available in the repository's [models](https://github.com/wcwr/combocat/tree/main/models) folder.
+
+You can read the model file directly into R from the repository:
+
+``` r
+model_link <- "https://raw.githubusercontent.com/wcwr/combocat/main/models/m10_Jun_2024_05.00PM_Train552_Test184_TuneT.RDS"
+
+my_model <- 
+  readRDS(url(model_link))
+```
+
+::: callout-note
+Check to make sure this is the latest/desired model before loading
+:::
+
+#### **Model nomenclature:**
+
+The model is a single file and is named according to specific nomenclature which can tell us some useful information. For example, the current model at time of writing is `m10_Jun_2024_05.00PM_Train552_Test184_TuneT.RDS`, which tells us:
+
+![](images/ML_Model_Nomenclature.png){width="600"}

@@ -382,5 +382,27 @@
     "crumbs": [
       "Welcome"
     ]
+  },
+  {
+    "objectID": "analysis_sparse_mode.html",
+    "href": "analysis_sparse_mode.html",
+    "title": "Sparse mode analysis",
+    "section": "",
+    "text": "Combocat’s ensemble machine learning model is packaged (serialized) and ready to be deployed. As new iterations of models are released, they will be available in the repository’s models folder.\nYou can read the model file directly into R from the repository:\nmodel_link &lt;- \"https://raw.githubusercontent.com/wcwr/combocat/main/models/m10_Jun_2024_05.00PM_Train552_Test184_TuneT.RDS\"\n\nmy_model &lt;- \n  readRDS(url(model_link))\n\n\n\n\n\n\nNote\n\n\n\nCheck to make sure this is the latest/desired model before loading\n\n\n\n\nThe model is a single file and is named according to specific nomenclature which can tell us some useful information. For example, the current model at time of writing is m10_Jun_2024_05.00PM_Train552_Test184_TuneT.RDS, which tells us:",
+    "crumbs": [
+      "Analysis",
+      "Sparse mode analysis"
+    ]
+  },
+  {
+    "objectID": "analysis_sparse_mode.html#deployable-ensemble-model",
+    "href": "analysis_sparse_mode.html#deployable-ensemble-model",
+    "title": "Sparse mode analysis",
+    "section": "",
+    "text": "Combocat’s ensemble machine learning model is packaged (serialized) and ready to be deployed. As new iterations of models are released, they will be available in the repository’s models folder.\nYou can read the model file directly into R from the repository:\nmodel_link &lt;- \"https://raw.githubusercontent.com/wcwr/combocat/main/models/m10_Jun_2024_05.00PM_Train552_Test184_TuneT.RDS\"\n\nmy_model &lt;- \n  readRDS(url(model_link))\n\n\n\n\n\n\nNote\n\n\n\nCheck to make sure this is the latest/desired model before loading\n\n\n\n\nThe model is a single file and is named according to specific nomenclature which can tell us some useful information. For example, the current model at time of writing is m10_Jun_2024_05.00PM_Train552_Test184_TuneT.RDS, which tells us:",
+    "crumbs": [
+      "Analysis",
+      "Sparse mode analysis"
+    ]
   }
 ]
