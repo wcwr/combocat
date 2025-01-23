@@ -146,7 +146,18 @@
     "href": "analysis_sparse_mode.html",
     "title": "Sparse mode analysis",
     "section": "",
-    "text": "Combocat’s ensemble machine learning model is packaged (serialized) and ready to be deployed. As new iterations of models are released, they will be available in the repository’s models folder.\nYou can read the model file directly into R from the repository:\nmodel_link &lt;- \"https://raw.githubusercontent.com/wcwr/combocat/main/models/m10_Jun_2024_05.00PM_Train552_Test184_TuneT.RDS\"\n\nmy_model &lt;- \n  readRDS(url(model_link))\n\n\n\n\n\n\nNote\n\n\n\nCheck to make sure this is the latest/desired model before loading\n\n\n\n\nThe model is a single file and is named according to specific nomenclature which can tell us some useful information. For example, the current model at time of writing is m10_Jun_2024_05.00PM_Train552_Test184_TuneT.RDS, which tells us:",
+    "text": "Analyzing data generated with sparse mode is nearly identical to the dense mode analysis steps, with a few key differences:",
+    "crumbs": [
+      "Analysis",
+      "Sparse mode analysis"
+    ]
+  },
+  {
+    "objectID": "analysis_sparse_mode.html#gather-files",
+    "href": "analysis_sparse_mode.html#gather-files",
+    "title": "Sparse mode analysis",
+    "section": "Gather files",
+    "text": "Gather files\nGather the required metadata file and raw file(s), we recommend putting them into separate folders for simplicity:\n\nmeta 📂\n\nContains the single metadata .csv file\n\nraw 📂\n\nContains the raw file(s) in 384-well format (and nothing else)\n\n\nNothing else should be in these folders at the start of analysis.",
     "crumbs": [
       "Analysis",
       "Sparse mode analysis"
@@ -156,8 +167,8 @@
     "objectID": "analysis_sparse_mode.html#deployable-ensemble-model",
     "href": "analysis_sparse_mode.html#deployable-ensemble-model",
     "title": "Sparse mode analysis",
-    "section": "",
-    "text": "Combocat’s ensemble machine learning model is packaged (serialized) and ready to be deployed. As new iterations of models are released, they will be available in the repository’s models folder.\nYou can read the model file directly into R from the repository:\nmodel_link &lt;- \"https://raw.githubusercontent.com/wcwr/combocat/main/models/m10_Jun_2024_05.00PM_Train552_Test184_TuneT.RDS\"\n\nmy_model &lt;- \n  readRDS(url(model_link))\n\n\n\n\n\n\nNote\n\n\n\nCheck to make sure this is the latest/desired model before loading\n\n\n\n\nThe model is a single file and is named according to specific nomenclature which can tell us some useful information. For example, the current model at time of writing is m10_Jun_2024_05.00PM_Train552_Test184_TuneT.RDS, which tells us:",
+    "section": "Deployable ensemble model",
+    "text": "Deployable ensemble model\nCombocat’s ensemble machine learning model is packaged (serialized) and ready to be deployed. As new iterations of models are released, they will be available in the repository’s models folder.\nYou can read the model file directly into R from the repository:\nmodel_link &lt;- \"https://raw.githubusercontent.com/wcwr/combocat/main/models/m10_Jun_2024_05.00PM_Train552_Test184_TuneT.RDS\"\n\nmy_model &lt;- \n  readRDS(url(model_link))\n\n\n\n\n\n\nNote\n\n\n\nCheck to make sure this is the latest/desired model before loading\n\n\n\nModel nomenclature:\nThe model is a single file and is named according to specific nomenclature which can tell us some useful information. For example, the model m10_Jun_2024_05.00PM_Train552_Test184_TuneT.RDS, can tell us the following:\n\n\n“m” : prepended to all models so files don’t start with numbers\n&lt;date&gt; the model was created\n&lt;time&gt; the model was created\nTrain&lt;number&gt; : Number of samples that were used in the training set\nTest&lt;number&gt;: Number of samples that were used in the test set\nTune&lt;T/F&gt;: Indicates if hyperparameter tuning of each model was used\n\nThe number of training/test set samples also indicates their proportion and the total sample size. 552 + 184 = 736 total samples, indicating a 75/25 split (the default in cc_buildModel)\n\n\nQuick start\nThe entire sparse mode analysis can be run in the following single block.\n\n\n\n\n\n\nCaution\n\n\n\nFor larger datasets, these steps should be broken up to avoid running out of resources\n\n\n\nmappedData &lt;- \n  cc_map(meta_sparse, getwd())   #Map data\n\nnormData &lt;- \n  cc_norm(mappedData) %&gt;%        #Normalize\n  cc_predict(my_model, .) %&gt;%    #Predict the 90 non-measured indices\n  cc_getSyn(.)                   #Calculate synergy\n  \ndrData &lt;- \n  cc_getDR(normData)             #Fit dose-response curves\n\ncc_report(normData,              #Generate report\n          drData,\n          cd_plots    = cc_plotMat(normData, \"perc_cell_death\", color_midpoint = 50),  \n          syn_plots   = cc_plotMat(normData, \"bliss_synergy\",   color_midpoint = 20),\n          extra_plots = cc_plotExtras(normData, color_midpoint=20))",
     "crumbs": [
       "Analysis",
       "Sparse mode analysis"

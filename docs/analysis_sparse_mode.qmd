@@ -3,6 +3,26 @@ title: Sparse mode analysis
 from: markdown+emoji <!--# allows emojis #-->
 ---
 
+Analyzing data generated with sparse mode is nearly identical to the dense mode analysis steps, with a few key differences:
+
+1.  The machine learning model file must be provided
+
+2.  The prediction step is performed before calculating synergy
+
+## Gather files
+
+Gather the required metadata file and raw file(s), we recommend putting them into separate folders for simplicity:
+
+-   meta 📂
+
+    -   Contains the single metadata .csv file
+
+-   raw 📂
+
+    -   Contains the raw file(s) in 384-well format (and nothing else)
+
+Nothing else should be in these folders at the start of analysis.
+
 ## Deployable ensemble model
 
 Combocat's ensemble machine learning model is packaged (serialized) and ready to be deployed. As new iterations of models are released, they will be available in the repository's [models](https://github.com/wcwr/combocat/tree/main/models) folder.
@@ -22,6 +42,48 @@ Check to make sure this is the latest/desired model before loading
 
 #### **Model nomenclature:**
 
-The model is a single file and is named according to specific nomenclature which can tell us some useful information. For example, the current model at time of writing is `m10_Jun_2024_05.00PM_Train552_Test184_TuneT.RDS`, which tells us:
+The model is a single file and is named according to specific nomenclature which can tell us some useful information. For example, the model `m10_Jun_2024_05.00PM_Train552_Test184_TuneT.RDS`, can tell us the following:
 
 ![](images/ML_Model_Nomenclature.png){width="600"}
+
+-   "m" : prepended to all models so files don't start with numbers
+
+-   `<date>` the model was created
+
+-   `<time>` the model was created
+
+-   Train`<number>` : Number of samples that were used in the training set
+
+-   Test`<number>`: Number of samples that were used in the test set
+
+-   Tune`<T/F>`: Indicates if hyperparameter tuning of each model was used
+
+The number of training/test set samples also indicates their proportion and the total sample size. 552 + 184 = 736 total samples, indicating a 75/25 split (the default in `cc_buildModel`)
+
+### Quick start
+
+The entire sparse mode analysis can be run in the following single block.
+
+::: callout-caution
+For larger datasets, these steps should be broken up to avoid running out of resources
+:::
+
+``` r
+
+mappedData <- 
+  cc_map(meta_sparse, getwd())   #Map data
+
+normData <- 
+  cc_norm(mappedData) %>%        #Normalize
+  cc_predict(my_model, .) %>%    #Predict the 90 non-measured indices
+  cc_getSyn(.)                   #Calculate synergy
+  
+drData <- 
+  cc_getDR(normData)             #Fit dose-response curves
+
+cc_report(normData,              #Generate report
+          drData,
+          cd_plots    = cc_plotMat(normData, "perc_cell_death", color_midpoint = 50),  
+          syn_plots   = cc_plotMat(normData, "bliss_synergy",   color_midpoint = 20),
+          extra_plots = cc_plotExtras(normData, color_midpoint=20))
+```

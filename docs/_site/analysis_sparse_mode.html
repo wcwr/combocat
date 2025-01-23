@@ -229,7 +229,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#deployable-ensemble-model" id="toc-deployable-ensemble-model" class="nav-link active" data-scroll-target="#deployable-ensemble-model">Deployable ensemble model</a></li>
+  <li><a href="#gather-files" id="toc-gather-files" class="nav-link active" data-scroll-target="#gather-files">Gather files</a></li>
+  <li><a href="#deployable-ensemble-model" id="toc-deployable-ensemble-model" class="nav-link" data-scroll-target="#deployable-ensemble-model">Deployable ensemble model</a>
+  <ul class="collapse">
+  <li><a href="#quick-start" id="toc-quick-start" class="nav-link" data-scroll-target="#quick-start">Quick start</a></li>
+  </ul></li>
   </ul>
 <div class="toc-actions"><ul><li><a href="https://github.com/wcwr/combocat/issues/new" class="toc-action"><i class="bi bi-github"></i>Report an issue</a></li></ul></div></nav>
     </div>
@@ -255,6 +259,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<p>Analyzing data generated with sparse mode is nearly identical to the dense mode analysis steps, with a few key differences:</p>
+<ol type="1">
+<li><p>The machine learning model file must be provided</p></li>
+<li><p>The prediction step is performed before calculating synergy</p></li>
+</ol>
+<section id="gather-files" class="level2">
+<h2 class="anchored" data-anchor-id="gather-files">Gather files</h2>
+<p>Gather the required metadata file and raw file(s), we recommend putting them into separate folders for simplicity:</p>
+<ul>
+<li><p>meta 📂</p>
+<ul>
+<li>Contains the single metadata .csv file</li>
+</ul></li>
+<li><p>raw 📂</p>
+<ul>
+<li>Contains the raw file(s) in 384-well format (and nothing else)</li>
+</ul></li>
+</ul>
+<p>Nothing else should be in these folders at the start of analysis.</p>
+</section>
 <section id="deployable-ensemble-model" class="level2">
 <h2 class="anchored" data-anchor-id="deployable-ensemble-model">Deployable ensemble model</h2>
 <p>Combocat’s ensemble machine learning model is packaged (serialized) and ready to be deployed. As new iterations of models are released, they will be available in the repository’s <a href="https://github.com/wcwr/combocat/tree/main/models">models</a> folder.</p>
@@ -278,8 +302,51 @@ Note
 </div>
 <section id="model-nomenclature" class="level4">
 <h4 class="anchored" data-anchor-id="model-nomenclature"><strong>Model nomenclature:</strong></h4>
-<p>The model is a single file and is named according to specific nomenclature which can tell us some useful information. For example, the current model at time of writing is <code>m10_Jun_2024_05.00PM_Train552_Test184_TuneT.RDS</code>, which tells us:</p>
+<p>The model is a single file and is named according to specific nomenclature which can tell us some useful information. For example, the model <code>m10_Jun_2024_05.00PM_Train552_Test184_TuneT.RDS</code>, can tell us the following:</p>
 <p><img src="images/ML_Model_Nomenclature.png" class="img-fluid" width="600"></p>
+<ul>
+<li><p>“m” : prepended to all models so files don’t start with numbers</p></li>
+<li><p><code>&lt;date&gt;</code> the model was created</p></li>
+<li><p><code>&lt;time&gt;</code> the model was created</p></li>
+<li><p>Train<code>&lt;number&gt;</code> : Number of samples that were used in the training set</p></li>
+<li><p>Test<code>&lt;number&gt;</code>: Number of samples that were used in the test set</p></li>
+<li><p>Tune<code>&lt;T/F&gt;</code>: Indicates if hyperparameter tuning of each model was used</p></li>
+</ul>
+<p>The number of training/test set samples also indicates their proportion and the total sample size. 552 + 184 = 736 total samples, indicating a 75/25 split (the default in <code>cc_buildModel</code>)</p>
+</section>
+<section id="quick-start" class="level3">
+<h3 class="anchored" data-anchor-id="quick-start">Quick start</h3>
+<p>The entire sparse mode analysis can be run in the following single block.</p>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For larger datasets, these steps should be broken up to avoid running out of resources</p>
+</div>
+</div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>mappedData <span class="ot">&lt;-</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_map</span>(meta_sparse, <span class="fu">getwd</span>())   <span class="co">#Map data</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>normData <span class="ot">&lt;-</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_norm</span>(mappedData) <span class="sc">%&gt;%</span>        <span class="co">#Normalize</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_predict</span>(my_model, .) <span class="sc">%&gt;%</span>    <span class="co">#Predict the 90 non-measured indices</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_getSyn</span>(.)                   <span class="co">#Calculate synergy</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>drData <span class="ot">&lt;-</span> </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_getDR</span>(normData)             <span class="co">#Fit dose-response curves</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">cc_report</span>(normData,              <span class="co">#Generate report</span></span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>          drData,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">cd_plots    =</span> <span class="fu">cc_plotMat</span>(normData, <span class="st">"perc_cell_death"</span>, <span class="at">color_midpoint =</span> <span class="dv">50</span>),  </span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">syn_plots   =</span> <span class="fu">cc_plotMat</span>(normData, <span class="st">"bliss_synergy"</span>,   <span class="at">color_midpoint =</span> <span class="dv">20</span>),</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">extra_plots =</span> <span class="fu">cc_plotExtras</span>(normData, <span class="at">color_midpoint=</span><span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>
