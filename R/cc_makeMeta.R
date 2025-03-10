@@ -1051,7 +1051,8 @@ cc_makeMeta <- function(reg_file,
         #.............First look for DrugA alone at 0.111111112uM then DrugB alone at 0.111111112uM
         #.............But if there is no DrugA concentration of 0.111111112uM, because it was calculated to be 0.111111113, 
         #.............This will cause an error
-        #.............We handle this by rounding the decimal places downstream in the cc_getSyn function
+        #.............We handle this by rounding to the 6th decimal place in the calculate_concentration() function
+        #.............Rounding to 6 decimal places should be sufficient to handle floating point precision issues (can be changed)
         
         
         
