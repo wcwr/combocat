@@ -188,43 +188,48 @@ calculate_position_id <- function(plate_row, plate_col) {
 #When used in a loop over any missing concentrations, this function will fill in the missing concentration values
 #NOTE: The dilution factor is provided by user, default is 3 (1:3 dilution)
 #This should technically work even if only 1 concentration were provided
+#--------------------------------------------------------------
 calculate_concentration <- function(nth, df, conc_column, dilution_factor) {
   # Check if the missing concentration is the highest concentration (nth == 1)
   if (nth == 1) {
     # Start looking for the next available concentration
     next_nth <- nth + 1
     # Loop to find the next available concentration if the immediate next one is missing
-    while(is.na(df[[conc_column]][df$nth_conc == next_nth]) && next_nth <= 10) {
+    while (is.na(df[[conc_column]][df$nth_conc == next_nth]) && next_nth <= 10) {
       next_nth <- next_nth + 1
     }
-    # If a valid next concentration is found, calculate the missing concentration
     if (next_nth <= 10) {
-      # Calculate the missing concentration by dividing the next available concentration
-      # by dilution_factor raised to the power of the difference in concentration levels
-      return(df[[conc_column]][df$nth_conc == next_nth] * (dilution_factor ^ (next_nth - nth)))
+      # Calculate the missing concentration by multiplying the next available concentration
+      # by dilution_factor^(next_nth - nth)
+      calculated_conc <- df[[conc_column]][df$nth_conc == next_nth] * 
+        (dilution_factor ^ (next_nth - nth))
+      
+      # ROUND the calculated concentration to 6 decimal places
+      return(round(calculated_conc, digits = 6))
     } else {
-      # If no next concentration is available, return NA
       return(NA)
     }
   } else {
     # If the missing concentration is not the highest, start looking for the previous available concentration
     prev_nth <- nth - 1
-    # Loop to find the previous available concentration if the immediate previous one is missing
-    while(is.na(df[[conc_column]][df$nth_conc == prev_nth]) && prev_nth >= 1) {
+    while (is.na(df[[conc_column]][df$nth_conc == prev_nth]) && prev_nth >= 1) {
       prev_nth <- prev_nth - 1
     }
-    # If a valid previous concentration is found, calculate the missing concentration
     if (prev_nth >= 1) {
-      # Calculate the missing concentration by multiplying the previous available concentration
-      # by dilution_factor raised to the power of the difference in concentration levels
-      return(df[[conc_column]][df$nth_conc == prev_nth] / (dilution_factor ^ (nth - prev_nth)))
+      # Calculate the missing concentration by dividing the previous available concentration
+      # by dilution_factor^(nth - prev_nth)
+      calculated_conc <- df[[conc_column]][df$nth_conc == prev_nth] / 
+        (dilution_factor ^ (nth - prev_nth))
+      
+      # ROUND the calculated concentration to 6 decimal places
+      return(round(calculated_conc, digits = 6))
     } else {
-      # If no previous concentration is available, return NA
       return(NA)
     }
   }
 }
 #--------------------------------------------------------------
+
 
 
 
