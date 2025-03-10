@@ -342,11 +342,14 @@ Caution
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>drData <span class="ot">&lt;-</span> </span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_getDR</span>(normData)             <span class="co">#Fit dose-response curves</span></span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a><span class="fu">cc_report</span>(normData,              <span class="co">#Generate report</span></span>
-<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>          drData,</span>
-<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>          <span class="at">cd_plots    =</span> <span class="fu">cc_plotMat</span>(normData, <span class="st">"perc_cell_death"</span>, <span class="at">color_midpoint =</span> <span class="dv">50</span>),  </span>
-<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>          <span class="at">syn_plots   =</span> <span class="fu">cc_plotMat</span>(normData, <span class="st">"bliss_synergy"</span>,   <span class="at">color_midpoint =</span> <span class="dv">20</span>),</span>
-<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>          <span class="at">extra_plots =</span> <span class="fu">cc_plotExtras</span>(normData, <span class="at">color_midpoint=</span><span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>normData <span class="ot">&lt;-</span>    </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_getQC</span>(normData, drData)     <span class="co">#Apply QC pipeline</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a><span class="fu">cc_report</span>(normData,              <span class="co">#Generate report</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a>          drData,</span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a>          <span class="at">cd_plots    =</span> <span class="fu">cc_plotMat</span>(normData, <span class="st">"perc_cell_death"</span>, <span class="at">color_midpoint =</span> <span class="dv">50</span>),  </span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>          <span class="at">syn_plots   =</span> <span class="fu">cc_plotMat</span>(normData, <span class="st">"bliss_synergy"</span>,   <span class="at">color_midpoint =</span> <span class="dv">20</span>),</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>          <span class="at">extra_plots =</span> <span class="fu">cc_plotExtras</span>(normData, <span class="at">color_midpoint=</span><span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 
 
 </section>

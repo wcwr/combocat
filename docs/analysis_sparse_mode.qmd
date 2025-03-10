@@ -81,6 +81,9 @@ normData <-
 drData <- 
   cc_getDR(normData)             #Fit dose-response curves
 
+normData <-    
+  cc_getQC(normData, drData)     #Apply QC pipeline
+
 cc_report(normData,              #Generate report
           drData,
           cd_plots    = cc_plotMat(normData, "perc_cell_death", color_midpoint = 50),  
