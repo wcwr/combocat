@@ -565,14 +565,16 @@ cc_makeMeta <- function(reg_file,
         filter(!transfer_type=="single_agent_drug2")  %>% 
         filter(is.na(drug1_conc)) %>%
         pull(drug1_nth_conc) %>% 
-        unique()
+        unique() %>%
+        sort() #Sort to make sure order is 1,2,3, etc of missing concs
       
       mising_nth_conc_drug2 <- 
         reg_file_subset3 %>% 
         filter(!transfer_type=="single_agent_drug1")  %>% 
         filter(is.na(drug2_conc)) %>%
         pull(drug2_nth_conc) %>% 
-        unique()
+        unique() %>%
+        sort() #Sort to make sure order is 1,2,3, etc of missing concs
       
       #Make a temporary df that is in the compatible format for the calculate_concentration function
       #The dataframe should have the columns, 'drug1/2_name', 'drug1/2_conc', and 'nth_conc'
