@@ -791,12 +791,26 @@ cc_makeMeta <- function(reg_file,
     
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     #Determine whether plate_type is single_agent or combination
-    #Grouping by Plate Barcode, only if ALL drug2_conc are NA, then the plate is single_agent
+    #......To do this, we group by Plate Barcode (each Plate Barcode can only be single_agent or combination - not both)
+    #......We know that for single_agent plates, there should be nothing in the drug2_conc column (because there is no drug2 transfer for single_agent plates)
+    #......However - some combination plates also have "NA" in the drug2_conc column, where there should be a value, but there was a transfer failure.
+    #......So we determine plate_type by checking if at least half of the rows in a given Plate Barcode are NA
+    #......A single_agent plate type should have all NA in the drug2_conc column
+    #......A combination plate type should have all values (NO NAs) in the drug2_conc column...... but sometimes a transfer failure makes a few rows NA
+    #......This is we check if at least half of the rows for a given Plate Barcode have NA in the drug2_conc column
     reg_file <- 
       reg_file %>%
       group_by(`Plate Barcode`) %>%
-      mutate("plate_type" = ifelse(all(is.na(drug2_conc)), "single_agent", "combination")) %>%
-      ungroup() 
+      mutate(
+        plate_type = ifelse(
+          #If at least half of the rows are NA in the drug2_conc column, then it is a single_agent plate
+          mean(is.na(drug2_conc)) > 0.5,    #A single-agent plate should have a value of 1
+                                            #A combination plate should have a value of 0 (or close to 0 in case of transfer failures)
+          "single_agent",
+          "combination"
+        )
+      ) %>%
+      ungroup()
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
     
@@ -1077,7 +1091,9 @@ cc_makeMeta <- function(reg_file,
               filter(plate_type=="combination") %>%
               filter(is.na(drug2_conc)) %>%
               pull(nth_conc)
-          )
+          ) %>%
+          unique() %>%
+          sort() #CRITICAL to sort numerically so that 1 is before 2 is before 3, etc. Otherwise, when nth_conc==1 AND nth_conc==2  (or any consecutive concs) are both missing, this causes problems
         
         
         #Now get the missing nth_conc drug2
@@ -1086,7 +1102,8 @@ cc_makeMeta <- function(reg_file,
           reg_file_subset3 %>%
           filter(plate_type=="combination") %>%
           filter(is.na(drug2_conc)) %>%
-          pull(nth_conc)
+          pull(nth_conc) %>%
+          sort() #CRITICAL to sort numerically so that 1 is before 2 is before 3, etc. Otherwise, when nth_conc==1 AND nth_conc==2  (or any consecutive concs) are both missing, this causes problems
         
         
         
