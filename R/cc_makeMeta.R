@@ -27,7 +27,8 @@ cc_makeMeta <- function(reg_file,
                         dilution_factor=3,
                         assay_ready_volume="auto_detect",
                         final_volume="standard",
-                        sample_name="not_provided"){
+                        sample_name="not_provided",
+                        rounding_digits=6){
   
   
   #Input requirements:
@@ -37,6 +38,7 @@ cc_makeMeta <- function(reg_file,
   #assay_ready_volume--The expected total volume of the assay-ready plate in NANOliters. This is used to flag transfer failures. 'auto_detect' is default, which takes the mode, aka most frequent volume. (20nL in standard sparse mode)
   #final_volume--------The final volume of the assay in NANOliters. Default is "standard" which is 40,000nL (40uL) in dense mode or 4000nL (4uL) sparse mode. 
   #sample_name---------The name of the sample.
+  #rounding_digits-----The number of digits to round the final concentrations to. Default is 6. Rounding is important for matching up the 'fixed' concentrations in cases of transfer failures
   
   
   
@@ -597,12 +599,12 @@ cc_makeMeta <- function(reg_file,
       #Fill in each missing concentration
       #(Nothing happens to the dataframes if there are no missing concentrations)
       for(nth in mising_nth_conc_drug1) {
-        calculated_conc <- calculate_concentration(nth, tmp_df_drug1, "drug1_conc", dilution_factor=dilution_factor)
+        calculated_conc <- calculate_concentration(nth, tmp_df_drug1, "drug1_conc", dilution_factor=dilution_factor, rounding_digits = rounding_digits)
         tmp_df_drug1$drug1_conc[tmp_df_drug1$nth_conc == nth] <- calculated_conc
       }
       
       for(nth in mising_nth_conc_drug2) {
-        calculated_conc <- calculate_concentration(nth, tmp_df_drug2, "drug2_conc", dilution_factor=dilution_factor)
+        calculated_conc <- calculate_concentration(nth, tmp_df_drug2, "drug2_conc", dilution_factor=dilution_factor, rounding_digits = rounding_digits)
         tmp_df_drug2$drug2_conc[tmp_df_drug2$nth_conc == nth] <- calculated_conc
       }
       
@@ -980,17 +982,17 @@ cc_makeMeta <- function(reg_file,
           reg_file_subset3 %>%
           add_count(drug1_name) %>%
           arrange(desc(n)) %>%
-          mutate("drug1_name" = first(drug1_name)) %>%
+          mutate("drug1_name"=first(drug1_name)) %>%
           select(-n)
         
-        #Same approach for drug2_name
-        #(Note that in single_agent plates, drug2_name should end up being NA)
         reg_file_subset3 <- 
           reg_file_subset3 %>%
           add_count(drug2_name) %>%
           arrange(desc(n)) %>%
-          mutate("drug2_name" = first(drug2_name)) %>%
+          mutate("drug2_name"=first(drug2_name)) %>%
           select(-n)
+        
+
         
         #Same approach for combo_id
         reg_file_subset3 <- 
@@ -1055,80 +1057,74 @@ cc_makeMeta <- function(reg_file,
         #====================================
         #Fill in the missing concentrations
         #We do this for drug1_conc in either plate_type, but only 'combination' plates apply this for drug2_conc
-        
-        #CRITICAL NOTE: 
+
+        #CRITICAL NOTE:
         #Some concentrations that get filled in might be very slightly different than what they are intended to be
         #This is due to floating point precision issues, and occurs in wells with failed transfers
         #For example, 0.111111112 might be the intended concentration, but after division we might get a result of 0.111111113
         #This shouldn't be a problem at this stage, but will be a problem downstream when concentrations need to be matched exactly
-        #For example: 
-        #.............Combining DrugA at 0.111111112uM + DrugB at 0.111111112uM (same concs) could give 80% cell death, 
+        #For example:
+        #.............Combining DrugA at 0.111111112uM + DrugB at 0.111111112uM (same concs) could give 80% cell death,
         #.............So to calculate synergy, we would first grab the single-agent effects,
         #.............First look for DrugA alone at 0.111111112uM then DrugB alone at 0.111111112uM
-        #.............But if there is no DrugA concentration of 0.111111112uM, because it was calculated to be 0.111111113, 
+        #.............But if there is no DrugA concentration of 0.111111112uM, because it was calculated to be 0.111111113,
         #.............This will cause an error
-        #.............We handle this by rounding to the 6th decimal place in the calculate_concentration() function
-        #.............Rounding to 6 decimal places should be sufficient to handle floating point precision issues (can be changed)
-        
-        
-        
-        
+        #.............We handle this by rounding to the rounding_digits decimal place (default = 6) in the calculate_concentration() function
+        #.............Rounding to 6 decimal places should be sufficient to handle floating point precision issues (can be changed by adjusting the rounding_digits argument)
+
+
+
+
         #First define which nth_conc's are missing (for drug1_conc)
-        #CRITICAL: For missing nth_concs for drug1, we actually consider drug1_conc AND drug2_conc
-        #Reason : 
-        #If drug1_conc is na, then it is definitely missing. But ALSO...
-        #If drug2_conc is NA, that could be from one of two cases: 
-        #.....................First case is that drug2 simply did not transfer
-        #.....................Second case is that drug1 did not transfer, and the information of drug2 got shifted to drug1
-        #.....................Therefore, any drug2_conc that is NA (only in the case of combination plates), that nth_conc also gets marked as a missing nth_conc for drug1
-        missing_nth_conc_drug1 <- 
-          c(
-            #nth_conc where drug1_conc is NA
-            reg_file_subset3 %>%
-              filter(is.na(drug1_conc)) %>%
-              pull(nth_conc),
-            
-            #nth_conc where drug2_conc is NA (only in the case of combination plates)
-            reg_file_subset3 %>%
-              filter(plate_type=="combination") %>%
-              filter(is.na(drug2_conc)) %>%
-              pull(nth_conc)
-          ) %>%
-          unique() %>%
-          sort() #CRITICAL to sort numerically so that 1 is before 2 is before 3, etc. Otherwise, when nth_conc==1 AND nth_conc==2  (or any consecutive concs) are both missing, this causes problems
+        #It's important to note that when drug1 transfer fails, the drug2 info gets slotted into drug1
+        #If drug2 tranfer fails, drug2 info would just be NA
+        #If both drugs fail, then both would be NA
+        #The most straightforward way to handle this is to just set the drug1/2_conc columns to NA if failed_transfer==1:
+        reg_file_subset3$drug1_conc[reg_file_subset3$failed_transfer==1] <- NA
+        reg_file_subset3$drug2_conc[reg_file_subset3$failed_transfer==1] <- NA
         
-        
-        #Now get the missing nth_conc drug2
-        #This will be just like above, grab any nth_concs where drug2_conc is NA (for combinatin plates, only)
-        missing_nth_conc_drug2 <- 
+        #Figure out which nth_conc's are missing from drug1 and 2
+        missing_nth_conc_drug1 <-
           reg_file_subset3 %>%
-          filter(plate_type=="combination") %>%
+          filter(is.na(drug1_conc)) %>%
+          pull(nth_conc) %>%
+          unique() %>%
+          sort()
+        
+        missing_nth_conc_drug2 <-
+          reg_file_subset3 %>%
+          filter(plate_type=="combination") %>% #NOTE: we only fill in missing drug2_concs for combination plates, not single_agent plates
           filter(is.na(drug2_conc)) %>%
           pull(nth_conc) %>%
-          sort() #CRITICAL to sort numerically so that 1 is before 2 is before 3, etc. Otherwise, when nth_conc==1 AND nth_conc==2  (or any consecutive concs) are both missing, this causes problems
+          unique() %>%
+          sort()
         
         
         
         
-        # Loop over each missing nth_conc value to calculate the missing concentration
-        for(nth in missing_nth_conc_drug1) {
-          calculated_conc <- calculate_concentration(nth, reg_file_subset3, "drug1_conc", dilution_factor=dilution_factor)
-          # Now, update the concentration in reg_file_subset3 for the corresponding nth_conc
-          reg_file_subset3$drug1_conc[reg_file_subset3$nth_conc == nth] <- calculated_conc
+        #Fill in those missing concentrations
+        for (nth in missing_nth_conc_drug1) {
+          calc_val <- calculate_concentration(
+            nth         = nth,
+            df          = reg_file_subset3,
+            conc_column = "drug1_conc",
+            dilution_factor = 3,
+            rounding_digits = rounding_digits
+          )
+          reg_file_subset3$drug1_conc[reg_file_subset3$nth_conc == nth] <- calc_val
         }
         
         
-        #Repeat this specific for combination plate types only for drug2_conc
-        if(all(reg_file_subset3$plate_type == "combination", na.rm = TRUE)){
-          
-          
-          for(nth in missing_nth_conc_drug2) {
-            calculated_conc <- calculate_concentration(nth, reg_file_subset3, "drug2_conc", dilution_factor=dilution_factor)
-            reg_file_subset3$drug2_conc[reg_file_subset3$nth_conc == nth] <- calculated_conc
-          }
+        for (nth in missing_nth_conc_drug2) {
+          calc_val <- calculate_concentration(
+            nth         = nth,
+            df          = reg_file_subset3,
+            conc_column = "drug2_conc",
+            dilution_factor = 3,
+            rounding_digits = rounding_digits
+          )
+          reg_file_subset3$drug2_conc[reg_file_subset3$nth_conc == nth] <- calc_val
         }
-        #====================================
-        
         
         
         
