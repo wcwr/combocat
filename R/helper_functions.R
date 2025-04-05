@@ -189,7 +189,7 @@ calculate_position_id <- function(plate_row, plate_col) {
 #NOTE: The dilution factor is provided by user, default is 3 (1:3 dilution)
 #This should technically work even if only 1 concentration were provided
 #--------------------------------------------------------------
-calculate_concentration <- function(nth, df, conc_column, dilution_factor) {
+calculate_concentration <- function(nth, df, conc_column, dilution_factor, rounding_digits) {
   # Check if the missing concentration is the highest concentration (nth == 1)
   if (nth == 1) {
     # Start looking for the next available concentration
@@ -204,8 +204,8 @@ calculate_concentration <- function(nth, df, conc_column, dilution_factor) {
       calculated_conc <- df[[conc_column]][df$nth_conc == next_nth] * 
         (dilution_factor ^ (next_nth - nth))
       
-      # ROUND the calculated concentration to 6 decimal places
-      return(round(calculated_conc, digits = 6))
+      # ROUND the calculated concentration to rounding_digits decimal places
+      return(round(calculated_conc, digits = rounding_digits))
     } else {
       return(NA)
     }
@@ -221,8 +221,8 @@ calculate_concentration <- function(nth, df, conc_column, dilution_factor) {
       calculated_conc <- df[[conc_column]][df$nth_conc == prev_nth] / 
         (dilution_factor ^ (nth - prev_nth))
       
-      # ROUND the calculated concentration to 6 decimal places
-      return(round(calculated_conc, digits = 6))
+      # ROUND the calculated concentration to rounding_digits decimal places
+      return(round(calculated_conc, digits = rounding_digits))
     } else {
       return(NA)
     }
