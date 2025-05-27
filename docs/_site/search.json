@@ -102,7 +102,7 @@
     "href": "experimental_dense_mode.html#prepare-the-stock-plate",
     "title": "Dense mode protocol",
     "section": "2: Prepare the stock plate",
-    "text": "2: Prepare the stock plate\nMake the stock plate in a 384-well polypropylene (pp) plate that is Echo-compatible according to the following template:\n\n(Use the spreadsheet template from step 1 to see details of how the plate should look).\n\nAll wells should contain 50 µL, which is enough to make 9 assay-ready plates.\nDrug 1 in the top row, and Drug 2 in the bottom row\nDMSO is plated in 4 wells to account for the ‘back-filling’ transfer steps\nStaurosporine at a final concentration of (10 µM / 400 =) 25 µM is the cell death control\n\n\n\n\n\n\n\nWarning\n\n\n\nEnsure Staurosporine is an effective cell death control for your cell line before proceeding.",
+    "text": "2: Prepare the stock plate\nMake the stock plate in a 384-well polypropylene (pp) plate that is Echo-compatible according to the following template:\n\n(Use the spreadsheet template from step 1 to see details of how the plate should look).\n\nAll wells should contain 50 µL, which is enough to make 9 assay-ready plates.\nDrug 1 in the top row, and Drug 2 in the bottom row\nDMSO is plated in 4 wells to account for the ‘back-filling’ transfer steps\nStaurosporine at a final concentration of (10 mM / 400 =) 25 µM is the cell death control\n\n\n\n\n\n\n\nWarning\n\n\n\nEnsure Staurosporine is an effective cell death control for your cell line before proceeding.",
     "crumbs": [
       "Experimental setup",
       "Dense mode protocol"
@@ -124,7 +124,7 @@
     "href": "experimental_dense_mode.html#plate-cells-incubate",
     "title": "Dense mode protocol",
     "section": "4: Plate cells & incubate",
-    "text": "4: Plate cells & incubate\n\nPlate 40 µL of cells into all wells.\n\nThis is much easier with a liquid handler like the Multidrop Combi or similar, but can be achieved using multi-channel pipettes as well.\n\nIncubate cells for desired treatment time\n\n\n\n\n\n\n\nWarning\n\n\n\nWe recommend 72-hour treatments. After 96-hours, evaporation of media begins to disrupt data quality.",
+    "text": "4: Plate cells & incubate\n\nPlate 40 µL of cells into all wells.\n\nThis is much easier with a liquid handler like the Multidrop Combi or similar, but can be achieved using multi-channel pipettes as well.\nNote that adding cells will bring the final DMSO concentration to 0.5% in all wells\n\nIncubate cells for desired treatment time\n\n\n\n\n\n\n\nWarning\n\n\n\nWe recommend 72-hour treatments. After 96-hours, evaporation of media begins to disrupt data quality.",
     "crumbs": [
       "Experimental setup",
       "Dense mode protocol"

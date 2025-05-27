@@ -45,7 +45,7 @@ Make the stock plate in a 384-well polypropylene (pp) plate that is [Echo-compat
 
 -   DMSO is plated in 4 wells to account for the 'back-filling' transfer steps
 
--   Staurosporine at a final concentration of (10 µM / 400 =) 25 µM is the cell death control
+-   Staurosporine at a final concentration of (10 mM / 400 =) 25 µM is the cell death control
 
 ::: callout-warning
 Ensure Staurosporine is an effective cell death control for your cell line before proceeding.
@@ -86,6 +86,7 @@ This Echo protocol can be used up to 9 times to make [9 assay-ready plate copies
 -   Plate **40 µL of cells** into all wells.
 
     -   This is much easier with a liquid handler like the [Multidrop Combi](https://www.thermofisher.com/us/en/home/life-science/lab-equipment/microplate-instruments/multidrop-dispensers.html) or similar, but can be achieved using multi-channel pipettes as well.
+    -   Note that adding cells will bring **the final DMSO concentration to 0.5%** in all wells
 
 -   Incubate cells for desired treatment time
 
