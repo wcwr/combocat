@@ -54,7 +54,7 @@ The entire workflow of analysis, plotting, and reporting can be run in this **si
 
 ``` r
 normData <-    
-  cc_map(meta_dense, getwd()) %>%   
+  cc_map(meta_dense, getwd(), save_raw_plate_heatmaps=TRUE) %>%   
   cc_norm(.) %>%   
   cc_getSyn(.)  
 

@@ -313,7 +313,7 @@ Note
 <p><img src="images/functions_schematic.svg" class="img-fluid" width="900"></p>
 <p>The entire workflow of analysis, plotting, and reporting can be run in this <strong>single block</strong>:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>normData <span class="ot">&lt;-</span>    </span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_map</span>(meta_dense, <span class="fu">getwd</span>()) <span class="sc">%&gt;%</span>   </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_map</span>(meta_dense, <span class="fu">getwd</span>(), <span class="at">save_raw_plate_heatmaps=</span><span class="cn">TRUE</span>) <span class="sc">%&gt;%</span>   </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_norm</span>(.) <span class="sc">%&gt;%</span>   </span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cc_getSyn</span>(.)  </span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>

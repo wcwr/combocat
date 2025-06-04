@@ -212,7 +212,7 @@
     "href": "analysis_dense_mode.html#quick-start",
     "title": "Dense mode analysis",
     "section": "Quick start",
-    "text": "Quick start\n\nThe entire workflow of analysis, plotting, and reporting can be run in this single block:\nnormData &lt;-    \n  cc_map(meta_dense, getwd()) %&gt;%   \n  cc_norm(.) %&gt;%   \n  cc_getSyn(.)  \n\ndrData &lt;-    \n  cc_getDR(normData)  \n\nnormData &lt;-    \n  cc_getQC(normData, drData)  \n\ncc_report(normData,   \n          drData,   \n          cd_plots    = cc_plotMat(normData, \"perc_cell_death\", color_midpoint = 50),  \n          syn_plots   = cc_plotMat(normData, \"bliss_synergy\",   color_midpoint = 20),\n          extra_plots = cc_plotExtras(normData, color_midpoint=20))\nBelow, the process is broken down into more detail:",
+    "text": "Quick start\n\nThe entire workflow of analysis, plotting, and reporting can be run in this single block:\nnormData &lt;-    \n  cc_map(meta_dense, getwd(), save_raw_plate_heatmaps=TRUE) %&gt;%   \n  cc_norm(.) %&gt;%   \n  cc_getSyn(.)  \n\ndrData &lt;-    \n  cc_getDR(normData)  \n\nnormData &lt;-    \n  cc_getQC(normData, drData)  \n\ncc_report(normData,   \n          drData,   \n          cd_plots    = cc_plotMat(normData, \"perc_cell_death\", color_midpoint = 50),  \n          syn_plots   = cc_plotMat(normData, \"bliss_synergy\",   color_midpoint = 20),\n          extra_plots = cc_plotExtras(normData, color_midpoint=20))\nBelow, the process is broken down into more detail:",
     "crumbs": [
       "Analysis",
       "Dense mode analysis"
