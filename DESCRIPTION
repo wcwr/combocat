@@ -23,7 +23,8 @@ Depends:
     magick,
     doParallel,
     parallelly,
-    parallel
+    parallel,
+    svglite
 License: MIT
 Encoding: UTF-8
 LazyData: true
