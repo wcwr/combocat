@@ -84,7 +84,7 @@ For example, the metadata for a single combination looks like this:
 ::: callout-tip
 You can download this (File ➝ Download) to follow along. Be sure to **choose .csv**
 
-Rename the file to **CHP134_Rucaparib_AZD1390.csv** so the filename matches!
+Rename the file to **meta_dense.csv** so the filename matches!
 :::
 
 <iframe src="https://docs.google.com/spreadsheets/d/1ASiYVWjly-RdbYzSkEuiZKUGTsln9Wv2xpvo94Z9FTU/edit?usp=sharing" width="100%" height="600px" style="border: none;">
