@@ -256,7 +256,7 @@
     "href": "analysis_dense_mode.html#generating-the-reports",
     "title": "Dense mode analysis",
     "section": "Generating the reports",
-    "text": "Generating the reports\nFinally, cc_report will save all the plots, and generate detailed reports of cell death, synergy, IC50 values, and much more.\ncc_report(normData,\n          drData,\n          cdPlots,\n          synPlots,\n          extraPlots,\n          save_summary_files = TRUE,\n          save_summary_plots = TRUE)\nFor example:",
+    "text": "Generating the reports\nFinally, cc_report will save all the plots, and generate detailed reports of cell death, synergy, IC50 values, and much more.\ncc_report(normData,\n          drData,\n          cdPlots,\n          synPlots,\n          extraPlots,\n          save_summary_files = TRUE,\n          save_summary_plots = TRUE)\nFor example:\n\nThe summary plots will include the following (left-to-right):\n\nSingle-agent dose-response curves\nCell death matrix\nSynergy matrix\nBar plot of maximum synergy (the %cell death of the drug doses that produce maximum synergy. Note than when %cell death is &lt;0, this is typically due to a normalization artifact).\nSynergy scatterplot (observed vs. expected synergy across all doses).",
     "crumbs": [
       "Analysis",
       "Dense mode analysis"

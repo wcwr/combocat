@@ -136,3 +136,15 @@ cc_report(normData,
 For example:
 
 ![](images/summary_plotsCHP134_Rucaparib_AZD1390.csv.svg)
+
+The summary plots will include the following (left-to-right):
+
+-   Single-agent dose-response curves
+
+-   Cell death matrix
+
+-   Synergy matrix
+
+-   Bar plot of maximum synergy (the %cell death of the drug doses that produce maximum synergy. Note than when %cell death is \<0, this is typically due to a normalization artifact).
+
+-   Synergy scatterplot (observed vs. expected synergy across all doses).
