@@ -1,10 +1,11 @@
 #--------------------------------------------------------------
 #' Calculate Synergy Scores
 #'
-#' This function calculates Bliss synergy scores for both dense and sparse mode data, based on normalized input data.
-#' Synergy is computed as the excess cell death over the Bliss expectation, and the results are added to the reference data frame.
+#' This function calculates Bliss and Loewe synergy scores for both dense and sparse mode data, based on normalized input data.
+#' The results are added to the reference data frame.
 #'
 #' @param norm_data List. Output from `cc_norm`, containing normalized data and metadata.
+#' @param dr_data List. Output from `cc_getDR`, containing dose-response and IC50 data.
 #' @param conc_rounding_factor Numeric. Number of decimal places to round concentrations to. Default is `6`. 
 #'   Rounding is important for merging drugs with slightly different concentrations due to floating-point errors
 #'   This is particularly important due to floating point errors that may arise from `cc_makeMeta`
@@ -18,11 +19,13 @@
 #--------------------------------------------------------------
 #Function to calculate synergy
 cc_getSyn <- function(norm_data,
+                      dr_data,
                       conc_rounding_factor=6){
   
   
   #Input requirements:
   #norm_data-----------------------Output from cc_norm
+  #dr_data-------------------------Output from cc_getDR
   #conc_rounding_factor------------Number of decimal places to round concentrations to. Default is 6.
   #................................Note: this is important for merging drugs which may have slightly different concentrations due 
   #................................to floating point decimal errors from calculating missing concentrations in cc_makeMeta
@@ -161,6 +164,40 @@ cc_getSyn <- function(norm_data,
         ref_df %>%
         mutate(bliss_synergy = ifelse(drug1_conc == 0 | drug2_conc == 0, 0, bliss_synergy))
       #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      
+      
+      
+      
+      #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      #Calculate Loewe synergy
+      
+      #Extract the dose-response data for the single-agents
+      #Get the correct indices of dr_data
+      #This will ensure the correct format is used to get the right dr data. The format for a given index is <drug_name>_<filename>
+      drug1_dr_index <- paste0(unique(ref_df$drug1_name), "_", unique(ref_df$filename))
+      drug2_dr_index <- paste0(unique(ref_df$drug2_name), "_", unique(ref_df$filename))
+      
+      #Now we can extract the single-agent dose-response dataframes for these drugs:
+      drug1_dr_df <- dr_data$predicted_results_list[[drug1_dr_index]]$model_output$pred_df
+      drug2_dr_df <- dr_data$predicted_results_list[[drug2_dr_index]]$model_output$pred_df
+      
+      #Calculate Loewe synergy using the `calc_loewe` helper function
+      ref_df <- 
+        calc_loewe(
+          reference_df = ref_df,
+          drug1_conc_column = "drug1_conc",
+          drug2_conc_column = "drug2_conc",
+          response_column   = "perc_cell_death",
+          drug1_dr = drug1_dr_df,
+          drug2_dr = drug2_dr_df
+        )
+      
+      #Adjust loewe_synergy to be zero when drug1_conc or drug2_conc is zero
+      ref_df <- 
+        ref_df %>%
+        mutate(loewe_synergy = ifelse(drug1_conc == 0 | drug2_conc == 0, 0, loewe_synergy))
+      #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
       
       
       

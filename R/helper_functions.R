@@ -542,3 +542,91 @@ calc_moran <- function(input_syn_mat){
   
 }
 #--------------------------------------------------------------
+
+
+
+
+
+#--------------------------------------------------------------
+#Function to calculate Loewe synergy score
+calc_loewe <- 
+  function(
+    
+    reference_df,       #....Dataframe containing the drug response data
+    drug1_conc_column,  #....Column in reference_df that contains drug1 concentrations
+    drug2_conc_column,  #....Column in reference_df that contains drug2 concentrations
+    response_column,    #....Column in reference_df that contains the response (e.g. "perc_cell_death")
+    drug1_dr,           #....Dataframe of dose-response data for drug1 (has columns "dose" and "response")
+    drug2_dr){          #....Dataframe of dose-response data for drug2 (has columns "dose" and "response")
+    
+    
+    
+    #To calculate Loewe synergy for a given combination effect (aka the %cell death resulting from drug1 + drug2), we need 4 values:
+    #1. drug1_conc..........Concentration of drug1 in the combination
+    #2. drug2_conc..........Concentration of drug2 in the combination
+    #3. drug1_conc_eq.......Concentration of drug1 alone that produces the same ffect as the combination
+    #4. drug2_conc_eq.......Concentration of drug2 alone that produces the same ffect as the combination
+    
+    #Loewe synergy score = (drug1_conc / drug1_conc_eq) + (drug2_conc / drug2_conc_eq)
+    
+    #Note that unlike Bliss, Loewe synergy requires the fit DR curves.
+    #Additionally, Loewe requires there to be a dose of each single-agent that produces the same effect as the combination. 
+    #This doesn't happen in many cases, leading to Loewe being undefined (NA). 
+    
+    
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    #Initialize loewe_synergy column in reference_df:
+    reference_df$loewe_synergy <- NA_real_
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
+    
+    
+    
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    #Loop over each row in the reference_df
+    for(i in 1:nrow(reference_df)){
+      
+      #~~~~~~~~~~~~~~~~~~~~~~~
+      #Extract info from the current row of reference_df
+      current_df <- reference_df[i,]
+      drug1_conc <- current_df$drug1_conc
+      drug2_conc <- current_df$drug2_conc
+      #~~~~~~~~~~~~~~~~~~~~~~~
+      
+      
+      #~~~~~~~~~~~~~~~~~~~~~~~
+      #Get the equivalent concentrations of drug1 and drug2 that would produce the same effect as the combination
+      drug1_conc_eq <- 
+        approx(
+          x = drug1_dr$response,
+          y = drug1_dr$dose,
+          xout = current_df[[response_column]],
+          ties = mean)$y
+      
+      drug2_conc_eq <- 
+        approx(
+          x = drug2_dr$response,
+          y = drug2_dr$dose,
+          xout = current_df[[response_column]],
+          ties = mean)$y
+      #~~~~~~~~~~~~~~~~~~~~~~~
+      
+      
+      #~~~~~~~~~~~~~~~~~~~~~~~
+      #Calculate the Loewe synergy score for the current combination
+      loewe_synergy <- (drug1_conc / drug1_conc_eq) + (drug2_conc / drug2_conc_eq)
+      #~~~~~~~~~~~~~~~~~~~~~~~
+      
+      
+      #~~~~~~~~~~~~~~~~~~~~~~~
+      #Return the Loewe synergy score for the current combination
+      reference_df$loewe_synergy[i] <- loewe_synergy
+      #~~~~~~~~~~~~~~~~~~~~~~~
+      
+      
+    } #End loop over each row of reference_df
+    #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    
+    return(reference_df)
+  }#End calc_loewe
+#--------------------------------------------------------------
