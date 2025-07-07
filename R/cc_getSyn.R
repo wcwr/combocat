@@ -181,21 +181,36 @@ cc_getSyn <- function(norm_data,
       drug1_dr_df <- dr_data$predicted_results_list[[drug1_dr_index]]$model_output$pred_df
       drug2_dr_df <- dr_data$predicted_results_list[[drug2_dr_index]]$model_output$pred_df
       
-      #Calculate Loewe synergy using the `calc_loewe` helper function
-      ref_df <- 
-        calc_loewe(
-          reference_df = ref_df,
-          drug1_conc_column = "drug1_conc",
-          drug2_conc_column = "drug2_conc",
-          response_column   = "perc_cell_death",
-          drug1_dr = drug1_dr_df,
-          drug2_dr = drug2_dr_df
-        )
+      #Note: We can't calculate Loewe in cases where one or both of the DR curves failed - so set to NA
+      if(is.null(drug1_dr_df) || is.null(drug2_dr_df)){
+        ref_df$loewe_synergy <- NA_real_
+        message(paste0(
+          "Warning: Loewe synergy cannot be calculated for ", 
+          unique(ref_df$drug1_name), " and ", 
+          unique(ref_df$drug2_name), 
+          " (file: ", unique(ref_df$filename), 
+          ") due to missing dose-response data."
+        ))
+        
+      } else {
+        
+        #Otherwise if both DR curves are valid:
+        #Calculate Loewe synergy using the `calc_loewe` helper function
+        ref_df <- 
+          calc_loewe(
+            reference_df = ref_df,
+            drug1_conc_column = "drug1_conc",
+            drug2_conc_column = "drug2_conc",
+            response_column   = "perc_cell_death",
+            drug1_dr = drug1_dr_df,
+            drug2_dr = drug2_dr_df
+          )
+      }
       
       #Adjust loewe_synergy to be zero when drug1_conc or drug2_conc is zero
       ref_df <- 
         ref_df %>%
-        mutate(loewe_synergy = ifelse(drug1_conc == 0 | drug2_conc == 0, 0, loewe_synergy))
+        mutate(loewe_synergy = ifelse(drug1_conc == 0 | drug2_conc == 0, NA_real_, loewe_synergy))
       #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
     
       
