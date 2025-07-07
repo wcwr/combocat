@@ -24,8 +24,7 @@ Depends:
     doParallel,
     parallelly,
     parallel,
-    svglite,
-    googlesheets4
+    svglite
 License: MIT
 Encoding: UTF-8
 LazyData: true
