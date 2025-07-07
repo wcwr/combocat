@@ -201,7 +201,6 @@ cc_getSyn <- function(norm_data,
       
       
       
-      
       #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       #Replace the original ref_df with the updated version containing synergy data
       norm_data[[i]]$ref_df <- ref_df

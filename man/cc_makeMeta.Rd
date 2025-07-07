@@ -10,7 +10,8 @@ cc_makeMeta(
   dilution_factor = 3,
   assay_ready_volume = "auto_detect",
   final_volume = "standard",
-  sample_name = "not_provided"
+  sample_name = "not_provided",
+  rounding_digits = 6
 )
 }
 \arguments{
