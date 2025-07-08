@@ -212,7 +212,7 @@
     "href": "analysis_dense_mode.html#quick-start",
     "title": "Dense mode analysis",
     "section": "Quick start",
-    "text": "Quick start\n\nThe entire workflow of analysis, plotting, and reporting can be run in this single block:\nnormData &lt;-    \n  cc_map(meta_dense, getwd(), save_raw_plate_heatmaps=TRUE) %&gt;%   \n  cc_norm(.) %&gt;%   \n  cc_getSyn(.)  \n\ndrData &lt;-    \n  cc_getDR(normData)  \n\nnormData &lt;-    \n  cc_getQC(normData, drData)  \n\ncc_report(normData,   \n          drData,   \n          cd_plots    = cc_plotMat(normData, \"perc_cell_death\", color_midpoint = 50),  \n          syn_plots   = cc_plotMat(normData, \"bliss_synergy\",   color_midpoint = 20),\n          extra_plots = cc_plotExtras(normData, color_midpoint=20))\nBelow, the process is broken down into more detail:",
+    "text": "Quick start\n\nThe entire workflow of analysis, plotting, and reporting can be run in this single block:\n#Map, normalize\nnormData &lt;- \n  cc_map(meta_dense, getwd(), save_raw_plate_heatmaps = TRUE) %&gt;%\n  cc_norm(.)\n\n#Fit DR models\ndrData &lt;- \n  cc_getDR(normData)\n\n#Calculate synergy, QC\nsynData &lt;- \n  cc_getSyn(normData, drData) %&gt;%\n  cc_getQC(., drData)\n\n#Return/save results\ncc_report(\n  synData,   \n  drData,   \n  cd_plots    = cc_plotMat(synData, \"perc_cell_death\", color_midpoint = 50),\n  syn_plots   = cc_plotMat(synData, \"bliss_synergy\",   color_midpoint = 20),\n  extra_plots = cc_plotExtras(synData,                 color_midpoint = 20))\nBelow, the process is broken down into more detail:",
     "crumbs": [
       "Analysis",
       "Dense mode analysis"
@@ -223,7 +223,7 @@
     "href": "analysis_dense_mode.html#core-functions",
     "title": "Dense mode analysis",
     "section": "Core functions",
-    "text": "Core functions\nThese are the functions that handle mapping, normalization, synergy quantification, and fitting DR curves:\nmappedData &lt;- \n  cc_map(meta_dense, getwd()) #Map\n\nnormData &lt;-                             \n  cc_norm(mappedData) %&gt;%     #Normalize\n  cc_getSyn(.)                #Calculate synergy\n\ndrData &lt;- \n  cc_getDR(normData)          #Fit dose-response models",
+    "text": "Core functions\nThese are the functions that handle mapping, normalization, synergy quantification, and fitting DR curves:\nmappedData &lt;- \n  cc_map(meta_dense, getwd()) #Map\n\nnormData &lt;-                             \n  cc_norm(mappedData)         #Normalize\n\ndrData &lt;- \n  cc_getDR(normData)          #Fit dose-response models\n\nsynData &lt;- \n  cc_getSyn(normData, drData) #Calculate synergy",
     "crumbs": [
       "Analysis",
       "Dense mode analysis"
@@ -234,7 +234,7 @@
     "href": "analysis_dense_mode.html#quality-control-qc",
     "title": "Dense mode analysis",
     "section": "Quality Control (QC)",
-    "text": "Quality Control (QC)\nSee the Advanced topics section for details of what the QC does and why it is important\nnormData &lt;- cc_getQC(normData, drData)",
+    "text": "Quality Control (QC)\nSee the Advanced topics section for details of what the QC does and why it is important\nsynData &lt;- cc_getQC(normData, drData)",
     "crumbs": [
       "Analysis",
       "Dense mode analysis"
@@ -245,7 +245,7 @@
     "href": "analysis_dense_mode.html#generating-plots",
     "title": "Dense mode analysis",
     "section": "Generating plots",
-    "text": "Generating plots\nNow we plot the cell death and synergy matrices, plus the accessory plots (like bar plots of the maximum synergy per combo)\n#Plot cell death matrices\ncdPlots &lt;- \n  cc_plotMat(normData,\n             plotting_variable = \"perc_cell_death\",\n             color_midpoint = 50)\n                      \n#Plot synergy matrices\nsynPlots &lt;- \n  cc_plotMat(normData,\n             plotting_variable = \"bliss_synergy\",\n             color_midpoint = 20)\n                       \n#Accessory plots\nextraPlots &lt;- \n  cc_plotExtras(normData)",
+    "text": "Generating plots\nNow we plot the cell death and synergy matrices, plus the accessory plots (like bar plots of the maximum synergy per combo)\n#Plot cell death matrices\ncdPlots &lt;- \n  cc_plotMat(synData,\n             plotting_variable = \"perc_cell_death\",\n             color_midpoint = 50)\n                      \n#Plot synergy matrices\nsynPlots &lt;- \n  cc_plotMat(synData,\n             plotting_variable = \"bliss_synergy\",\n             color_midpoint = 20)\n                       \n#Accessory plots\nextraPlots &lt;- \n  cc_plotExtras(synData)",
     "crumbs": [
       "Analysis",
       "Dense mode analysis"
@@ -256,7 +256,7 @@
     "href": "analysis_dense_mode.html#generating-the-reports",
     "title": "Dense mode analysis",
     "section": "Generating the reports",
-    "text": "Generating the reports\nFinally, cc_report will save all the plots, and generate detailed reports of cell death, synergy, IC50 values, and much more.\ncc_report(normData,\n          drData,\n          cdPlots,\n          synPlots,\n          extraPlots,\n          save_summary_files = TRUE,\n          save_summary_plots = TRUE)\nFor example:\n\nThe summary plots will include the following (left-to-right):\n\nSingle-agent dose-response curves\nCell death matrix\nSynergy matrix\nBar plot of maximum synergy (the %cell death of the drug doses that produce maximum synergy. Note than when %cell death is &lt;0, this is typically due to a normalization artifact).\nSynergy scatterplot (observed vs. expected synergy across all doses).",
+    "text": "Generating the reports\nFinally, cc_report will save all the plots, and generate detailed reports of cell death, synergy, IC50 values, and much more.\ncc_report(synData,\n          drData,\n          cdPlots,\n          synPlots,\n          extraPlots,\n          save_summary_files = TRUE,\n          save_summary_plots = TRUE)\nFor example:\n\nThe summary plots will include the following (left-to-right):\n\nSingle-agent dose-response curves\nCell death matrix\nSynergy matrix\nBar plot of maximum synergy (the %cell death of the drug doses that produce maximum synergy. Note than when %cell death is &lt;0, this is typically due to a normalization artifact).\nSynergy scatterplot (observed vs. expected synergy across all doses).",
     "crumbs": [
       "Analysis",
       "Dense mode analysis"

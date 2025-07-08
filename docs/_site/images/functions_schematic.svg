@@ -605,9 +605,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.35"
-     inkscape:cx="-145.46172"
-     inkscape:cy="-344.57403"
+     inkscape:zoom="1.979899"
+     inkscape:cx="340.57002"
+     inkscape:cy="-103.15632"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -899,8 +899,8 @@
        d="m 35.240291,34.109122 h 5.078122"
        id="path15873-5" />
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker15877-5-2)"
-       d="m 55.121551,34.109122 3.590774,3.590773"
+       style="fill:none;stroke:#000000;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker15877-5-2)"
+       d="m 66.87875,32.04515 v 3.648264"
        id="path15873-5-3" />
     <path
        style="fill:none;stroke:#000000;stroke-width:0.213224;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:0.213224, 0.213224;stroke-dashoffset:0;stroke-opacity:0.988048;marker-end:url(#Arrow1Mend-8-6)"
@@ -922,7 +922,7 @@
          y="59.094147"
          style="font-size:2.46944px;stroke-width:0.264583">cc_buildModel</tspan></text>
     <path
-       style="fill:none;stroke:#000000;stroke-width:0.264999;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker15877-5-2-3)"
+       style="fill:none;stroke:#000000;stroke-width:0.265;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker15877-5-2-3)"
        d="M 55.121551,34.109122 58.712325,30.51835"
        id="path15873-5-3-4" />
     <path
@@ -1084,13 +1084,13 @@
     <text
        xml:space="preserve"
        style="font-size:2.46944px;line-height:1.25;font-family:sans-serif;fill:#7d7d7d;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-opacity:0.988048"
-       x="60.715652"
-       y="34.131973"
+       x="73.605988"
+       y="30.863823"
        id="text16095-4-3-5-8-3-3"><tspan
          sodipodi:role="line"
          id="tspan16093-0-4-9-9-5-9"
-         x="60.715652"
-         y="34.131973"
+         x="73.605988"
+         y="30.863823"
          style="font-style:italic;font-size:2.46944px;fill:#7d7d7d;fill-opacity:1;stroke:none;stroke-width:0.264583;stroke-opacity:0.988048">fit DR curves</tspan></text>
     <text
        xml:space="preserve"

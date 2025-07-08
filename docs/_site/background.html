@@ -227,6 +227,7 @@ window.Quarto = {
   <li><a href="#what-is-synergy" id="toc-what-is-synergy" class="nav-link active" data-scroll-target="#what-is-synergy">What is synergy?</a></li>
   <li><a href="#additivity-model" id="toc-additivity-model" class="nav-link" data-scroll-target="#additivity-model">Additivity model</a></li>
   <li><a href="#bliss-model" id="toc-bliss-model" class="nav-link" data-scroll-target="#bliss-model">Bliss model</a></li>
+  <li><a href="#loewe-model" id="toc-loewe-model" class="nav-link" data-scroll-target="#loewe-model">Loewe model</a></li>
   <li><a href="#dose-density" id="toc-dose-density" class="nav-link" data-scroll-target="#dose-density">Dose “density”</a></li>
   <li><a href="#dense-vs.-sparse-mode" id="toc-dense-vs.-sparse-mode" class="nav-link" data-scroll-target="#dense-vs.-sparse-mode">Dense vs.&nbsp;Sparse mode</a></li>
   </ul>
@@ -277,6 +278,16 @@ window.Quarto = {
 0.25 + 0.25 - (0.25 \times 0.25) = 0.4375
 \]</span></p>
 <p>or <strong>43.75% cell death</strong>. So in the scenario above where we observe 75% cell death, <strong>this is synergy</strong> because the observed effect exceeds the expected one ✅</p>
+</section>
+<section id="loewe-model" class="level3">
+<h3 class="anchored" data-anchor-id="loewe-model">Loewe model</h3>
+<p>The Loewe model assumes that two drugs which share similar mechanisms can be compared based on <strong>how much of each would be needed alone</strong> to achieve the same effect as the combination. For example:</p>
+<p><img src="images/Loewe_Example.svg" class="img-fluid" width="550"></p>
+<p>Loewe synergy can be calculated from doses used in the combination (<em>d1</em>, <em>d2</em>) and the doses that would produce the same effect as the combination (<em>D1</em>, <em>D2</em>):</p>
+<p><span class="math display">\[
+\frac{d_1}{D_1} + \frac{d_2}{D_2} = \frac{10}{50} + \frac{15}{40} = 0.575
+\]</span></p>
+<p>The interpretation of Loewe synergy is: &lt;1 = synergistic and &gt;1=antagonistic. <strong>This is synergy</strong>.</p>
 <div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -287,7 +298,7 @@ Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>Combocat uses the Bliss model for its interpretability and robustness, but it’s important to be aware that various other models of synergy exist.</p>
+<p>Combocat uses the Bliss model for its interpretability and robustness, although Loewe is supported as well. It’s important to be aware that various other models of synergy exist.</p>
 </div>
 </div>
 </section>

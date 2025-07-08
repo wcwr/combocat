@@ -53,22 +53,27 @@ setwd(".../raw")
 The entire workflow of analysis, plotting, and reporting can be run in this **single block**:
 
 ``` r
-normData <-    
-  cc_map(meta_dense, getwd(), save_raw_plate_heatmaps=TRUE) %>%   
-  cc_norm(.) %>%   
-  cc_getSyn(.)  
+#Map, normalize
+normData <- 
+  cc_map(meta_dense, getwd(), save_raw_plate_heatmaps = TRUE) %>%
+  cc_norm(.)
 
-drData <-    
-  cc_getDR(normData)  
+#Fit DR models
+drData <- 
+  cc_getDR(normData)
 
-normData <-    
-  cc_getQC(normData, drData)  
+#Calculate synergy, QC
+synData <- 
+  cc_getSyn(normData, drData) %>%
+  cc_getQC(., drData)
 
-cc_report(normData,   
-          drData,   
-          cd_plots    = cc_plotMat(normData, "perc_cell_death", color_midpoint = 50),  
-          syn_plots   = cc_plotMat(normData, "bliss_synergy",   color_midpoint = 20),
-          extra_plots = cc_plotExtras(normData, color_midpoint=20))
+#Return/save results
+cc_report(
+  synData,   
+  drData,   
+  cd_plots    = cc_plotMat(synData, "perc_cell_death", color_midpoint = 50),
+  syn_plots   = cc_plotMat(synData, "bliss_synergy",   color_midpoint = 20),
+  extra_plots = cc_plotExtras(synData,                 color_midpoint = 20))
 ```
 
 Below, the process is broken down into more detail:
@@ -82,11 +87,13 @@ mappedData <-
   cc_map(meta_dense, getwd()) #Map
 
 normData <-                             
-  cc_norm(mappedData) %>%     #Normalize
-  cc_getSyn(.)                #Calculate synergy
+  cc_norm(mappedData)         #Normalize
 
 drData <- 
   cc_getDR(normData)          #Fit dose-response models
+
+synData <- 
+  cc_getSyn(normData, drData) #Calculate synergy
 ```
 
 ## Quality Control (QC)
@@ -94,7 +101,7 @@ drData <-
 See the [Advanced topics](advanced.qmd) section for details of what the QC does and why it is important
 
 ``` r
-normData <- cc_getQC(normData, drData)
+synData <- cc_getQC(normData, drData)
 ```
 
 ## Generating plots
@@ -104,19 +111,19 @@ Now we plot the cell death and synergy matrices, plus the accessory plots (like 
 ``` r
 #Plot cell death matrices
 cdPlots <- 
-  cc_plotMat(normData,
+  cc_plotMat(synData,
              plotting_variable = "perc_cell_death",
              color_midpoint = 50)
                       
 #Plot synergy matrices
 synPlots <- 
-  cc_plotMat(normData,
+  cc_plotMat(synData,
              plotting_variable = "bliss_synergy",
              color_midpoint = 20)
                        
 #Accessory plots
 extraPlots <- 
-  cc_plotExtras(normData)
+  cc_plotExtras(synData)
 ```
 
 ## Generating the reports
@@ -124,7 +131,7 @@ extraPlots <-
 Finally, `cc_report` will save all the plots, and generate detailed reports of cell death, synergy, IC50 values, and much more.
 
 ``` r
-cc_report(normData,
+cc_report(synData,
           drData,
           cdPlots,
           synPlots,

@@ -29,8 +29,22 @@ $$
 
 or **43.75% cell death**. So in the scenario above where we observe 75% cell death, **this is synergy** because the observed effect exceeds the expected one ✅
 
+### Loewe model
+
+The Loewe model assumes that two drugs which share similar mechanisms can be compared based on **how much of each would be needed alone** to achieve the same effect as the combination. For example:
+
+![](images/Loewe_Example.svg){width="550"}
+
+Loewe synergy can be calculated from doses used in the combination (*d1*, *d2*) and the doses that would produce the same effect as the combination (*D1*, *D2*):
+
+$$
+\frac{d_1}{D_1} + \frac{d_2}{D_2} = \frac{10}{50} + \frac{15}{40} = 0.575
+$$
+
+The interpretation of Loewe synergy is: \<1 = synergistic and \>1=antagonistic. **This is synergy**.
+
 ::: callout-note
-Combocat uses the Bliss model for its interpretability and robustness, but it's important to be aware that various other models of synergy exist.
+Combocat uses the Bliss model for its interpretability and robustness, although Loewe is supported as well. It's important to be aware that various other models of synergy exist.
 :::
 
 ## Dose "density"
