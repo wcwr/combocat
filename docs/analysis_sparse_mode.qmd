@@ -69,24 +69,26 @@ For larger datasets, these steps should be broken up to avoid running out of res
 :::
 
 ``` r
-
-mappedData <- 
-  cc_map(meta_sparse, getwd())   #Map data
-
+#Map, normalize, predict
 normData <- 
-  cc_norm(mappedData) %>%        #Normalize
-  cc_predict(my_model, .) %>%    #Predict the 90 non-measured indices
-  cc_getSyn(.)                   #Calculate synergy
-  
+  cc_map(meta_sparse, getwd(), save_raw_plate_heatmaps = TRUE) %>%
+  cc_norm(.) %>%
+  cc_predict(my_model, .) #Use ensemble model to predict non-measured values
+
+#Fit DR models
 drData <- 
-  cc_getDR(normData)             #Fit dose-response curves
+  cc_getDR(normData)
 
-normData <-    
-  cc_getQC(normData, drData)     #Apply QC pipeline
+#Calculate synergy, QC
+synData <- 
+  cc_getSyn(normData, drData) %>%
+  cc_getQC(., drData)
 
-cc_report(normData,              #Generate report
-          drData,
-          cd_plots    = cc_plotMat(normData, "perc_cell_death", color_midpoint = 50),  
-          syn_plots   = cc_plotMat(normData, "bliss_synergy",   color_midpoint = 20),
-          extra_plots = cc_plotExtras(normData, color_midpoint=20))
+#Return/save results
+cc_report(
+  synData,   
+  drData,   
+  cd_plots    = cc_plotMat(synData, "perc_cell_death", color_midpoint = 50),
+  syn_plots   = cc_plotMat(synData, "bliss_synergy",   color_midpoint = 20),
+  extra_plots = cc_plotExtras(synData,                 color_midpoint = 20))
 ```
