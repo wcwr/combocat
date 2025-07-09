@@ -383,6 +383,47 @@ cc_getSyn <- function(norm_data,
       
       
       #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      #Calculate Loewe synergy
+      
+      #Extract the dose-response data for the single-agents
+      #Note this is indexed in a slightly different way than dense mode
+      drug1_dr_df <- dr_data$predicted_results_list[[d1_name]]$pred_df
+      drug2_dr_df <- dr_data$predicted_results_list[[d2_name]]$pred_df
+      
+      #Note: We can't calculate Loewe in cases where one or both of the DR curves failed - so set to NA
+      if(is.null(drug1_dr_df) || is.null(drug2_dr_df)){
+        ref_df$loewe_synergy <- NA_real_
+        message(paste0(
+          "Warning: Loewe synergy cannot be calculated for combination ", 
+          d1_name, " and ", d2_name, 
+          " due to missing dose-response data."
+        ))
+        
+      } else {
+        
+        #Otherwise if both DR curves are valid:
+        #Calculate Loewe synergy using the `calc_loewe` helper function
+        ref_df <- 
+          calc_loewe(
+            reference_df = ref_df,
+            drug1_conc_column = "drug1_conc",
+            drug2_conc_column = "drug2_conc",
+            response_column   = "perc_cell_death",
+            drug1_dr = drug1_dr_df,
+            drug2_dr = drug2_dr_df
+          )
+      }
+      
+      #Adjust loewe_synergy to be zero when drug1_conc or drug2_conc is zero
+      ref_df <- 
+        ref_df %>%
+        mutate(loewe_synergy = ifelse(drug1_conc == 0 | drug2_conc == 0, NA_real_, loewe_synergy))
+      #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      
+      
+      
+      
+      #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       #Replace the original ref_df with the updated version containing synergy data
       norm_data[[i]]$ref_df <- ref_df
       #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
