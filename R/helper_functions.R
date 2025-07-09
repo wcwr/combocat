@@ -564,8 +564,8 @@ calc_loewe <-
     #To calculate Loewe synergy for a given combination effect (aka the %cell death resulting from drug1 + drug2), we need 4 values:
     #1. drug1_conc..........Concentration of drug1 in the combination
     #2. drug2_conc..........Concentration of drug2 in the combination
-    #3. drug1_conc_eq.......Concentration of drug1 alone that produces the same ffect as the combination
-    #4. drug2_conc_eq.......Concentration of drug2 alone that produces the same ffect as the combination
+    #3. drug1_conc_eq.......Concentration of drug1 alone that produces the same effect as the combination
+    #4. drug2_conc_eq.......Concentration of drug2 alone that produces the same effect as the combination
     
     #Loewe synergy score = (drug1_conc / drug1_conc_eq) + (drug2_conc / drug2_conc_eq)
     
