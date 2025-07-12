@@ -274,7 +274,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </ul></li>
 <li><p>raw 📂</p>
 <ul>
-<li>Contains the raw file(s) in 384-well format (and nothing else)</li>
+<li>Contains the raw file(s) in 1536-well format (and nothing else)</li>
 </ul></li>
 </ul>
 <p>Nothing else should be in these folders at the start of analysis.</p>
@@ -317,17 +317,17 @@ Note
 <section id="quick-start" class="level3">
 <h3 class="anchored" data-anchor-id="quick-start">Quick start</h3>
 <p>The entire sparse mode analysis can be run in the following single block.</p>
-<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout callout-style-default callout-note callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-Caution
+Note
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p>For larger datasets, these steps should be broken up to avoid running out of resources</p>
+<p>You can try this code yourself by <a href="https://github.com/wcwr/combocat/blob/main/sparse_mode_test_data.zip">downloading the sparse mode example from GitHub</a>.</p>
 </div>
 </div>
 <div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#Map, normalize, predict</span></span>
@@ -352,6 +352,19 @@ Caution
 <span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="at">cd_plots    =</span> <span class="fu">cc_plotMat</span>(synData, <span class="st">"perc_cell_death"</span>, <span class="at">color_midpoint =</span> <span class="dv">50</span>),</span>
 <span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>  <span class="at">syn_plots   =</span> <span class="fu">cc_plotMat</span>(synData, <span class="st">"bliss_synergy"</span>,   <span class="at">color_midpoint =</span> <span class="dv">20</span>),</span>
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>  <span class="at">extra_plots =</span> <span class="fu">cc_plotExtras</span>(synData,                 <span class="at">color_midpoint =</span> <span class="dv">20</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="callout callout-style-default callout-caution callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Caution
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>For larger datasets, these steps should be broken up to avoid running out of resources</p>
+</div>
+</div>
 
 
 </section>

@@ -19,7 +19,7 @@ Gather the required metadata file and raw file(s), we recommend putting them int
 
 -   raw 📂
 
-    -   Contains the raw file(s) in 384-well format (and nothing else)
+    -   Contains the raw file(s) in 1536-well format (and nothing else)
 
 Nothing else should be in these folders at the start of analysis.
 
@@ -64,8 +64,8 @@ The number of training/test set samples also indicates their proportion and the 
 
 The entire sparse mode analysis can be run in the following single block.
 
-::: callout-caution
-For larger datasets, these steps should be broken up to avoid running out of resources
+::: callout-note
+You can try this code yourself by [downloading the sparse mode example from GitHub](https://github.com/wcwr/combocat/blob/main/sparse_mode_test_data.zip).
 :::
 
 ``` r
@@ -92,3 +92,7 @@ cc_report(
   syn_plots   = cc_plotMat(synData, "bliss_synergy",   color_midpoint = 20),
   extra_plots = cc_plotExtras(synData,                 color_midpoint = 20))
 ```
+
+::: callout-caution
+For larger datasets, these steps should be broken up to avoid running out of resources
+:::
