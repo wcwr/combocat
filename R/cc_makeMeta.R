@@ -1125,6 +1125,12 @@ cc_makeMeta <- function(reg_file,
           )
           reg_file_subset3$drug2_conc[reg_file_subset3$nth_conc == nth] <- calc_val
         }
+
+        #Be certain to round the concentrations (post calculation of missing concs) to avoid floating point precision issues
+        reg_file_subset3 <-
+          reg_file_subset3 %>%
+          mutate("drug1_conc" = round(drug1_conc, rounding_digits),
+                 "drug2_conc" = round(drug2_conc, rounding_digits))
         
         
         
