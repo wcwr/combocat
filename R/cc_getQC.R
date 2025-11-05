@@ -25,8 +25,10 @@
 #'   \item{`flagged_resid`}{Numeric. Flag for concentrations with residuals greater than the `cutoff_resid`.}
 #'   \item{`mean_syn`}{Numeric. Mean synergy for all combinations, excluding single-agent concentrations.}
 #'   \item{`median_syn`}{Numeric. Median synergy for all combinations, excluding single-agent concentrations.}
+#'   \item{`max_syn`}{Maximum synergy score across all combination wells, excluding single-agent wells.}
 #'   \item{`mean_syn_adj`}{Numeric. Mean synergy for all combinations, excluding flagged concentrations.}
 #'   \item{`median_syn_adj`}{Numeric. Median synergy for all combinations, excluding flagged concentrations.}
+#'   \item{`max_syn_adj`}{Maximum synergy score after excluding flagged concentrations.}
 #'   \item{`mean_perc_cell_death`}{Numeric. Mean percent cell death across all concentrations.}
 #'   \item{`num_flagged_diag`}{Numeric. The number of flagged diagonal (measured) values.}
 #'   \item{`moran_i`}{Numeric. Moran's I value for spatial autocorrelation of synergy scores.}
@@ -534,14 +536,17 @@ cc_getQC <- function(norm_data,
         ref_df %>%
         mutate(
           
-          #Mean/Median of all synergy values:
+          #Mean/Median/Max of all synergy values:
           "mean_syn"   = mean  (bliss_synergy[(!drug1_conc==0 & !drug2_conc==0)]), #This excludes the single-agents which are 0 by definition
           "median_syn" = median(bliss_synergy[(!drug1_conc==0 & !drug2_conc==0)]),
+          "max_syn"    = max   (bliss_synergy[(!drug1_conc==0 & !drug2_conc==0)]),
+
           
           
-          #Mean/Median of all synergy values with flagged_final==0:
+          #Mean/Median/Max of all synergy values with flagged_final==0:
           "mean_syn_adj"   = mean  (bliss_synergy[(!drug1_conc==0 & !drug2_conc==0 & flagged_final==0)]),
-          "median_syn_adj" = median(bliss_synergy[(!drug1_conc==0 & !drug2_conc==0 & flagged_final==0)]))
+          "median_syn_adj" = median(bliss_synergy[(!drug1_conc==0 & !drug2_conc==0 & flagged_final==0)]),
+          "max_syn_adj"    = max   (bliss_synergy[(!drug1_conc==0 & !drug2_conc==0 & flagged_final==0)])
       #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       
       
@@ -1107,22 +1112,26 @@ cc_getQC <- function(norm_data,
         ref_df %>%
         mutate(
           
-          #Mean/Median of all synergy values:
+          #Mean/Median/Max of all synergy values:
           "mean_syn"   = mean  (bliss_synergy[plate_type=="combination"]), #We use plate_type==combination to exclude all single-agent synergy values (which are always 0)
           "median_syn" = median(bliss_synergy[plate_type=="combination"]),
+          "max_syn"    = max   (bliss_synergy[plate_type=="combination"]),
           
           
-          #Mean/Median of all synergy values with flagged_final==0:
+          #Mean/Media/Max of all synergy values with flagged_final==0:
           "mean_syn_adj"   = mean  (bliss_synergy[plate_type=="combination" & flagged_final==0]),
           "median_syn_adj" = median(bliss_synergy[plate_type=="combination" & flagged_final==0]),
+          "max_syn_adj"    = max   (bliss_synergy[plate_type=="combination" & flagged_final==0]),
           
-          #Mean/Median of diagonal/observed values' synergy:
+          #Mean/Median/Max of diagonal/observed values' synergy:
           "mean_syn_diag"   = mean  (bliss_synergy[plate_type=="combination" & !is.na(nth_conc)]), #This filters to just the 10 measured values
           "median_syn_diag" = median(bliss_synergy[plate_type=="combination" & !is.na(nth_conc)]),
+          "max_syn_diag"    = max   (bliss_synergy[plate_type=="combination" & !is.na(nth_conc)]),
           
-          #Mean/Median of diagonal/observed values' synergy with flagged_final==0:
+          #Mean/Median/Max of diagonal/observed values' synergy with flagged_final==0:
           "mean_syn_diag_adj"   = mean  (bliss_synergy[plate_type=="combination" & !is.na(nth_conc) & flagged_final==0]),
-          "median_syn_diag_adj" = median(bliss_synergy[plate_type=="combination" & !is.na(nth_conc) & flagged_final==0]))
+          "median_syn_diag_adj" = median(bliss_synergy[plate_type=="combination" & !is.na(nth_conc) & flagged_final==0]),
+          "max_syn_diag_adj"    = max   (bliss_synergy[plate_type=="combination" & !is.na(nth_conc) & flagged_final==0]))
       #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       
       
