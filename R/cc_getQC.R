@@ -1133,9 +1133,24 @@ cc_getQC <- function(norm_data,
           "median_syn_diag_adj" = median(bliss_synergy[plate_type=="combination" & !is.na(nth_conc) & flagged_final==0]),
           "max_syn_diag_adj"    = max   (bliss_synergy[plate_type=="combination" & !is.na(nth_conc) & flagged_final==0]))
       #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      
-      
-      
+
+
+
+
+      #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+      #In some cases ALL TEN observed/diagonal values can be flagged
+      #For mean/median this results in NA, but for max this results in -Inf, which is bad for downstream analysis
+
+      #Manually change any -Inf values to NA here:
+      ref_df <- 
+        ref_df %>%
+        mutate(
+                "max_syn_diag"     = ifelse(is.infinite(max_syn_diag), NA, max_syn_diag),
+                "max_syn_diag_adj" = ifelse(is.infinite(max_syn_diag_adj), NA, max_syn_diag_adj))
+      #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
       
       #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       #Calculate the mean_perc_cell_death
