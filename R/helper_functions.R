@@ -43,7 +43,7 @@ robust_zprime_func <- function(pos_ctrl, neg_ctrl){
 #--------------------------------------------------------------
 #Function to perform normalization
 norm_func <- function(raw_vals, neg_ctrl_vals, pos_ctrl_vals){
-  100*((raw_vals-median(neg_ctrl_vals, na.rm=TRUE))/(median(pos_ctrl_vals, na.rm=TRUE) - mean(neg_ctrl_vals, na.rm=TRUE)))
+  100*((raw_vals-median(neg_ctrl_vals, na.rm=TRUE))/(median(pos_ctrl_vals, na.rm=TRUE) - median(neg_ctrl_vals, na.rm=TRUE)))
 }
 #--------------------------------------------------------------
 
