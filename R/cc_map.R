@@ -16,7 +16,7 @@
 #' # Example usage (pseudo-data):
 #' metadf <- read.csv("example_metadata.csv")
 #' files_dir <- "raw_data_directory"
-#' cc_map(metadf, files_dir, control_outlier_threshold = 3, save_raw_plate_heatmaps = TRUE)
+#' cc_map(metadf, files_dir, control_outlier_threshold = 1.5, save_raw_plate_heatmaps = TRUE)
 #'
 #' @export
 #--------------------------------------------------------------
@@ -28,7 +28,7 @@
 #Function to map plates using metadata
 cc_map <- function(metadf,
                    files_dir,
-                   control_outlier_threshold = 2.5,
+                   control_outlier_threshold = 1.5,
                    save_raw_plate_heatmaps = FALSE,
                    save_transfer_fail_heatmaps = FALSE){
   
@@ -38,7 +38,7 @@ cc_map <- function(metadf,
   #metadf-----------------------A simplified metadata file (made by user) or complete metadata file output from cc_makeMeta. (.CSV)
   #files_dir--------------------A directory that contains all raw data files listed in metadf. (.CSV)
   #control_outlier_threshold----Z-score based threshold used for removing outliers.
-  #.............................Operates on raw cell death and vehicle control values
+  #.............................Operates on raw control values
   #.............................Higher number is more relaxed (aka fewer values will be dropped)
   #.............................Set this value to 1000 to disable outlier filtering (as nothing will get dropped)
   #.............................Note that Z-prime values are calculated using outlier-filtered raw control values
