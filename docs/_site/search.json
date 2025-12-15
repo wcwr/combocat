@@ -1,178 +1,157 @@
 [
   {
-    "objectID": "machine_learning.html",
-    "href": "machine_learning.html",
-    "title": "Machine learning",
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Combocat",
     "section": "",
-    "text": "The Combocat ensemble machine learning model is a collection of 90 individual models, each built to predict one of the 90 non-measured indices of a matrix generated with the sparse mode workflow:\n\n\nDeploying Model",
+    "text": "This is the documentation for Combocat, a start-to-finish platform for drug combination screening.\nIn this documentation, you will find steps to complete both experimental and analytical parts of Combocat experiments. The experimental sections include step-by-step protocols with examples. In the data analysis sections, we provide steps for processing and analyzing results using the combocat R package. Browse links in the sidebar to the left to find out information about each step.\n\n\n\n\n\n\nTip\n\n\n\nUse the search function in the side bar to look for specific protocol steps or topics",
     "crumbs": [
-      "Machine learning"
+      "Welcome"
     ]
   },
   {
-    "objectID": "experimental_sparse_mode.html",
-    "href": "experimental_sparse_mode.html",
-    "title": "Sparse mode protocol",
+    "objectID": "index.html#welcome",
+    "href": "index.html#welcome",
+    "title": "Combocat",
     "section": "",
-    "text": "Adjust accordingly\n\n\n\nThis protocol details an example of 1 combination (2 drugs). Sparse mode can be scaled to screen 135 drugs (9,045 combinations).\nSee the Overview section for materials required.",
+    "text": "This is the documentation for Combocat, a start-to-finish platform for drug combination screening.\nIn this documentation, you will find steps to complete both experimental and analytical parts of Combocat experiments. The experimental sections include step-by-step protocols with examples. In the data analysis sections, we provide steps for processing and analyzing results using the combocat R package. Browse links in the sidebar to the left to find out information about each step.\n\n\n\n\n\n\nTip\n\n\n\nUse the search function in the side bar to look for specific protocol steps or topics",
     "crumbs": [
-      "Experimental setup",
-      "Sparse mode protocol"
+      "Welcome"
     ]
   },
   {
-    "objectID": "experimental_sparse_mode.html#determine-drug-concentrations",
-    "href": "experimental_sparse_mode.html#determine-drug-concentrations",
-    "title": "Sparse mode protocol",
-    "section": "1: Determine drug concentrations",
-    "text": "1: Determine drug concentrations\nChoose the desired drugs and their corresponding concentrations. Each drug will have 10 doses. As mentioned above, this example will detail how to screen 1 combination (2 drugs), but this can be adjusted according to experimental needs.\nStart by choosing the maximum desired concentration of each drug. Check out the template below which takes the top chosen max concentration and makes a serial dilution according to the specified dilution factor:\n\n\n\n\n\n\nNote\n\n\n\nYou can customize this yourself by downloading a copy! File ➝ Download\n\n\n\n\n\nThe dilution factor is set to 1:3 by default (our recommendation), but this may be modified to anything (e.g. 1:2.5).\nCheck out the stock plate map (below the concentration ranges) for details on how this plate will look.\nStocks drugs must be soluble at 400X final desired concentrations.",
+    "objectID": "index.html#overview",
+    "href": "index.html#overview",
+    "title": "Combocat",
+    "section": "Overview",
+    "text": "Overview\nDrug combinations are critical to conditions like cancers and infectious diseases, but finding new combinations is a slow and challenging process. The scale of a combination experiment increases rapidly with each tested drug, and testing many combinations has traditionally been impractical.\nCombocat is a method for scalable drug combination screening which uses acoustic liquid handler protocols and custom drug template designs for fast, efficient screening. Everything has been designed to work in an end-to-end fashion. This means a researcher can test 1, hundreds, or even thousands of drug combinations from start to finish.\n\nCritically, Combocat also provides a complete framework for analyzing the experimental data. Analysis is straightforward and provides interpretable publication-quality figures.\nCombocat is fully open-source!🎉",
     "crumbs": [
-      "Experimental setup",
-      "Sparse mode protocol"
+      "Welcome"
     ]
   },
   {
-    "objectID": "experimental_sparse_mode.html#prepare-the-stock-plate",
-    "href": "experimental_sparse_mode.html#prepare-the-stock-plate",
-    "title": "Sparse mode protocol",
-    "section": "2: Prepare the stock plate",
-    "text": "2: Prepare the stock plate\nMake the stock plate in a 384-well polypropylene (pp) plate that is Echo-compatible according to the following template:\n\n(Use the spreadsheet template from step 1 to see details of how the plate should look).\n\nWe recommend volumes of 50 µL to maximize the number of assay-ready plates that can be made. Stock plates can be frozen until ready to make assay-ready plates.\nDrug 1 in the top row, and Drug 2 in the bottom row\nDMSO is plated in 4 wells to account for the ‘back-filling’ transfer steps\nStaurosporine at a final concentration of (10 µM / 400 =) 25 µM is the cell death control\n\n\n\n\n\n\n\nWarning\n\n\n\nEnsure Staurosporine is an effective cell death control for your cell line before proceeding.",
+    "objectID": "index.html#reference",
+    "href": "index.html#reference",
+    "title": "Combocat",
+    "section": "Reference",
+    "text": "Reference\nPlease cite our published work as:\n\nWright, W.C., Pan, M., Phelps, G.A. et al. An open-source screening platform accelerates discovery of drug combinations. Nat Commun 16, 11005 (2025). https://doi.org/10.1038/s41467-025-66223-8.\n\n📝Full PDF: https://rdcu.be/eUIln",
     "crumbs": [
-      "Experimental setup",
-      "Sparse mode protocol"
+      "Welcome"
     ]
   },
   {
-    "objectID": "experimental_sparse_mode.html#prepare-assay-ready-plates",
-    "href": "experimental_sparse_mode.html#prepare-assay-ready-plates",
-    "title": "Sparse mode protocol",
-    "section": "3: Prepare assay-ready plates",
-    "text": "3: Prepare assay-ready plates\nUse the stock plate to construct the assay-ready plates:\n\n\nThey’re called “assay-ready” because these plates are ready for cells to be added.\n\n\n\n\n\n\nNote\n\n\n\nUnlike dense mode, sparse mode has separate single-agent and combination plates.\n\n\nOnce plates are made, they can be stored at -80 °C until ready for cells.\nThe Echo requires an .EPR file to perform the transfer, so 2 are needed for sparse mode: one for single-agent (SA) plates and one for combination plates.\nEPR files contain information on the source/destination wells, and volume to transfer.\nThe Combocat sparse mode EPR files for this example look like this:\n\n\nSingle-agent plate protocol\n\n\n\n\nCombination plate protocol\n\n\nDownload the single-agent and combination EPR files from the combocat github and use them to make assay-ready plate:\n\n\n\n\n\n\n\nTip\n\n\n\nYou can modify these spreadsheets and import them each into the Echo software to make your own EPR files for scaling up the number of combinations.",
-    "crumbs": [
-      "Experimental setup",
-      "Sparse mode protocol"
-    ]
-  },
-  {
-    "objectID": "experimental_sparse_mode.html#plate-cells-incubate",
-    "href": "experimental_sparse_mode.html#plate-cells-incubate",
-    "title": "Sparse mode protocol",
-    "section": "4: Plate cells & incubate",
-    "text": "4: Plate cells & incubate\n\nPlate 4 µL of cells into all wells.\n\nThis can be accomplished with a liquid handler like the Multidrop Combi or similar.\n\nIncubate cells for desired treatment time\n\n\n\n\n\n\n\nWarning\n\n\n\nWe recommend 72-hour treatments. After 96-hours, evaporation of media begins to disrupt data quality.",
-    "crumbs": [
-      "Experimental setup",
-      "Sparse mode protocol"
-    ]
-  },
-  {
-    "objectID": "experimental_sparse_mode.html#measure-viability",
-    "href": "experimental_sparse_mode.html#measure-viability",
-    "title": "Sparse mode protocol",
-    "section": "5: Measure viability",
-    "text": "5: Measure viability\nThe following steps are specific to CellTiter-Glo\n\nEquilibrate plate(s) to room temperature\nAdd 2 µL prepared CTG reagent\n\n\n\n\n\n\n\nImportant\n\n\n\nWhile the manufacturer recommends a 1:1 ratio, Do NOT dispense more than 2 µL of reagent. The total well volume should not exceed 6 µL – otherwise there is a risk of overflow. 😵\n\n\n\nCentrifuge plates for ~4 minutes, ~1100 RPM\nIncubate at room temperature for 10 minutes\nRead viability on luminometer\n\n\nCollecting data\n\nCollect the raw luminescent data and save it as a .CSV file.\nThis file should contain only 1536-well format (32 rows by 48 columns) data, and nothing else (no headers or row names)\nIt is recommended to make a copy of your raw data and save a version containing only the required information, which will be used during the analysis.",
-    "crumbs": [
-      "Experimental setup",
-      "Sparse mode protocol"
-    ]
-  },
-  {
-    "objectID": "experimental_dense_mode.html",
-    "href": "experimental_dense_mode.html",
-    "title": "Dense mode protocol",
+    "objectID": "experimental_landing.html",
+    "href": "experimental_landing.html",
+    "title": "Experimental overview",
     "section": "",
-    "text": "Adjust accordingly\n\n\n\nThis protocol details an example of 1 drug combination. For more combinations, adjust according to your need.\nSee the Overview section for materials required.",
+    "text": "Running a Combocat experiment can loosely be thought of as design ➝ execute ➝ analyze.\nThe documentation here provides information on the design and execution steps.",
     "crumbs": [
       "Experimental setup",
-      "Dense mode protocol"
+      "Overview"
     ]
   },
   {
-    "objectID": "experimental_dense_mode.html#determine-drug-concentrations",
-    "href": "experimental_dense_mode.html#determine-drug-concentrations",
-    "title": "Dense mode protocol",
-    "section": "1: Determine drug concentrations",
-    "text": "1: Determine drug concentrations\nChoose the desired drugs and their corresponding concentrations. Each drug will have 10 doses. As mentioned above, this example will detail how to screen one combination (2 drugs), but this can be adjusted according to experimental needs.\nStart by choosing the maximum desired concentration of each drug. Check out the template below which takes the top chosen max concentration and makes a serial dilution according to the specified dilution factor:\n\n\n\n\n\n\nNote\n\n\n\nYou can customize this yourself by downloading a copy! File ➝ Download\n\n\n\n\n\nThe dilution factor is set to 1:3 by default (our recommendation), but this may be modified to anything (e.g. 1:2.5).\nCheck out the stock plate map (below the concentration ranges) for details on how this plate will look.\nStocks drugs must be soluble at 400X final desired concentrations.",
+    "objectID": "experimental_landing.html#required-materials",
+    "href": "experimental_landing.html#required-materials",
+    "title": "Experimental overview",
+    "section": "Required Materials",
+    "text": "Required Materials\nRegardless of your experiment setup, you’ll need some materials and access to instruments.\n\n\n\n\n\n\nNote\n\n\n\nThis documentation focuses on the luminescence-based CTG assay.\nCombocat is generalizable to the readout of your choice (e.g., imaging, fluorescence, etc). Swap out materials accordingly.\n\n\n\nMicrowell plates\n\n384-well for dense mode, 1536-well for sparse mode (suitable for cell culture)\nEcho-compatible plates (if using an Echo acoustic liquid handler)\n\nDesired drugs\n\nSoluble at 400X final desired top concentration\n\nControl compounds\n\nPositive control for cell death (i.e., Staurosporine for mammalian cells)\nVehicle control for drug solvents (i.e., DMSO)\n\nDesired cells\n\nEnough for 40 µL/well per plate (Dense mode) or 4 µL/well per plate (Sparse mode)\n\nCTG reagents\nAccess to instruments\n\nEcho (or other well-to-well acoustic liquid handler)\nLuminometer (or instrument specific to assay readout)\nIncubator\nCentrifuge capable of spinning microplates\n(Optional) liquid handler for cell/reagent dispensing",
     "crumbs": [
       "Experimental setup",
-      "Dense mode protocol"
+      "Overview"
     ]
   },
   {
-    "objectID": "experimental_dense_mode.html#prepare-the-stock-plate",
-    "href": "experimental_dense_mode.html#prepare-the-stock-plate",
-    "title": "Dense mode protocol",
-    "section": "2: Prepare the stock plate",
-    "text": "2: Prepare the stock plate\nMake the stock plate in a 384-well polypropylene (pp) plate that is Echo-compatible according to the following template:\n\n(Use the spreadsheet template from step 1 to see details of how the plate should look).\n\nAll wells should contain 50 µL, which is enough to make 9 assay-ready plates.\nDrug 1 in the top row, and Drug 2 in the bottom row\nDMSO is plated in 4 wells to account for the ‘back-filling’ transfer steps\nStaurosporine at a final concentration of (10 mM / 400 =) 25 µM is the cell death control\n\n\n\n\n\n\n\nWarning\n\n\n\nEnsure Staurosporine is an effective cell death control for your cell line before proceeding.",
+    "objectID": "experimental_landing.html#key-considerations",
+    "href": "experimental_landing.html#key-considerations",
+    "title": "Experimental overview",
+    "section": "Key considerations",
+    "text": "Key considerations\nIt’s important to verify that your assay conditions are working before starting the experiment. For example:\n\nEnsure volumes of drug stocks are sufficient for assay scale (see protocols)\nOptimize cell seeding densities\nVerify calibration of instruments",
     "crumbs": [
       "Experimental setup",
-      "Dense mode protocol"
+      "Overview"
     ]
   },
   {
-    "objectID": "experimental_dense_mode.html#prepare-assay-ready-plate",
-    "href": "experimental_dense_mode.html#prepare-assay-ready-plate",
-    "title": "Dense mode protocol",
-    "section": "3: Prepare assay-ready plate",
-    "text": "3: Prepare assay-ready plate\nUse the stock plate to construct the assay-ready plate:\n\n\nIt’s called “assay-ready” because these plates are ready for cells to be added.\nOnce plates are made, they can be stored at -80 °C until ready for cells.\nThe Echo requires an .EPR file to perform the transfer\nThis file contains information on the source/destination wells, and volume to transfer.\nThe Combocat dense mode EPR file looks like this:\n\n\n\nDownload the EPR file from the combocat github and use it to make assay-ready plate:\n\n\n\n\n\n\n\nTip\n\n\n\nYou can modify the spreadsheet and import it into the Echo software to make your own EPR file.\n\n\nThis Echo protocol can be used up to 9 times to make 9 assay-ready plate copies.",
-    "crumbs": [
-      "Experimental setup",
-      "Dense mode protocol"
-    ]
-  },
-  {
-    "objectID": "experimental_dense_mode.html#plate-cells-incubate",
-    "href": "experimental_dense_mode.html#plate-cells-incubate",
-    "title": "Dense mode protocol",
-    "section": "4: Plate cells & incubate",
-    "text": "4: Plate cells & incubate\n\nPlate 40 µL of cells into all wells.\n\nThis is much easier with a liquid handler like the Multidrop Combi or similar, but can be achieved using multi-channel pipettes as well.\nNote that adding cells will bring the final DMSO concentration to 0.5% in all wells\n\nIncubate cells for desired treatment time\n\n\n\n\n\n\n\nWarning\n\n\n\nWe recommend 72-hour treatments. After 96-hours, evaporation of media begins to disrupt data quality.",
-    "crumbs": [
-      "Experimental setup",
-      "Dense mode protocol"
-    ]
-  },
-  {
-    "objectID": "experimental_dense_mode.html#measure-viability",
-    "href": "experimental_dense_mode.html#measure-viability",
-    "title": "Dense mode protocol",
-    "section": "5: Measure viability",
-    "text": "5: Measure viability\nThe following steps are specific to CellTiter-Glo\n\nEquilibrate plate(s) to room temperature\nAdd 25 µL prepared CTG reagent\n\n\n\n\n\n\n\nImportant\n\n\n\nWhile the manufacturer recommends a 1:1 ratio, Do NOT dispense more than 25 µL of reagent. The total well volume should not exceed 65 µL – otherwise there is a risk of overflow. 😵\n\n\nAdding CTG reagent with a liquid dispenser is helpful here (like with dispensing cells)\n\nCentrifuge plates for ~4 minutes, ~260 RCF\nIncubate at room temperature for 10 minutes\nRead viability on luminometer\n\n\nCollecting data\n\nCollect the raw luminescent data and save it as a .CSV file.\nThis file should contain only 384-well format (16 rows by 24 columns) data, and nothing else. For example:\n\n\n\n\n\n\n\nTip\n\n\n\nYou can download this (File ➝ Download) to follow along. Be sure to choose .csv\nRename the file to CHP134_Rucaparib_AZD1390.csv so the filename matches!\n\n\n\n\n\nIt is recommended to make a copy of your raw data and save a version containing only the required information, which will be used during the analysis.",
-    "crumbs": [
-      "Experimental setup",
-      "Dense mode protocol"
-    ]
-  },
-  {
-    "objectID": "analysis_sparse_mode.html",
-    "href": "analysis_sparse_mode.html",
-    "title": "Sparse mode analysis",
+    "objectID": "background.html",
+    "href": "background.html",
+    "title": "Background",
     "section": "",
-    "text": "Analyzing data generated with sparse mode is nearly identical to the dense mode analysis steps, with a few key differences:",
+    "text": "Let’s cover a bit about drug synergy and the details of the Combocat platform.",
+    "crumbs": [
+      "Background"
+    ]
+  },
+  {
+    "objectID": "background.html#dose-density",
+    "href": "background.html#dose-density",
+    "title": "Background",
+    "section": "Dose “density”",
+    "text": "Dose “density”\nOne of the biggest limitations in drug combination studies is the lack of sufficient dose density – the number of concentrations tested for each drug. Dense measurements across a broad range of concentrations are crucial for capturing complete drug response and synergy patterns. However, technical constraints in combination screening often lead to fewer doses tested, resulting in formats that may risk missing critical interaction details.\n\n\n\nSmall, sparse, or asymmetric combination matrix designs\n\n\nAdvancements in liquid dispensing technology, like acoustic dispensing, have revolutionized compound transfer by enabling more flexible and precise experimental designs. Acoustic liquid handlers can dispense nanoliter volumes from any well of a source plate to any well of a destination plate without physical contact, greatly enhancing throughput potential.\nWe take advantage of this flexibility and designed screening templates that allow dense measurements. Specifically, Combocat tests drugs in a 10 ⨉ 10 format. Additionally, in “dense mode” (described below) there are 3 replicates of each matrix produced for each drug combination.\n\nIn this plate design, we fit three replicate 10 ⨉ 10 combination matrices, three 10-point dose-response curves for each single-agent, and 12 replicates of each control. Screening combinations in this dense format and with replicates captures much wider drug response and synergy landscapes.",
+    "crumbs": [
+      "Background"
+    ]
+  },
+  {
+    "objectID": "background.html#dense-vs.-sparse-mode",
+    "href": "background.html#dense-vs.-sparse-mode",
+    "title": "Background",
+    "section": "Dense vs. Sparse mode",
+    "text": "Dense vs. Sparse mode\nCombocat operates in two complementary modes called dense mode and sparse mode. While each is built for drug combination screening, they address different needs by using different approaches. Namely, sparse mode only measures a minimal set of conditions and uses machine learning to fill in the gaps:\n\n\n\n\n\n\n\nNote\n\n\n\nDense mode will be the best choice for most new users, while sparse mode is best for advanced users and high-throughput screens.\n\n\nDense mode features\n\nEasily scales to tens-to-hundreds of combinations\nEvery combination is performed in triplicate within a plate\nHighly reproducible and great as a validation screen\n\n\nSparse mode features\n\nUltrahigh-throughput scale – up to 9,045 combinations\nMiniaturized assay (1536-well plates) consumes minimal resources\nGreat for primary screens testing many unique compounds\n\n\n\n\n👉You can see more details about the differences between dense and sparse modes in the experimental sections.",
+    "crumbs": [
+      "Background"
+    ]
+  },
+  {
+    "objectID": "analysis_landing.html",
+    "href": "analysis_landing.html",
+    "title": "Analysis Overview",
+    "section": "",
+    "text": "Combocat provides a streamlined pipeline for analyzing drug combination screening data, integrating experimental and computational workflows into a single R package. This section outlines the primary steps for downloading, installing, and using the package to analyze your data.",
     "crumbs": [
       "Analysis",
-      "Sparse mode analysis"
+      "Overview"
     ]
   },
   {
-    "objectID": "analysis_sparse_mode.html#gather-files",
-    "href": "analysis_sparse_mode.html#gather-files",
-    "title": "Sparse mode analysis",
-    "section": "Gather files",
-    "text": "Gather files\nGather the required metadata file and raw file(s), we recommend putting them into separate folders for simplicity:\n\nmeta 📂\n\nContains the single metadata .csv file\n\nraw 📂\n\nContains the raw file(s) in 1536-well format (and nothing else)\n\n\nNothing else should be in these folders at the start of analysis.",
+    "objectID": "analysis_landing.html#install-the-r-package",
+    "href": "analysis_landing.html#install-the-r-package",
+    "title": "Analysis Overview",
+    "section": "Install the R package",
+    "text": "Install the R package\n\nThe combocat R package is hosted on GitHub and can be installed directly using devtools.\n\nInstall required dependencies\nEnsure you have R installed on your system, and install the devtools package if you don’t already have it:\ninstall.packages(\"devtools\")\n\n\nInstall and load combocat\n#Install from GitHub\ndevtools::install_github(\"wcwr/combocat\")\n\n#Load package\nlibrary(combocat)\nSeveral dependencies will be installed along with the package. Notably, dplyr, which is the tidyverse grammar framework that combocat adopts throughout for its user-friendly approach to data manipulation and analysis.\n\n\nAccess documentation of functions\nThe package includes documentation for each function. Use the help() or ?? commands to understand specific functions:\n??cc_map",
     "crumbs": [
       "Analysis",
-      "Sparse mode analysis"
+      "Overview"
     ]
   },
   {
-    "objectID": "analysis_sparse_mode.html#deployable-ensemble-model",
-    "href": "analysis_sparse_mode.html#deployable-ensemble-model",
-    "title": "Sparse mode analysis",
-    "section": "Deployable ensemble model",
-    "text": "Deployable ensemble model\nCombocat’s ensemble machine learning model is packaged (serialized) and ready to be deployed. As new iterations of models are released, they will be available in the repository’s models folder.\nYou can read the model file directly into R from the repository:\nmodel_link &lt;- \"https://raw.githubusercontent.com/wcwr/combocat/main/models/m10_Jun_2024_05.00PM_Train552_Test184_TuneT.RDS\"\n\nmy_model &lt;- \n  readRDS(url(model_link))\n\n\n\n\n\n\nNote\n\n\n\nCheck to make sure this is the latest/desired model before loading\n\n\n\nModel nomenclature:\nThe model is a single file and is named according to specific nomenclature which can tell us some useful information. For example, the model m10_Jun_2024_05.00PM_Train552_Test184_TuneT.RDS, can tell us the following:\n\n\n“m” : prepended to all models so files don’t start with numbers\n&lt;date&gt; the model was created\n&lt;time&gt; the model was created\nTrain&lt;number&gt; : Number of samples that were used in the training set\nTest&lt;number&gt;: Number of samples that were used in the test set\nTune&lt;T/F&gt;: Indicates if hyperparameter tuning of each model was used\n\nThe number of training/test set samples also indicates their proportion and the total sample size. 552 + 184 = 736 total samples, indicating a 75/25 split (the default in cc_buildModel)\n\n\nQuick start\nThe entire sparse mode analysis can be run in the following single block.\n\n\n\n\n\n\nNote\n\n\n\nYou can try this code yourself by downloading the sparse mode example from GitHub.\n\n\n#Map, normalize, predict\nnormData &lt;- \n  cc_map(meta_sparse, getwd(), save_raw_plate_heatmaps = TRUE) %&gt;%\n  cc_norm(.) %&gt;%\n  cc_predict(my_model, .) #Use ensemble model to predict non-measured values\n\n#Fit DR models\ndrData &lt;- \n  cc_getDR(normData)\n\n#Calculate synergy, QC\nsynData &lt;- \n  cc_getSyn(normData, drData) %&gt;%\n  cc_getQC(., drData)\n\n#Return/save results\ncc_report(\n  synData,   \n  drData,   \n  cd_plots    = cc_plotMat(synData, \"perc_cell_death\", color_midpoint = 50),\n  syn_plots   = cc_plotMat(synData, \"bliss_synergy\",   color_midpoint = 20),\n  extra_plots = cc_plotExtras(synData,                 color_midpoint = 20))\n\n\n\n\n\n\nCaution\n\n\n\nFor larger datasets, these steps should be broken up to avoid running out of resources",
+    "objectID": "analysis_landing.html#workflow-overview",
+    "href": "analysis_landing.html#workflow-overview",
+    "title": "Analysis Overview",
+    "section": "Workflow Overview",
+    "text": "Workflow Overview\nThe workflow is designed to be straightforward, and is packaged into a handful of streamlined functions:\n\n\nMapping associates each raw value with its corresponding position in the combination matrix\nNormalization uses within-plate controls to represent the data as a function of % cell death\nSingle-agents are fit with dose-response curves to serve as a basis for synergy calculations\nSynergy is calculated using the Bliss independence model\n\n\n\n\n\n\n\n\nNote\n\n\n\nEach core function is designed to work regardless of dense or sparse mode data",
     "crumbs": [
       "Analysis",
-      "Sparse mode analysis"
+      "Overview"
     ]
+  },
+  {
+    "objectID": "analysis_landing.html#metadata",
+    "href": "analysis_landing.html#metadata",
+    "title": "Analysis Overview",
+    "section": "Metadata",
+    "text": "Metadata\nMetadata forms the backbone of any Combocat analysis by linking raw data files to experimental conditions like drug names, doses, and file names. Properly structured metadata facilitates correct analysis–mainly the mapping stage.\nGenerating the (dense mode) metadata file is easy 👌\nYou will need:\n\ndrug1_name and drug2_name (which must not contain underscores _ )\ndrug1_conc and drug2_conc which list the 10 doses used for each drug\nunits which must be the same for both drugs\nsample_name - the name of a cell line/sample (must be unique for each combination)\nfilename : the name of the file\n\nFor example, the metadata for a single combination looks like this:\n\n\n\n\n\n\nTip\n\n\n\nYou can download this (File ➝ Download) to follow along. Be sure to choose .csv\nRename the file to meta_dense.csv so the filename matches!\n\n\n\n\nUnder the hood, the cc_map function will expand this to all pairwise combinations of doses.\n\n\n\n\n\n\nNote\n\n\n\nIf more combinations are used, their info can be added to the metadata file. There will only be 1 metadata file per experiment.",
+    "crumbs": [
+      "Analysis",
+      "Overview"
+    ]
+  },
+  {
+    "objectID": "advanced.html",
+    "href": "advanced.html",
+    "title": "Advanced topics",
+    "section": "",
+    "text": "Limitations\nGeneralize to other assays/readouts\n\nfluorescence\nmass spec\nimaging\n\nQC details (with fig)"
   },
   {
     "objectID": "analysis_dense_mode.html",
@@ -263,157 +242,168 @@
     ]
   },
   {
-    "objectID": "advanced.html",
-    "href": "advanced.html",
-    "title": "Advanced topics",
+    "objectID": "analysis_sparse_mode.html",
+    "href": "analysis_sparse_mode.html",
+    "title": "Sparse mode analysis",
     "section": "",
-    "text": "Limitations\nGeneralize to other assays/readouts\n\nfluorescence\nmass spec\nimaging\n\nQC details (with fig)"
-  },
-  {
-    "objectID": "analysis_landing.html",
-    "href": "analysis_landing.html",
-    "title": "Analysis Overview",
-    "section": "",
-    "text": "Combocat provides a streamlined pipeline for analyzing drug combination screening data, integrating experimental and computational workflows into a single R package. This section outlines the primary steps for downloading, installing, and using the package to analyze your data.",
+    "text": "Analyzing data generated with sparse mode is nearly identical to the dense mode analysis steps, with a few key differences:",
     "crumbs": [
       "Analysis",
-      "Overview"
+      "Sparse mode analysis"
     ]
   },
   {
-    "objectID": "analysis_landing.html#install-the-r-package",
-    "href": "analysis_landing.html#install-the-r-package",
-    "title": "Analysis Overview",
-    "section": "Install the R package",
-    "text": "Install the R package\n\nThe combocat R package is hosted on GitHub and can be installed directly using devtools.\n\nInstall required dependencies\nEnsure you have R installed on your system, and install the devtools package if you don’t already have it:\ninstall.packages(\"devtools\")\n\n\nInstall and load combocat\n#Install from GitHub\ndevtools::install_github(\"wcwr/combocat\")\n\n#Load package\nlibrary(combocat)\nSeveral dependencies will be installed along with the package. Notably, dplyr, which is the tidyverse grammar framework that combocat adopts throughout for its user-friendly approach to data manipulation and analysis.\n\n\nAccess documentation of functions\nThe package includes documentation for each function. Use the help() or ?? commands to understand specific functions:\n??cc_map",
+    "objectID": "analysis_sparse_mode.html#gather-files",
+    "href": "analysis_sparse_mode.html#gather-files",
+    "title": "Sparse mode analysis",
+    "section": "Gather files",
+    "text": "Gather files\nGather the required metadata file and raw file(s), we recommend putting them into separate folders for simplicity:\n\nmeta 📂\n\nContains the single metadata .csv file\n\nraw 📂\n\nContains the raw file(s) in 1536-well format (and nothing else)\n\n\nNothing else should be in these folders at the start of analysis.",
     "crumbs": [
       "Analysis",
-      "Overview"
+      "Sparse mode analysis"
     ]
   },
   {
-    "objectID": "analysis_landing.html#workflow-overview",
-    "href": "analysis_landing.html#workflow-overview",
-    "title": "Analysis Overview",
-    "section": "Workflow Overview",
-    "text": "Workflow Overview\nThe workflow is designed to be straightforward, and is packaged into a handful of streamlined functions:\n\n\nMapping associates each raw value with its corresponding position in the combination matrix\nNormalization uses within-plate controls to represent the data as a function of % cell death\nSingle-agents are fit with dose-response curves to serve as a basis for synergy calculations\nSynergy is calculated using the Bliss independence model\n\n\n\n\n\n\n\n\nNote\n\n\n\nEach core function is designed to work regardless of dense or sparse mode data",
+    "objectID": "analysis_sparse_mode.html#deployable-ensemble-model",
+    "href": "analysis_sparse_mode.html#deployable-ensemble-model",
+    "title": "Sparse mode analysis",
+    "section": "Deployable ensemble model",
+    "text": "Deployable ensemble model\nCombocat’s ensemble machine learning model is packaged (serialized) and ready to be deployed. As new iterations of models are released, they will be available in the repository’s models folder.\nYou can read the model file directly into R from the repository:\nmodel_link &lt;- \"https://raw.githubusercontent.com/wcwr/combocat/main/models/m10_Jun_2024_05.00PM_Train552_Test184_TuneT.RDS\"\n\nmy_model &lt;- \n  readRDS(url(model_link))\n\n\n\n\n\n\nNote\n\n\n\nCheck to make sure this is the latest/desired model before loading\n\n\n\nModel nomenclature:\nThe model is a single file and is named according to specific nomenclature which can tell us some useful information. For example, the model m10_Jun_2024_05.00PM_Train552_Test184_TuneT.RDS, can tell us the following:\n\n\n“m” : prepended to all models so files don’t start with numbers\n&lt;date&gt; the model was created\n&lt;time&gt; the model was created\nTrain&lt;number&gt; : Number of samples that were used in the training set\nTest&lt;number&gt;: Number of samples that were used in the test set\nTune&lt;T/F&gt;: Indicates if hyperparameter tuning of each model was used\n\nThe number of training/test set samples also indicates their proportion and the total sample size. 552 + 184 = 736 total samples, indicating a 75/25 split (the default in cc_buildModel)\n\n\nQuick start\nThe entire sparse mode analysis can be run in the following single block.\n\n\n\n\n\n\nNote\n\n\n\nYou can try this code yourself by downloading the sparse mode example from GitHub.\n\n\n#Map, normalize, predict\nnormData &lt;- \n  cc_map(meta_sparse, getwd(), save_raw_plate_heatmaps = TRUE) %&gt;%\n  cc_norm(.) %&gt;%\n  cc_predict(my_model, .) #Use ensemble model to predict non-measured values\n\n#Fit DR models\ndrData &lt;- \n  cc_getDR(normData)\n\n#Calculate synergy, QC\nsynData &lt;- \n  cc_getSyn(normData, drData) %&gt;%\n  cc_getQC(., drData)\n\n#Return/save results\ncc_report(\n  synData,   \n  drData,   \n  cd_plots    = cc_plotMat(synData, \"perc_cell_death\", color_midpoint = 50),\n  syn_plots   = cc_plotMat(synData, \"bliss_synergy\",   color_midpoint = 20),\n  extra_plots = cc_plotExtras(synData,                 color_midpoint = 20))\n\n\n\n\n\n\nCaution\n\n\n\nFor larger datasets, these steps should be broken up to avoid running out of resources",
     "crumbs": [
       "Analysis",
-      "Overview"
+      "Sparse mode analysis"
     ]
   },
   {
-    "objectID": "analysis_landing.html#metadata",
-    "href": "analysis_landing.html#metadata",
-    "title": "Analysis Overview",
-    "section": "Metadata",
-    "text": "Metadata\nMetadata forms the backbone of any Combocat analysis by linking raw data files to experimental conditions like drug names, doses, and file names. Properly structured metadata facilitates correct analysis–mainly the mapping stage.\nGenerating the (dense mode) metadata file is easy 👌\nYou will need:\n\ndrug1_name and drug2_name (which must not contain underscores _ )\ndrug1_conc and drug2_conc which list the 10 doses used for each drug\nunits which must be the same for both drugs\nsample_name - the name of a cell line/sample (must be unique for each combination)\nfilename : the name of the file\n\nFor example, the metadata for a single combination looks like this:\n\n\n\n\n\n\nTip\n\n\n\nYou can download this (File ➝ Download) to follow along. Be sure to choose .csv\nRename the file to meta_dense.csv so the filename matches!\n\n\n\n\nUnder the hood, the cc_map function will expand this to all pairwise combinations of doses.\n\n\n\n\n\n\nNote\n\n\n\nIf more combinations are used, their info can be added to the metadata file. There will only be 1 metadata file per experiment.",
-    "crumbs": [
-      "Analysis",
-      "Overview"
-    ]
-  },
-  {
-    "objectID": "background.html",
-    "href": "background.html",
-    "title": "Background",
+    "objectID": "experimental_dense_mode.html",
+    "href": "experimental_dense_mode.html",
+    "title": "Dense mode protocol",
     "section": "",
-    "text": "Let’s cover a bit about drug synergy and the details of the Combocat platform.",
-    "crumbs": [
-      "Background"
-    ]
-  },
-  {
-    "objectID": "background.html#dose-density",
-    "href": "background.html#dose-density",
-    "title": "Background",
-    "section": "Dose “density”",
-    "text": "Dose “density”\nOne of the biggest limitations in drug combination studies is the lack of sufficient dose density – the number of concentrations tested for each drug. Dense measurements across a broad range of concentrations are crucial for capturing complete drug response and synergy patterns. However, technical constraints in combination screening often lead to fewer doses tested, resulting in formats that may risk missing critical interaction details.\n\n\n\nSmall, sparse, or asymmetric combination matrix designs\n\n\nAdvancements in liquid dispensing technology, like acoustic dispensing, have revolutionized compound transfer by enabling more flexible and precise experimental designs. Acoustic liquid handlers can dispense nanoliter volumes from any well of a source plate to any well of a destination plate without physical contact, greatly enhancing throughput potential.\nWe take advantage of this flexibility and designed screening templates that allow dense measurements. Specifically, Combocat tests drugs in a 10 ⨉ 10 format. Additionally, in “dense mode” (described below) there are 3 replicates of each matrix produced for each drug combination.\n\nIn this plate design, we fit three replicate 10 ⨉ 10 combination matrices, three 10-point dose-response curves for each single-agent, and 12 replicates of each control. Screening combinations in this dense format and with replicates captures much wider drug response and synergy landscapes.",
-    "crumbs": [
-      "Background"
-    ]
-  },
-  {
-    "objectID": "background.html#dense-vs.-sparse-mode",
-    "href": "background.html#dense-vs.-sparse-mode",
-    "title": "Background",
-    "section": "Dense vs. Sparse mode",
-    "text": "Dense vs. Sparse mode\nCombocat operates in two complementary modes called dense mode and sparse mode. While each is built for drug combination screening, they address different needs by using different approaches. Namely, sparse mode only measures a minimal set of conditions and uses machine learning to fill in the gaps:\n\n\n\n\n\n\n\nNote\n\n\n\nDense mode will be the best choice for most new users, while sparse mode is best for advanced users and high-throughput screens.\n\n\nDense mode features\n\nEasily scales to tens-to-hundreds of combinations\nEvery combination is performed in triplicate within a plate\nHighly reproducible and great as a validation screen\n\n\nSparse mode features\n\nUltrahigh-throughput scale – up to 9,045 combinations\nMiniaturized assay (1536-well plates) consumes minimal resources\nGreat for primary screens testing many unique compounds\n\n\n\n\n👉You can see more details about the differences between dense and sparse modes in the experimental sections.",
-    "crumbs": [
-      "Background"
-    ]
-  },
-  {
-    "objectID": "experimental_landing.html",
-    "href": "experimental_landing.html",
-    "title": "Experimental overview",
-    "section": "",
-    "text": "Running a Combocat experiment can loosely be thought of as design ➝ execute ➝ analyze.\nThe documentation here provides information on the design and execution steps.",
+    "text": "Adjust accordingly\n\n\n\nThis protocol details an example of 1 drug combination. For more combinations, adjust according to your need.\nSee the Overview section for materials required.",
     "crumbs": [
       "Experimental setup",
-      "Overview"
+      "Dense mode protocol"
     ]
   },
   {
-    "objectID": "experimental_landing.html#required-materials",
-    "href": "experimental_landing.html#required-materials",
-    "title": "Experimental overview",
-    "section": "Required Materials",
-    "text": "Required Materials\nRegardless of your experiment setup, you’ll need some materials and access to instruments.\n\n\n\n\n\n\nNote\n\n\n\nThis documentation focuses on the luminescence-based CTG assay.\nCombocat is generalizable to the readout of your choice (e.g., imaging, fluorescence, etc). Swap out materials accordingly.\n\n\n\nMicrowell plates\n\n384-well for dense mode, 1536-well for sparse mode (suitable for cell culture)\nEcho-compatible plates (if using an Echo acoustic liquid handler)\n\nDesired drugs\n\nSoluble at 400X final desired top concentration\n\nControl compounds\n\nPositive control for cell death (i.e., Staurosporine for mammalian cells)\nVehicle control for drug solvents (i.e., DMSO)\n\nDesired cells\n\nEnough for 40 µL/well per plate (Dense mode) or 4 µL/well per plate (Sparse mode)\n\nCTG reagents\nAccess to instruments\n\nEcho (or other well-to-well acoustic liquid handler)\nLuminometer (or instrument specific to assay readout)\nIncubator\nCentrifuge capable of spinning microplates\n(Optional) liquid handler for cell/reagent dispensing",
+    "objectID": "experimental_dense_mode.html#determine-drug-concentrations",
+    "href": "experimental_dense_mode.html#determine-drug-concentrations",
+    "title": "Dense mode protocol",
+    "section": "1: Determine drug concentrations",
+    "text": "1: Determine drug concentrations\nChoose the desired drugs and their corresponding concentrations. Each drug will have 10 doses. As mentioned above, this example will detail how to screen one combination (2 drugs), but this can be adjusted according to experimental needs.\nStart by choosing the maximum desired concentration of each drug. Check out the template below which takes the top chosen max concentration and makes a serial dilution according to the specified dilution factor:\n\n\n\n\n\n\nNote\n\n\n\nYou can customize this yourself by downloading a copy! File ➝ Download\n\n\n\n\n\nThe dilution factor is set to 1:3 by default (our recommendation), but this may be modified to anything (e.g. 1:2.5).\nCheck out the stock plate map (below the concentration ranges) for details on how this plate will look.\nStocks drugs must be soluble at 400X final desired concentrations.",
     "crumbs": [
       "Experimental setup",
-      "Overview"
+      "Dense mode protocol"
     ]
   },
   {
-    "objectID": "experimental_landing.html#key-considerations",
-    "href": "experimental_landing.html#key-considerations",
-    "title": "Experimental overview",
-    "section": "Key considerations",
-    "text": "Key considerations\nIt’s important to verify that your assay conditions are working before starting the experiment. For example:\n\nEnsure volumes of drug stocks are sufficient for assay scale (see protocols)\nOptimize cell seeding densities\nVerify calibration of instruments",
+    "objectID": "experimental_dense_mode.html#prepare-the-stock-plate",
+    "href": "experimental_dense_mode.html#prepare-the-stock-plate",
+    "title": "Dense mode protocol",
+    "section": "2: Prepare the stock plate",
+    "text": "2: Prepare the stock plate\nMake the stock plate in a 384-well polypropylene (pp) plate that is Echo-compatible according to the following template:\n\n(Use the spreadsheet template from step 1 to see details of how the plate should look).\n\nAll wells should contain 50 µL, which is enough to make 9 assay-ready plates.\nDrug 1 in the top row, and Drug 2 in the bottom row\nDMSO is plated in 4 wells to account for the ‘back-filling’ transfer steps\nStaurosporine at a final concentration of (10 mM / 400 =) 25 µM is the cell death control\n\n\n\n\n\n\n\nWarning\n\n\n\nEnsure Staurosporine is an effective cell death control for your cell line before proceeding.",
     "crumbs": [
       "Experimental setup",
-      "Overview"
+      "Dense mode protocol"
     ]
   },
   {
-    "objectID": "index.html",
-    "href": "index.html",
-    "title": "Combocat",
+    "objectID": "experimental_dense_mode.html#prepare-assay-ready-plate",
+    "href": "experimental_dense_mode.html#prepare-assay-ready-plate",
+    "title": "Dense mode protocol",
+    "section": "3: Prepare assay-ready plate",
+    "text": "3: Prepare assay-ready plate\nUse the stock plate to construct the assay-ready plate:\n\n\nIt’s called “assay-ready” because these plates are ready for cells to be added.\nOnce plates are made, they can be stored at -80 °C until ready for cells.\nThe Echo requires an .EPR file to perform the transfer\nThis file contains information on the source/destination wells, and volume to transfer.\nThe Combocat dense mode EPR file looks like this:\n\n\n\nDownload the EPR file from the combocat github and use it to make assay-ready plate:\n\n\n\n\n\n\n\nTip\n\n\n\nYou can modify the spreadsheet and import it into the Echo software to make your own EPR file.\n\n\nThis Echo protocol can be used up to 9 times to make 9 assay-ready plate copies.",
+    "crumbs": [
+      "Experimental setup",
+      "Dense mode protocol"
+    ]
+  },
+  {
+    "objectID": "experimental_dense_mode.html#plate-cells-incubate",
+    "href": "experimental_dense_mode.html#plate-cells-incubate",
+    "title": "Dense mode protocol",
+    "section": "4: Plate cells & incubate",
+    "text": "4: Plate cells & incubate\n\nPlate 40 µL of cells into all wells.\n\nThis is much easier with a liquid handler like the Multidrop Combi or similar, but can be achieved using multi-channel pipettes as well.\nNote that adding cells will bring the final DMSO concentration to 0.5% in all wells\n\nIncubate cells for desired treatment time\n\n\n\n\n\n\n\nWarning\n\n\n\nWe recommend 72-hour treatments. After 96-hours, evaporation of media begins to disrupt data quality.",
+    "crumbs": [
+      "Experimental setup",
+      "Dense mode protocol"
+    ]
+  },
+  {
+    "objectID": "experimental_dense_mode.html#measure-viability",
+    "href": "experimental_dense_mode.html#measure-viability",
+    "title": "Dense mode protocol",
+    "section": "5: Measure viability",
+    "text": "5: Measure viability\nThe following steps are specific to CellTiter-Glo\n\nEquilibrate plate(s) to room temperature\nAdd 25 µL prepared CTG reagent\n\n\n\n\n\n\n\nImportant\n\n\n\nWhile the manufacturer recommends a 1:1 ratio, Do NOT dispense more than 25 µL of reagent. The total well volume should not exceed 65 µL – otherwise there is a risk of overflow. 😵\n\n\nAdding CTG reagent with a liquid dispenser is helpful here (like with dispensing cells)\n\nCentrifuge plates for ~4 minutes, ~260 RCF\nIncubate at room temperature for 10 minutes\nRead viability on luminometer\n\n\nCollecting data\n\nCollect the raw luminescent data and save it as a .CSV file.\nThis file should contain only 384-well format (16 rows by 24 columns) data, and nothing else. For example:\n\n\n\n\n\n\n\nTip\n\n\n\nYou can download this (File ➝ Download) to follow along. Be sure to choose .csv\nRename the file to CHP134_Rucaparib_AZD1390.csv so the filename matches!\n\n\n\n\n\nIt is recommended to make a copy of your raw data and save a version containing only the required information, which will be used during the analysis.",
+    "crumbs": [
+      "Experimental setup",
+      "Dense mode protocol"
+    ]
+  },
+  {
+    "objectID": "experimental_sparse_mode.html",
+    "href": "experimental_sparse_mode.html",
+    "title": "Sparse mode protocol",
     "section": "",
-    "text": "This is the documentation for Combocat, a start-to-finish platform for drug combination screening.\nIn this documentation, you will find steps to complete both experimental and analytical parts of Combocat experiments. The experimental sections include step-by-step protocols with examples. In the data analysis sections, we provide steps for processing and analyzing results using the combocat R package. Browse links in the sidebar to the left to find out information about each step.\n\n\n\n\n\n\nTip\n\n\n\nUse the search function in the side bar to look for specific protocol steps or topics",
+    "text": "Adjust accordingly\n\n\n\nThis protocol details an example of 1 combination (2 drugs). Sparse mode can be scaled to screen 135 drugs (9,045 combinations).\nSee the Overview section for materials required.",
     "crumbs": [
-      "Welcome"
+      "Experimental setup",
+      "Sparse mode protocol"
     ]
   },
   {
-    "objectID": "index.html#welcome",
-    "href": "index.html#welcome",
-    "title": "Combocat",
-    "section": "",
-    "text": "This is the documentation for Combocat, a start-to-finish platform for drug combination screening.\nIn this documentation, you will find steps to complete both experimental and analytical parts of Combocat experiments. The experimental sections include step-by-step protocols with examples. In the data analysis sections, we provide steps for processing and analyzing results using the combocat R package. Browse links in the sidebar to the left to find out information about each step.\n\n\n\n\n\n\nTip\n\n\n\nUse the search function in the side bar to look for specific protocol steps or topics",
+    "objectID": "experimental_sparse_mode.html#determine-drug-concentrations",
+    "href": "experimental_sparse_mode.html#determine-drug-concentrations",
+    "title": "Sparse mode protocol",
+    "section": "1: Determine drug concentrations",
+    "text": "1: Determine drug concentrations\nChoose the desired drugs and their corresponding concentrations. Each drug will have 10 doses. As mentioned above, this example will detail how to screen 1 combination (2 drugs), but this can be adjusted according to experimental needs.\nStart by choosing the maximum desired concentration of each drug. Check out the template below which takes the top chosen max concentration and makes a serial dilution according to the specified dilution factor:\n\n\n\n\n\n\nNote\n\n\n\nYou can customize this yourself by downloading a copy! File ➝ Download\n\n\n\n\n\nThe dilution factor is set to 1:3 by default (our recommendation), but this may be modified to anything (e.g. 1:2.5).\nCheck out the stock plate map (below the concentration ranges) for details on how this plate will look.\nStocks drugs must be soluble at 400X final desired concentrations.",
     "crumbs": [
-      "Welcome"
+      "Experimental setup",
+      "Sparse mode protocol"
     ]
   },
   {
-    "objectID": "index.html#overview",
-    "href": "index.html#overview",
-    "title": "Combocat",
-    "section": "Overview",
-    "text": "Overview\nDrug combinations are critical to conditions like cancers and infectious diseases, but finding new combinations is a slow and challenging process. The scale of a combination experiment increases rapidly with each tested drug, and testing many combinations has traditionally been impractical.\nCombocat is a method for scalable drug combination screening which uses acoustic liquid handler protocols and custom drug template designs for fast, efficient screening. Everything has been designed to work in an end-to-end fashion. This means a researcher can test 1, hundreds, or even thousands of drug combinations from start to finish.\n\nCritically, Combocat also provides a complete framework for analyzing the experimental data. Analysis is straightforward and provides interpretable publication-quality figures.\nCombocat is fully open-source!🎉",
+    "objectID": "experimental_sparse_mode.html#prepare-the-stock-plate",
+    "href": "experimental_sparse_mode.html#prepare-the-stock-plate",
+    "title": "Sparse mode protocol",
+    "section": "2: Prepare the stock plate",
+    "text": "2: Prepare the stock plate\nMake the stock plate in a 384-well polypropylene (pp) plate that is Echo-compatible according to the following template:\n\n(Use the spreadsheet template from step 1 to see details of how the plate should look).\n\nWe recommend volumes of 50 µL to maximize the number of assay-ready plates that can be made. Stock plates can be frozen until ready to make assay-ready plates.\nDrug 1 in the top row, and Drug 2 in the bottom row\nDMSO is plated in 4 wells to account for the ‘back-filling’ transfer steps\nStaurosporine at a final concentration of (10 µM / 400 =) 25 µM is the cell death control\n\n\n\n\n\n\n\nWarning\n\n\n\nEnsure Staurosporine is an effective cell death control for your cell line before proceeding.",
     "crumbs": [
-      "Welcome"
+      "Experimental setup",
+      "Sparse mode protocol"
     ]
   },
   {
-    "objectID": "index.html#reference",
-    "href": "index.html#reference",
-    "title": "Combocat",
-    "section": "Reference",
-    "text": "Reference\nPlease cite our published work as:\n\nWright, W.C., Pan, M., Phelps, G.A. et al. An open-source screening platform accelerates discovery of drug combinations. Nat Commun 16, 11005 (2025). https://doi.org/10.1038/s41467-025-66223-8.\n\n📝Full PDF: https://rdcu.be/eUIln",
+    "objectID": "experimental_sparse_mode.html#prepare-assay-ready-plates",
+    "href": "experimental_sparse_mode.html#prepare-assay-ready-plates",
+    "title": "Sparse mode protocol",
+    "section": "3: Prepare assay-ready plates",
+    "text": "3: Prepare assay-ready plates\nUse the stock plate to construct the assay-ready plates:\n\n\nThey’re called “assay-ready” because these plates are ready for cells to be added.\n\n\n\n\n\n\nNote\n\n\n\nUnlike dense mode, sparse mode has separate single-agent and combination plates.\n\n\nOnce plates are made, they can be stored at -80 °C until ready for cells.\nThe Echo requires an .EPR file to perform the transfer, so 2 are needed for sparse mode: one for single-agent (SA) plates and one for combination plates.\nEPR files contain information on the source/destination wells, and volume to transfer.\nThe Combocat sparse mode EPR files for this example look like this:\n\n\nSingle-agent plate protocol\n\n\n\n\nCombination plate protocol\n\n\nDownload the single-agent and combination EPR files from the combocat github and use them to make assay-ready plate:\n\n\n\n\n\n\n\nTip\n\n\n\nYou can modify these spreadsheets and import them each into the Echo software to make your own EPR files for scaling up the number of combinations.",
     "crumbs": [
-      "Welcome"
+      "Experimental setup",
+      "Sparse mode protocol"
+    ]
+  },
+  {
+    "objectID": "experimental_sparse_mode.html#plate-cells-incubate",
+    "href": "experimental_sparse_mode.html#plate-cells-incubate",
+    "title": "Sparse mode protocol",
+    "section": "4: Plate cells & incubate",
+    "text": "4: Plate cells & incubate\n\nPlate 4 µL of cells into all wells.\n\nThis can be accomplished with a liquid handler like the Multidrop Combi or similar.\n\nIncubate cells for desired treatment time\n\n\n\n\n\n\n\nWarning\n\n\n\nWe recommend 72-hour treatments. After 96-hours, evaporation of media begins to disrupt data quality.",
+    "crumbs": [
+      "Experimental setup",
+      "Sparse mode protocol"
+    ]
+  },
+  {
+    "objectID": "experimental_sparse_mode.html#measure-viability",
+    "href": "experimental_sparse_mode.html#measure-viability",
+    "title": "Sparse mode protocol",
+    "section": "5: Measure viability",
+    "text": "5: Measure viability\nThe following steps are specific to CellTiter-Glo\n\nEquilibrate plate(s) to room temperature\nAdd 2 µL prepared CTG reagent\n\n\n\n\n\n\n\nImportant\n\n\n\nWhile the manufacturer recommends a 1:1 ratio, Do NOT dispense more than 2 µL of reagent. The total well volume should not exceed 6 µL – otherwise there is a risk of overflow. 😵\n\n\n\nCentrifuge plates for ~4 minutes, ~1100 RPM\nIncubate at room temperature for 10 minutes\nRead viability on luminometer\n\n\nCollecting data\n\nCollect the raw luminescent data and save it as a .CSV file.\nThis file should contain only 1536-well format (32 rows by 48 columns) data, and nothing else (no headers or row names)\nIt is recommended to make a copy of your raw data and save a version containing only the required information, which will be used during the analysis.",
+    "crumbs": [
+      "Experimental setup",
+      "Sparse mode protocol"
     ]
   }
 ]
