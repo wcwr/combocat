@@ -36,3 +36,5 @@ Combocat is fully open-source!:tada:
 Please cite our published work as:
 
 > Wright, W.C., Pan, M., Phelps, G.A. *et al.* An open-source screening platform accelerates discovery of drug combinations. *Nat Commun* **16**, 11005 (2025). https://doi.org/10.1038/s41467-025-66223-8.
+
+📝Full PDF: <https://rdcu.be/eUIln>
