@@ -201,7 +201,7 @@
     "href": "analysis_dense_mode.html#prepare-for-analysis",
     "title": "Dense mode analysis",
     "section": "Prepare for analysis",
-    "text": "Prepare for analysis\nThe best way to proceed is to use an IDE like RStudio. We need to:\n\nLoad the combocat package (see the analysis overview page for installation)\nRead in the metadata file\nSet the working directory to the raw folder\n\n#Load library\nlibrary(combocat)\n\n#Read in the metadata file using Import Dataset➝From text (readr) or\nmeta_dense &lt;- read_csv(\".../meta_dense.csv\")\n\n#Set working directory using Session➝Set Working Directory or\nsetwd(\".../raw\")",
+    "text": "Prepare for analysis\nThe best way to proceed is to use an IDE like RStudio or Positron. We need to:\n\nLoad the combocat package (see the analysis overview page for installation)\nRead in the metadata file\nSet the working directory to the raw folder\n\n#Load library\nlibrary(combocat)\n\n#Read in the metadata file using Import Dataset➝From text (readr) or\nmeta_dense &lt;- read_csv(\".../meta_dense.csv\")\n\n#Set working directory using Session➝Set Working Directory or\nsetwd(\".../raw\")",
     "crumbs": [
       "Analysis",
       "Dense mode analysis"

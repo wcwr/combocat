@@ -27,7 +27,7 @@ Nothing else should be in these folders at the start of analysis.
 
 ## Prepare for analysis
 
-The best way to proceed is to use an IDE like [RStudio](https://posit.co/download/rstudio-desktop/). We need to:
+The best way to proceed is to use an IDE like [RStudio](https://posit.co/download/rstudio-desktop/) or [Positron](https://positron.posit.co/). We need to:
 
 -   Load the `combocat` package (see the [analysis overview](analysis_landing.qmd) page for installation)
 
