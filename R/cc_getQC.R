@@ -537,7 +537,8 @@ cc_getQC <- function(norm_data,
         mutate(
           
           #Mean/Median/Max of all synergy values:
-          "mean_syn"       = mean  (bliss_synergy[(!drug1_conc==0 & !drug2_conc==0 & replicate==1)]), #This excludes the single-agents which are 0 by definition and filters to replicate==1
+          #We filter out single-agents (which are 0 by definition) and filter to replicate==1 to avoid counting the same values multiple times
+          "mean_syn"       = mean  (bliss_synergy[(!drug1_conc==0 & !drug2_conc==0 & replicate==1)]), #This excludes the single-agents and filters to replicate==1
           "median_syn"     = median(bliss_synergy[(!drug1_conc==0 & !drug2_conc==0 & replicate==1)]),
           "max_syn"        = max   (bliss_synergy[(!drug1_conc==0 & !drug2_conc==0 & replicate==1)]),
           "second_max_syn" = sort  (bliss_synergy[(!drug1_conc==0 & !drug2_conc==0 & replicate==1)], decreasing=TRUE)[2],
