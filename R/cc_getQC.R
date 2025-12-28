@@ -545,9 +545,11 @@ cc_getQC <- function(norm_data,
           
           
           #Mean/Median/Max of all synergy values with flagged_final==0:
-          "mean_syn_adj"   = mean  (bliss_synergy[(!drug1_conc==0 & !drug2_conc==0  & replicate==1 & flagged_final==0)]),
-          "median_syn_adj" = median(bliss_synergy[(!drug1_conc==0 & !drug2_conc==0  & replicate==1 & flagged_final==0)]),
-          "max_syn_adj"    = max   (bliss_synergy[(!drug1_conc==0 & !drug2_conc==0  & replicate==1 & flagged_final==0)]))
+          "mean_syn_adj"       = mean  (bliss_synergy[(!drug1_conc==0 & !drug2_conc==0  & replicate==1 & flagged_final==0)]),
+          "median_syn_adj"     = median(bliss_synergy[(!drug1_conc==0 & !drug2_conc==0  & replicate==1 & flagged_final==0)]),
+          "max_syn_adj"        = max   (bliss_synergy[(!drug1_conc==0 & !drug2_conc==0  & replicate==1 & flagged_final==0)]),
+          "second_max_syn_adj" = sort  (bliss_synergy[(!drug1_conc==0 & !drug2_conc==0  & replicate==1 & flagged_final==0)], decreasing=TRUE)[2],
+        )
       #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       
       
