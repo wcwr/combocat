@@ -537,16 +537,17 @@ cc_getQC <- function(norm_data,
         mutate(
           
           #Mean/Median/Max of all synergy values:
-          "mean_syn"   = mean  (bliss_synergy[(!drug1_conc==0 & !drug2_conc==0)]), #This excludes the single-agents which are 0 by definition
-          "median_syn" = median(bliss_synergy[(!drug1_conc==0 & !drug2_conc==0)]),
-          "max_syn"    = max   (bliss_synergy[(!drug1_conc==0 & !drug2_conc==0)]),
+          "mean_syn"       = mean  (bliss_synergy[(!drug1_conc==0 & !drug2_conc==0 & replicate==1)]), #This excludes the single-agents which are 0 by definition and filters to replicate==1
+          "median_syn"     = median(bliss_synergy[(!drug1_conc==0 & !drug2_conc==0 & replicate==1)]),
+          "max_syn"        = max   (bliss_synergy[(!drug1_conc==0 & !drug2_conc==0 & replicate==1)]),
+          "second_max_syn" = sort  (bliss_synergy[(!drug1_conc==0 & !drug2_conc==0 & replicate==1)], decreasing=TRUE)[2],
 
           
           
           #Mean/Median/Max of all synergy values with flagged_final==0:
-          "mean_syn_adj"   = mean  (bliss_synergy[(!drug1_conc==0 & !drug2_conc==0 & flagged_final==0)]),
-          "median_syn_adj" = median(bliss_synergy[(!drug1_conc==0 & !drug2_conc==0 & flagged_final==0)]),
-          "max_syn_adj"    = max   (bliss_synergy[(!drug1_conc==0 & !drug2_conc==0 & flagged_final==0)]))
+          "mean_syn_adj"   = mean  (bliss_synergy[(!drug1_conc==0 & !drug2_conc==0  & replicate==1 & flagged_final==0)]),
+          "median_syn_adj" = median(bliss_synergy[(!drug1_conc==0 & !drug2_conc==0  & replicate==1 & flagged_final==0)]),
+          "max_syn_adj"    = max   (bliss_synergy[(!drug1_conc==0 & !drug2_conc==0  & replicate==1 & flagged_final==0)]))
       #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
       
       
