@@ -1117,25 +1117,30 @@ cc_getQC <- function(norm_data,
         mutate(
           
           #Mean/Median/Max of all synergy values:
-          "mean_syn"   = mean  (bliss_synergy[plate_type=="combination"]), #We use plate_type==combination to exclude all single-agent synergy values (which are always 0)
-          "median_syn" = median(bliss_synergy[plate_type=="combination"]),
-          "max_syn"    = max   (bliss_synergy[plate_type=="combination"]),
+          "mean_syn"       = mean  (bliss_synergy[plate_type=="combination"]), #We use plate_type==combination to exclude all single-agent synergy values (which are always 0)
+          "median_syn"     = median(bliss_synergy[plate_type=="combination"]),
+          "max_syn"        = max   (bliss_synergy[plate_type=="combination"]),
+          "second_max_syn" = sort  (bliss_synergy[plate_type=="combination"], decreasing=TRUE)[2],
           
           
           #Mean/Media/Max of all synergy values with flagged_final==0:
-          "mean_syn_adj"   = mean  (bliss_synergy[plate_type=="combination" & flagged_final==0]),
-          "median_syn_adj" = median(bliss_synergy[plate_type=="combination" & flagged_final==0]),
-          "max_syn_adj"    = max   (bliss_synergy[plate_type=="combination" & flagged_final==0]),
+          "mean_syn_adj"       = mean  (bliss_synergy[plate_type=="combination" & flagged_final==0]),
+          "median_syn_adj"     = median(bliss_synergy[plate_type=="combination" & flagged_final==0]),
+          "max_syn_adj"        = max   (bliss_synergy[plate_type=="combination" & flagged_final==0]),
+          "second_max_syn_adj" = sort  (bliss_synergy[plate_type=="combination" & flagged_final==0], decreasing=TRUE)[2],
           
           #Mean/Median/Max of diagonal/observed values' synergy:
-          "mean_syn_diag"   = mean  (bliss_synergy[plate_type=="combination" & !is.na(nth_conc)]), #This filters to just the 10 measured values
-          "median_syn_diag" = median(bliss_synergy[plate_type=="combination" & !is.na(nth_conc)]),
-          "max_syn_diag"    = max   (bliss_synergy[plate_type=="combination" & !is.na(nth_conc)]),
+          "mean_syn_diag"       = mean  (bliss_synergy[plate_type=="combination" & !is.na(nth_conc)]), #This filters to just the 10 measured values
+          "median_syn_diag"     = median(bliss_synergy[plate_type=="combination" & !is.na(nth_conc)]),
+          "max_syn_diag"        = max   (bliss_synergy[plate_type=="combination" & !is.na(nth_conc)]),
+          "second_max_syn_diag" = sort  (bliss_synergy[plate_type=="combination" & !is.na(nth_conc)], decreasing=TRUE)[2],
           
           #Mean/Median/Max of diagonal/observed values' synergy with flagged_final==0:
-          "mean_syn_diag_adj"   = mean  (bliss_synergy[plate_type=="combination" & !is.na(nth_conc) & flagged_final==0]),
-          "median_syn_diag_adj" = median(bliss_synergy[plate_type=="combination" & !is.na(nth_conc) & flagged_final==0]),
-          "max_syn_diag_adj"    = max   (bliss_synergy[plate_type=="combination" & !is.na(nth_conc) & flagged_final==0]))
+          "mean_syn_diag_adj"       = mean  (bliss_synergy[plate_type=="combination" & !is.na(nth_conc) & flagged_final==0]),
+          "median_syn_diag_adj"     = median(bliss_synergy[plate_type=="combination" & !is.na(nth_conc) & flagged_final==0]),
+          "max_syn_diag_adj"        = max   (bliss_synergy[plate_type=="combination" & !is.na(nth_conc) & flagged_final==0]),
+          "second_max_syn_diag_adj" = sort  (bliss_synergy[plate_type=="combination" & !is.na(nth_conc) & flagged_final==0], decreasing=TRUE)[2]
+        )
       #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
