@@ -45,9 +45,9 @@
 #Function to calculate QC metrics and add summary statistics for normalized data
 cc_getQC <- function(norm_data,
                      dr_data,
-                     cutoff_sd    =  29,
-                     cutoff_mono  = -16,
-                     cutoff_resid =  15){
+                     cutoff_sd    =  20,
+                     cutoff_mono  = -25,
+                     cutoff_resid =  30){
   
   
   #Note: It is important to run this function after the synergy (and other) functions
@@ -56,7 +56,7 @@ cc_getQC <- function(norm_data,
   
 
   #Input requirements:
-  #Note: these values are heuristics determined from distributions of all collected dense mode data
+  #Note: these values are heuristics determined by testing different configurations of values on real data. They are empirically determined.
   #norm_data-----------------------Output from cc_norm
   #dr_data-------------------------Output from cc_getDR
   #cutoff_sd-----------------------SD of %CD among replicates for all concs of each drug. Above this value concs are flagged
