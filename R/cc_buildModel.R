@@ -535,7 +535,7 @@ cc_buildModel <- function(summary_file,
       #Select the best parameters based on RMSE
       #NOTE: The best parameters can also be selected based on R^2 
       #Fitting models based on best parameters chosen by R^2 or RMSE produce slightly different results
-      best_rmse <- select_best(xgb_res, "rmse")
+      best_rmse <- select_best(xgb_res, metric="rmse")
       #____________________________________
       
       
