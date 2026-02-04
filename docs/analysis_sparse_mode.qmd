@@ -30,7 +30,7 @@ Combocat's ensemble machine learning model is packaged (serialized) and ready to
 You can read the model file directly into R from the repository:
 
 ``` r
-model_link <- "https://raw.githubusercontent.com/wcwr/combocat/main/models/m29_Dec_2025_01.31PM_Train381_Test128_TuneT.RDS"
+model_link <- "https://raw.githubusercontent.com/wcwr/combocat/main/models/m03_Feb_2026_02.23PM_Train500_Test167_TuneT.RDS"
 
 my_model <- 
   readRDS(url(model_link))
