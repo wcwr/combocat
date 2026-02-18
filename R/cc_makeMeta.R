@@ -1108,7 +1108,7 @@ cc_makeMeta <- function(reg_file,
             nth         = nth,
             df          = reg_file_subset3,
             conc_column = "drug1_conc",
-            dilution_factor = 3,
+            dilution_factor = dilution_factor,
             rounding_digits = rounding_digits
           )
           reg_file_subset3$drug1_conc[reg_file_subset3$nth_conc == nth] <- calc_val
@@ -1120,7 +1120,7 @@ cc_makeMeta <- function(reg_file,
             nth         = nth,
             df          = reg_file_subset3,
             conc_column = "drug2_conc",
-            dilution_factor = 3,
+            dilution_factor = dilution_factor,
             rounding_digits = rounding_digits
           )
           reg_file_subset3$drug2_conc[reg_file_subset3$nth_conc == nth] <- calc_val
