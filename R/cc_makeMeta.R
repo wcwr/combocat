@@ -1167,6 +1167,34 @@ cc_makeMeta <- function(reg_file,
     #If plate_type=="combination" make replicate a value of 1:
     final_dataframe$replicate[final_dataframe$plate_type=="combination"] <- 1
     #====================================
+
+
+
+
+    #====================================
+    #Adjust for experiments using fewer than 135 single-agents
+
+    #NOTE: Upstream, we've made rows for wells corresponding to 135 drugs (full single-agent plate)
+    #......However, some experiments may have used fewer than 135 drugs, and the empty wells will have NA values for most columns
+    #......We need to remove these "ghost wells" or they will cause problems downstream (including counting against the transfer success rates)
+    #......To detect any rows corresponding to empty wells, we can check for NA values in the plate_type column
+
+    #Detect number of rows before removing plate_type==NA wells
+    n_before <- nrow(final_dataframe)
+
+    #Now remove the rows with NA in plate_type column
+    final_dataframe <- final_dataframe %>% filter(!is.na(plate_type))
+
+    #Detect number of rows after removing plate_type==NA wells, and print message about how many empty wells were removed (if any)
+    n_removed <- n_before - nrow(final_dataframe)
+    if(n_removed > 0){
+      n_sa_drugs <- final_dataframe %>%
+      filter(plate_type == "single_agent") %>%
+      pull(position_id) %>%
+      unique() %>%
+      length()
+      print(paste0("Note: ", n_sa_drugs, " drug positions detected (fewer than 135). Removed ", n_removed, " empty grid positions."))}
+    #====================================
     
     
   }#End handling of sparse mode data
