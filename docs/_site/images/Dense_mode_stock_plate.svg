@@ -51,9 +51,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8"
-     inkscape:cx="325.3053"
-     inkscape:cy="116.65352"
+     inkscape:zoom="5.6"
+     inkscape:cx="268.74224"
+     inkscape:cy="179.63946"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -406,7 +406,7 @@
        width="3.2395773"
        height="3.2395773"
        x="58.274395"
-       y="-46.546108"
+       y="-45.412178"
        transform="rotate(90)"
        inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
        inkscape:export-xdpi="600"
@@ -4423,7 +4423,7 @@
        width="3.2395773"
        height="3.2395773"
        x="62.04314"
-       y="-46.546108"
+       y="-45.412178"
        transform="rotate(90)"
        inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
        inkscape:export-xdpi="600"
@@ -4431,7 +4431,7 @@
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="47.607346"
+       x="46.473415"
        y="60.747921"
        id="text46257-4-0-4-23-8-2-8-2-5-5-0"
        inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
@@ -4439,13 +4439,13 @@
        inkscape:export-ydpi="600"><tspan
          sodipodi:role="line"
          id="tspan46255-2-0-6-02-78-5-9-8-4-0-3"
-         x="47.607346"
+         x="46.473415"
          y="60.747921"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583">Vehicle ctrl. (DMSO)</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;line-height:1.25;font-family:sans-serif;-inkscape-font-specification:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.264583"
-       x="47.486404"
+       x="46.352474"
        y="64.13311"
        id="text46257-4-0-4-23-8-2-8-2-5-5-0-0"
        inkscape:export-filename="Z:\ResearchHome\Groups\geelegrp\home\common\Papers\Charlie_combocat\figures\png_versions\Figure1.png"
@@ -4453,8 +4453,8 @@
        inkscape:export-ydpi="600"><tspan
          sodipodi:role="line"
          id="tspan46255-2-0-6-02-78-5-9-8-4-0-3-6"
-         x="47.486404"
+         x="46.352474"
          y="64.13311"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583">Cell death ctrl. (10µM Staur.)</tspan></text>
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:2.46944px;font-family:sans-serif;-inkscape-font-specification:sans-serif;stroke-width:0.264583">Cell death ctrl. (10mM Staur.)</tspan></text>
   </g>
 </svg>
